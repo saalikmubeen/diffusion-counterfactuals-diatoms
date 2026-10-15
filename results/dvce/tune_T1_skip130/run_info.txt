@@ -1,0 +1,5 @@
+Wed Oct 14 08:15:18 PM CEST 2026 | tune_T1_skip130: 6 diatoms, 12 counterfactuals, classifier DiatlasModels/r50madry_random_eps1.0/best.pt, diffusion checkpoints/diatlas/ft_v2_nativesize/ema_0.9995_030000.pt --skip_timesteps 130
+Wed Oct 14 08:20:17 PM CEST 2026 | DVCE done
+result files: DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_130_start_p_sample_deg_0_s_1_wid_0_2_dvces/6.pth
+DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_130_start_p_sample_deg_0_s_1_wid_1_2_dvces/6.pth
+Wed Oct 14 08:20:41 PM CEST 2026 | all done -> results/dvce/tune_T1_skip130

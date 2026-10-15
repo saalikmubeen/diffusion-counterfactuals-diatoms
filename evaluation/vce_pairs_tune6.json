@@ -1,0 +1,130 @@
+{
+ "entries": [
+  {
+   "path": "256/test/SBND/RA/SBND_008.png",
+   "targets": [
+    "SSVE",
+    "SCON"
+   ],
+   "source_species": "SBND",
+   "genus": "SSPE",
+   "source_conf": 0.976,
+   "target_conf_before": [
+    0.0001,
+    0.0004
+   ],
+   "n_train": [
+    50,
+    98,
+    51
+   ],
+   "atlas_source": "8",
+   "page": "104"
+  },
+  {
+   "path": "256/test/KCLE/BRG/KCLE_007.png",
+   "targets": [
+    "KAKO",
+    "KALA"
+   ],
+   "source_species": "KCLE",
+   "genus": "KARA",
+   "source_conf": 0.868,
+   "target_conf_before": [
+    0.0002,
+    0.0043
+   ],
+   "n_train": [
+    89,
+    35,
+    38
+   ],
+   "atlas_source": "3",
+   "page": "101"
+  },
+  {
+   "path": "256/test/AUPU/LBG/AUPU_053.png",
+   "targets": [
+    "AGSL",
+    "AUTL"
+   ],
+   "source_species": "AUPU",
+   "genus": "AULA",
+   "source_conf": 0.98,
+   "target_conf_before": [
+    0.0003,
+    0.0004
+   ],
+   "n_train": [
+    73,
+    21,
+    33
+   ],
+   "atlas_source": "6",
+   "page": "94"
+  },
+  {
+   "path": "256/test/GRHB/LAR/GRHB_006.png",
+   "targets": [
+    "GAGU",
+    "GLAT"
+   ],
+   "source_species": "GRHB",
+   "genus": "GOMP",
+   "source_conf": 0.974,
+   "target_conf_before": [
+    0.0,
+    0.0018
+   ],
+   "n_train": [
+    20,
+    42,
+    56
+   ],
+   "atlas_source": "14",
+   "page": "166"
+  },
+  {
+   "path": "256/test/PTCO/LBG/PTCO_042.png",
+   "targets": [
+    "PSXO",
+    "PLHU"
+   ],
+   "source_species": "PTCO",
+   "genus": "PTSA",
+   "source_conf": 0.902,
+   "target_conf_before": [
+    0.0,
+    0.005
+   ],
+   "n_train": [
+    130,
+    23,
+    93
+   ],
+   "atlas_source": "6",
+   "page": "571"
+  },
+  {
+   "path": "256/test/CNDI/BRG/CNDI_008.png",
+   "targets": [
+    "COPL",
+    "CNTH"
+   ],
+   "source_species": "CNDI",
+   "genus": "COCO",
+   "source_conf": 0.831,
+   "target_conf_before": [
+    0.0011,
+    0.0027
+   ],
+   "n_train": [
+    50,
+    118,
+    83
+   ],
+   "atlas_source": "3",
+   "page": "75"
+  }
+ ]
+}

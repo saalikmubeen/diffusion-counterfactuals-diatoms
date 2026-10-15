@@ -3,3 +3,17 @@
 /logs/*
 /ImageNetVCEs/
 **/__pycache__/
+
+# diatom project: large or non-redistributable files (see README.md)
+/data/
+/DiatlasModels/
+/DiatlasVCEs/
+/archive/
+*.pt
+*.pth
+*.ckpt
+*.zip
+Miniconda3-*.sh
+/results/dvce/*/figures/
+/results/diffusion/*/
+

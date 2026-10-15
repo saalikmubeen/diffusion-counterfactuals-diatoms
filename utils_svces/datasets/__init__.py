@@ -17,4 +17,5 @@ from .lsun import get_LSUN_CR, get_LSUN_scenes
 from .openimages import get_openImages
 from .cifar_corrupted import get_CIFAR10_C, get_CIFAR100_C
 from .cinic_10 import get_CINIC10
+from .diatlas import get_diatlas, get_diatlas_labels, DiatlasDataset
 

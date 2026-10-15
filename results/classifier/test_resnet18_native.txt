@@ -1,0 +1,6 @@
+test split: 4214 images, 339 species present; attacks: L2 PGD-10 (fp32) on 4214 images
+
+model                                      top-1   top-5   eps 0.5   eps 1.0
+independent classifier (original)                        0.810   0.852     0.181     0.018
+resnet18_native_eps0.5 (epoch 20)          0.757   0.857     0.565     0.303
+resnet18_native_eps1.0 (epoch 17)          0.704   0.836     0.550     0.361

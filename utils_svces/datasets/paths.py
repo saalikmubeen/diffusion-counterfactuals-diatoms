@@ -66,9 +66,14 @@ def get_tiny_images_files(shuffled=True):
 def get_tiny_images_lmdb():
     raise NotImplementedError()
 
+# def get_imagenet_path(data_folder=None):
+#     path = os.path.join(get_base_data_dir(), 'imagenet')
+#     return path
+
 def get_imagenet_path(data_folder=None):
-    path = os.path.join(get_base_data_dir(), 'imagenet')
-    return path
+    if data_folder:
+        return os.path.join(data_folder, 'imagenet')
+    return os.path.join(get_base_data_dir(), 'imagenet')
 
 def get_imagenet_o_path():
     return os.path.join(get_base_data_dir(), 'imagenet-o')

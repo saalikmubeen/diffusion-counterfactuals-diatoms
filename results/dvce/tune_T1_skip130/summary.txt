@@ -1,0 +1,5 @@
+12 counterfactuals from 6 source diatoms
+target reached (our classifier):        83.3%   p(target) 0.001 -> 0.650 (mean)
+independent classifier agrees (independent):  16.7%   p(target) 0.000 -> 0.166 (mean)
+closeness: LPIPS 0.106 (median 0.096)   L1 0.0147
+change inside the diatom 0.0655 vs background 0.0010 (67x more on the diatom)

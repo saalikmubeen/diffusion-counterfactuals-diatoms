@@ -295,7 +295,20 @@ def get_arguments(parser=None) -> argparse.Namespace:
         plot_freq=5,
         world_size=1,
         world_id=0,
-        variance=1.0
+        variance=1.0,
+        vce_list='',
+        # diffusion prior loaded by DiffusionAttack (dff_attack.py); default = OpenAI ImageNet model
+        diffusion_ckpt='checkpoints/256x256_diffusion_uncond.pt',
+        # DIATLAS (diatlas_VCEs.py): label granularity and minimum images per class
+        # (used only when no --diatom_classifier is given)
+        diatlas_label_key='taxon',
+        diatlas_min_count=100,
+        # diatom classifier for DVCE: 'independent' or a checkpoint from diatoms/train_classifier.py;
+        # replaces --classifier_type (and --second_classifier_type for the _2 variant)
+        diatom_classifier='',
+        diatom_classifier_2='',
+        diatlas_root='data/diatlas_nativesize_crop224_canvas256',
+
     )
 
     add_dict_to_argparser(parser, defaults)

@@ -1,0 +1,6342 @@
+{
+ "meta": {
+  "classifier": "r50madry_random_eps1.0/best.pt: resnet50, init madry_r50, eps 1.0, epoch 19",
+  "ckpt": "DiatlasModels/r50madry_random_eps1.0/best.pt",
+  "rule": "targets = 2 random species of the same genus (no crossover)",
+  "settings": {
+   "ckpt": "DiatlasModels/r50madry_random_eps1.0/best.pt",
+   "out": "evaluation/vce_pairs_paper_all.json",
+   "n": 0,
+   "all_per_species": true,
+   "min_conf": 0.5,
+   "min_train": 20,
+   "max_per_genus": 4,
+   "seed": 0
+  },
+  "n_entries": 301,
+  "n_genera": 34
+ },
+ "entries": [
+  {
+   "path": "256/test/NZAD/LBG/NZAD_019.png",
+   "targets": [
+    "NSFI",
+    "NIBU"
+   ],
+   "source_species": "NZAD",
+   "genus": "NITZ",
+   "source_conf": 0.963,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    53,
+    22,
+    44
+   ],
+   "atlas_source": "6",
+   "page": "479"
+  },
+  {
+   "path": "256/test/GLOV/IDF/GOLI_001.png",
+   "targets": [
+    "GLOL",
+    "GNLC"
+   ],
+   "source_species": "GLOV",
+   "genus": "GPNL",
+   "source_conf": 0.853,
+   "target_conf_before": [
+    0.0,
+    0.0027
+   ],
+   "n_train": [
+    83,
+    20,
+    24
+   ],
+   "atlas_source": "5",
+   "page": "297"
+  },
+  {
+   "path": "256/test/GPRI/LBG/GPRI_004.png",
+   "targets": [
+    "GCAP",
+    "GVID"
+   ],
+   "source_species": "GPUM",
+   "genus": "GOMP",
+   "source_conf": 0.966,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    288,
+    36,
+    23
+   ],
+   "atlas_source": "6",
+   "page": "359"
+  },
+  {
+   "path": "256/test/NTRV/LBG/NTRV_011.png",
+   "targets": [
+    "NMEN",
+    "NRCS"
+   ],
+   "source_species": "NTRV",
+   "genus": "NASP",
+   "source_conf": 0.992,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    68,
+    20,
+    62
+   ],
+   "atlas_source": "6",
+   "page": "469"
+  },
+  {
+   "path": "256/test/NDIS/IDF/NDIS_004.png",
+   "targets": [
+    "NAUR",
+    "NIPU"
+   ],
+   "source_species": "NDIS",
+   "genus": "NITZ",
+   "source_conf": 0.999,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    151,
+    26,
+    60
+   ],
+   "atlas_source": "5",
+   "page": "409"
+  },
+  {
+   "path": "256/test/NMTA/RA/NRCH_017.png",
+   "targets": [
+    "NJOU",
+    "NSPD"
+   ],
+   "source_species": "NMTA",
+   "genus": "NASP",
+   "source_conf": 0.983,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    112,
+    33,
+    22
+   ],
+   "atlas_source": "10",
+   "page": "85"
+  },
+  {
+   "path": "256/test/PTLA/LBG/PTLA_020.png",
+   "targets": [
+    "PRBL",
+    "PMNT"
+   ],
+   "source_species": "PTLA",
+   "genus": "PLTD",
+   "source_conf": 0.988,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    155,
+    27,
+    40
+   ],
+   "atlas_source": "6",
+   "page": "559"
+  },
+  {
+   "path": "256/test/EBIL/IDF/EBIL_001.png",
+   "targets": [
+    "EMIN",
+    "EBOT"
+   ],
+   "source_species": "EBIL",
+   "genus": "EUNO",
+   "source_conf": 0.944,
+   "target_conf_before": [
+    0.0049,
+    0.0141
+   ],
+   "n_train": [
+    33,
+    68,
+    25
+   ],
+   "atlas_source": "5",
+   "page": "203"
+  },
+  {
+   "path": "256/test/DVUL/LAR/DVUL_005.png",
+   "targets": [
+    "DEHR",
+    "DMES"
+   ],
+   "source_species": "DVUL",
+   "genus": "DIAS",
+   "source_conf": 0.954,
+   "target_conf_before": [
+    0.0324,
+    0.0001
+   ],
+   "n_train": [
+    66,
+    44,
+    56
+   ],
+   "atlas_source": "13",
+   "page": "52"
+  },
+  {
+   "path": "256/test/PTCO/LBG/PTCO_042.png",
+   "targets": [
+    "PSXO",
+    "PLHU"
+   ],
+   "source_species": "PTCO",
+   "genus": "PTSA",
+   "source_conf": 0.902,
+   "target_conf_before": [
+    0.0,
+    0.005
+   ],
+   "n_train": [
+    130,
+    23,
+    93
+   ],
+   "atlas_source": "6",
+   "page": "571"
+  },
+  {
+   "path": "256/test/POCL/RA/COCE_011.png",
+   "targets": [
+    "PCOS",
+    "PWUE"
+   ],
+   "source_species": "POCL",
+   "genus": "PANT",
+   "source_conf": 0.736,
+   "target_conf_before": [
+    0.0452,
+    0.0265
+   ],
+   "n_train": [
+    115,
+    51,
+    28
+   ],
+   "atlas_source": "7",
+   "page": "61"
+  },
+  {
+   "path": "256/test/PCOS/IDF/CCOS_003.png",
+   "targets": [
+    "PADE",
+    "POCL"
+   ],
+   "source_species": "PCOS",
+   "genus": "PANT",
+   "source_conf": 0.636,
+   "target_conf_before": [
+    0.0064,
+    0.0056
+   ],
+   "n_train": [
+    51,
+    58,
+    115
+   ],
+   "atlas_source": "5",
+   "page": "105"
+  },
+  {
+   "path": "256/test/ADMI/RA/ADMI_021.png",
+   "targets": [
+    "ADCV",
+    "ARPY"
+   ],
+   "source_species": "ADMI",
+   "genus": "ACHD",
+   "source_conf": 0.93,
+   "target_conf_before": [
+    0.0013,
+    0.0
+   ],
+   "n_train": [
+    223,
+    31,
+    25
+   ],
+   "atlas_source": "7",
+   "page": "135"
+  },
+  {
+   "path": "256/test/NGRE/RA/NGRE_024.png",
+   "targets": [
+    "NLUN",
+    "NANT"
+   ],
+   "source_species": "NGRE",
+   "genus": "NASP",
+   "source_conf": 0.992,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    104,
+    25,
+    111
+   ],
+   "atlas_source": "10",
+   "page": "63"
+  },
+  {
+   "path": "256/test/CEUG/LBG/CEUG_013.png",
+   "targets": [
+    "CNTH",
+    "CPLA"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "source_conf": 0.95,
+   "target_conf_before": [
+    0.0,
+    0.0176
+   ],
+   "n_train": [
+    110,
+    83,
+    105
+   ],
+   "atlas_source": "6",
+   "page": "115"
+  },
+  {
+   "path": "256/test/SBND/RA/SBND_008.png",
+   "targets": [
+    "SSVE",
+    "SCON"
+   ],
+   "source_species": "SBND",
+   "genus": "SSPE",
+   "source_conf": 0.976,
+   "target_conf_before": [
+    0.0001,
+    0.0004
+   ],
+   "n_train": [
+    50,
+    98,
+    51
+   ],
+   "atlas_source": "8",
+   "page": "104"
+  },
+  {
+   "path": "256/test/NSIA/LBG/NSIA_030.png",
+   "targets": [
+    "NTRV",
+    "NCRY"
+   ],
+   "source_species": "NSIA",
+   "genus": "NASP",
+   "source_conf": 0.982,
+   "target_conf_before": [
+    0.0,
+    0.0003
+   ],
+   "n_train": [
+    97,
+    68,
+    95
+   ],
+   "atlas_source": "6",
+   "page": "462"
+  },
+  {
+   "path": "256/test/CNLP/LBG/CNLP_026.png",
+   "targets": [
+    "CTUM",
+    "CTMD"
+   ],
+   "source_species": "CNLP",
+   "genus": "CYMB",
+   "source_conf": 0.935,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    55,
+    27,
+    20
+   ],
+   "atlas_source": "6",
+   "page": "174"
+  },
+  {
+   "path": "256/test/PDAU/RA/PDAU_005.png",
+   "targets": [
+    "PRST",
+    "PLFR"
+   ],
+   "source_species": "PDAU",
+   "genus": "PLTD",
+   "source_conf": 0.996,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    122,
+    66,
+    138
+   ],
+   "atlas_source": "7",
+   "page": "182"
+  },
+  {
+   "path": "256/test/CEXF/RA/CEXF_019.png",
+   "targets": [
+    "CCMP",
+    "CTUM"
+   ],
+   "source_species": "CEXF",
+   "genus": "CYMB",
+   "source_conf": 0.732,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    76,
+    37,
+    27
+   ],
+   "atlas_source": "11",
+   "page": "47"
+  },
+  {
+   "path": "256/test/PUSB/IDF/PPSC_001.png",
+   "targets": [
+    "PNEL",
+    "PSME"
+   ],
+   "source_species": "PUSB",
+   "genus": "PDTS",
+   "source_conf": 0.94,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    23,
+    24,
+    88
+   ],
+   "atlas_source": "5",
+   "page": "551"
+  },
+  {
+   "path": "256/test/GRHB/LAR/GRHB_006.png",
+   "targets": [
+    "GAGU",
+    "GLAT"
+   ],
+   "source_species": "GRHB",
+   "genus": "GOMP",
+   "source_conf": 0.974,
+   "target_conf_before": [
+    0.0,
+    0.0018
+   ],
+   "n_train": [
+    20,
+    42,
+    56
+   ],
+   "atlas_source": "14",
+   "page": "166"
+  },
+  {
+   "path": "256/test/CCMP/PACA/CCMP_007.png",
+   "targets": [
+    "CAEX",
+    "CEXF"
+   ],
+   "source_species": "CCMP",
+   "genus": "CYMB",
+   "source_conf": 0.972,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    37,
+    109,
+    76
+   ],
+   "atlas_source": "1",
+   "page": "306"
+  },
+  {
+   "path": "256/test/CPAR/RA/CPAR_005.png",
+   "targets": [
+    "CPPV",
+    "CSUT"
+   ],
+   "source_species": "CPAR",
+   "genus": "CYMB",
+   "source_conf": 0.581,
+   "target_conf_before": [
+    0.094,
+    0.0416
+   ],
+   "n_train": [
+    78,
+    32,
+    34
+   ],
+   "atlas_source": "11",
+   "page": "59"
+  },
+  {
+   "path": "256/test/NPAE/LBG/NPAE_005.png",
+   "targets": [
+    "NSUA",
+    "NINC"
+   ],
+   "source_species": "NPAE",
+   "genus": "NITZ",
+   "source_conf": 0.83,
+   "target_conf_before": [
+    0.0047,
+    0.0
+   ],
+   "n_train": [
+    178,
+    80,
+    125
+   ],
+   "atlas_source": "6",
+   "page": "522"
+  },
+  {
+   "path": "256/test/GCUN/LBG/GCUN_043.png",
+   "targets": [
+    "GMIC",
+    "GMIN"
+   ],
+   "source_species": "GCUN",
+   "genus": "GOMP",
+   "source_conf": 0.842,
+   "target_conf_before": [
+    0.0,
+    0.0687
+   ],
+   "n_train": [
+    130,
+    60,
+    130
+   ],
+   "atlas_source": "6",
+   "page": "343"
+  },
+  {
+   "path": "256/test/NSIA/LBG/NSIA_034.png",
+   "targets": [
+    "NSNM",
+    "NNOT"
+   ],
+   "source_species": "NSIA",
+   "genus": "NASP",
+   "source_conf": 0.968,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    97,
+    27,
+    36
+   ],
+   "atlas_source": "6",
+   "page": "462"
+  },
+  {
+   "path": "256/test/MALC/BRG/MALC_019.png",
+   "targets": [
+    "MING",
+    "MPMI"
+   ],
+   "source_species": "MALC",
+   "genus": "MAYA",
+   "source_conf": 0.912,
+   "target_conf_before": [
+    0.0004,
+    0.0024
+   ],
+   "n_train": [
+    116,
+    78,
+    101
+   ],
+   "atlas_source": "4",
+   "page": "191"
+  },
+  {
+   "path": "256/test/PTCO/LBG/PTCO_041.png",
+   "targets": [
+    "PBAH",
+    "PLHU"
+   ],
+   "source_species": "PTCO",
+   "genus": "PTSA",
+   "source_conf": 0.88,
+   "target_conf_before": [
+    0.008,
+    0.0
+   ],
+   "n_train": [
+    130,
+    64,
+    93
+   ],
+   "atlas_source": "6",
+   "page": "571"
+  },
+  {
+   "path": "256/test/KCLE/BRG/KCLE_007.png",
+   "targets": [
+    "KAKO",
+    "KALA"
+   ],
+   "source_species": "KCLE",
+   "genus": "KARA",
+   "source_conf": 0.868,
+   "target_conf_before": [
+    0.0002,
+    0.0042
+   ],
+   "n_train": [
+    89,
+    35,
+    38
+   ],
+   "atlas_source": "3",
+   "page": "101"
+  },
+  {
+   "path": "256/test/GMIC/IDF/GMIC_020.png",
+   "targets": [
+    "GOLD",
+    "GSPP"
+   ],
+   "source_species": "GMIC",
+   "genus": "GOMP",
+   "source_conf": 0.974,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    60,
+    35,
+    21
+   ],
+   "atlas_source": "5",
+   "page": "293"
+  },
+  {
+   "path": "256/test/GMIN/LBG/GMIN_008.png",
+   "targets": [
+    "GCAP",
+    "GLGN"
+   ],
+   "source_species": "GMIN",
+   "genus": "GOMP",
+   "source_conf": 0.853,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    130,
+    36,
+    67
+   ],
+   "atlas_source": "6",
+   "page": "351"
+  },
+  {
+   "path": "256/test/FMES/BRG/FMES_008.png",
+   "targets": [
+    "FMIV",
+    "FPEC"
+   ],
+   "source_species": "FMES",
+   "genus": "FRAG",
+   "source_conf": 0.979,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    87,
+    43,
+    138
+   ],
+   "atlas_source": "2",
+   "page": "189"
+  },
+  {
+   "path": "256/test/FGRA/LBG/FGRA_041.png",
+   "targets": [
+    "FCRO",
+    "FVAU"
+   ],
+   "source_species": "FGRA",
+   "genus": "FRAG",
+   "source_conf": 0.925,
+   "target_conf_before": [
+    0.0011,
+    0.0
+   ],
+   "n_train": [
+    200,
+    52,
+    72
+   ],
+   "atlas_source": "6",
+   "page": "300"
+  },
+  {
+   "path": "256/test/ADEG/LBG/ADEG_016.png",
+   "targets": [
+    "ABRT",
+    "ADTH"
+   ],
+   "source_species": "ADEG",
+   "genus": "ACHD",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    147,
+    37,
+    27
+   ],
+   "atlas_source": "6",
+   "page": "28"
+  },
+  {
+   "path": "256/test/SCPO/BRG/SCPO_002.png",
+   "targets": [
+    "SSGE",
+    "SEUT"
+   ],
+   "source_species": "SCPO",
+   "genus": "SELL",
+   "source_conf": 0.93,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    64,
+    156,
+    39
+   ],
+   "atlas_source": "4",
+   "page": "253"
+  },
+  {
+   "path": "256/test/ACAF/LBG/ACAF_014.png",
+   "targets": [
+    "ADDA",
+    "ARPY"
+   ],
+   "source_species": "ACAF",
+   "genus": "ACHD",
+   "source_conf": 0.708,
+   "target_conf_before": [
+    0.0,
+    0.0022
+   ],
+   "n_train": [
+    131,
+    73,
+    25
+   ],
+   "atlas_source": "6",
+   "page": "15"
+  },
+  {
+   "path": "256/test/GADC/LBG/GADC_014.png",
+   "targets": [
+    "GLGN",
+    "GELG"
+   ],
+   "source_species": "GADC",
+   "genus": "GOMP",
+   "source_conf": 0.949,
+   "target_conf_before": [
+    0.0007,
+    0.0
+   ],
+   "n_train": [
+    48,
+    67,
+    121
+   ],
+   "atlas_source": "6",
+   "page": "335"
+  },
+  {
+   "path": "256/test/DPAR/RA/DPAR_013.png",
+   "targets": [
+    "DOCU",
+    "DSEP"
+   ],
+   "source_species": "DPAR",
+   "genus": "DIPL",
+   "source_conf": 0.976,
+   "target_conf_before": [
+    0.0,
+    0.0007
+   ],
+   "n_train": [
+    70,
+    140,
+    82
+   ],
+   "atlas_source": "9",
+   "page": "105"
+  },
+  {
+   "path": "256/test/NCOM/IDF/NCOM_010.png",
+   "targets": [
+    "NIAR",
+    "NFIL"
+   ],
+   "source_species": "NCOM",
+   "genus": "NITZ",
+   "source_conf": 0.913,
+   "target_conf_before": [
+    0.0,
+    0.0055
+   ],
+   "n_train": [
+    54,
+    88,
+    105
+   ],
+   "atlas_source": "5",
+   "page": "391"
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_076.png",
+   "targets": [
+    "ACOP",
+    "AMDN"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "source_conf": 0.738,
+   "target_conf_before": [
+    0.0001,
+    0.0002
+   ],
+   "n_train": [
+    144,
+    32,
+    22
+   ],
+   "atlas_source": "6",
+   "page": "60"
+  },
+  {
+   "path": "256/test/ADLB/BRG/PLAU_009.png",
+   "targets": [
+    "AHOF",
+    "ADSH"
+   ],
+   "source_species": "ADLB",
+   "genus": "ACHD",
+   "source_conf": 0.913,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    95,
+    115,
+    87
+   ],
+   "atlas_source": "3",
+   "page": "165"
+  },
+  {
+   "path": "256/test/ESUM/IDF/ESUM_012.png",
+   "targets": [
+    "ECTA",
+    "ENCM"
+   ],
+   "source_species": "ESUM",
+   "genus": "ECNS",
+   "source_conf": 0.924,
+   "target_conf_before": [
+    0.0005,
+    0.0164
+   ],
+   "n_train": [
+    68,
+    45,
+    92
+   ],
+   "atlas_source": "5",
+   "page": "233"
+  },
+  {
+   "path": "256/test/GTER/IDF/GTER_006.png",
+   "targets": [
+    "GTNO",
+    "GBOB"
+   ],
+   "source_species": "GTER",
+   "genus": "GOMP",
+   "source_conf": 0.963,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    111,
+    21,
+    31
+   ],
+   "atlas_source": "5",
+   "page": "311"
+  },
+  {
+   "path": "256/test/DPAR/RA/DPAR_017.png",
+   "targets": [
+    "DOCU",
+    "DSEP"
+   ],
+   "source_species": "DPAR",
+   "genus": "DIPL",
+   "source_conf": 0.981,
+   "target_conf_before": [
+    0.0,
+    0.0011
+   ],
+   "n_train": [
+    70,
+    140,
+    82
+   ],
+   "atlas_source": "9",
+   "page": "105"
+  },
+  {
+   "path": "256/test/NCAR/RA/NCAR_010.png",
+   "targets": [
+    "NCRY",
+    "NNOV"
+   ],
+   "source_species": "NCAR",
+   "genus": "NASP",
+   "source_conf": 0.701,
+   "target_conf_before": [
+    0.0,
+    0.0005
+   ],
+   "n_train": [
+    52,
+    95,
+    20
+   ],
+   "atlas_source": "10",
+   "page": "33"
+  },
+  {
+   "path": "256/test/DPAR/RA/DPAR_020.png",
+   "targets": [
+    "DSEP",
+    "DOCU"
+   ],
+   "source_species": "DPAR",
+   "genus": "DIPL",
+   "source_conf": 0.944,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    70,
+    82,
+    140
+   ],
+   "atlas_source": "9",
+   "page": "105"
+  },
+  {
+   "path": "256/test/CNLP/LBG/CNLP_011.png",
+   "targets": [
+    "CSUT",
+    "CSLP"
+   ],
+   "source_species": "CNLP",
+   "genus": "CYMB",
+   "source_conf": 0.968,
+   "target_conf_before": [
+    0.0,
+    0.005
+   ],
+   "n_train": [
+    55,
+    34,
+    29
+   ],
+   "atlas_source": "6",
+   "page": "174"
+  },
+  {
+   "path": "256/test/DEHR/LAR/DEHR_005.png",
+   "targets": [
+    "DMON",
+    "DMES"
+   ],
+   "source_species": "DEHR",
+   "genus": "DIAS",
+   "source_conf": 0.996,
+   "target_conf_before": [
+    0.0014,
+    0.0
+   ],
+   "n_train": [
+    44,
+    79,
+    56
+   ],
+   "atlas_source": "13",
+   "page": "46"
+  },
+  {
+   "path": "256/test/CNDI/BRG/CNDI_008.png",
+   "targets": [
+    "COPL",
+    "CPED"
+   ],
+   "source_species": "CNDI",
+   "genus": "COCO",
+   "source_conf": 0.831,
+   "target_conf_before": [
+    0.0011,
+    0.0
+   ],
+   "n_train": [
+    50,
+    118,
+    64
+   ],
+   "atlas_source": "3",
+   "page": "75"
+  },
+  {
+   "path": "256/test/ESLE/LBG/ESLE_013.png",
+   "targets": [
+    "ECAE",
+    "ENVE"
+   ],
+   "source_species": "ESLE",
+   "genus": "ENCY",
+   "source_conf": 0.966,
+   "target_conf_before": [
+    0.0001,
+    0.0123
+   ],
+   "n_train": [
+    89,
+    51,
+    144
+   ],
+   "atlas_source": "6",
+   "page": "228"
+  },
+  {
+   "path": "256/test/APED/LBG/APED_008.png",
+   "targets": [
+    "ACOP",
+    "AMID"
+   ],
+   "source_species": "APED",
+   "genus": "AMPH",
+   "source_conf": 0.805,
+   "target_conf_before": [
+    0.0,
+    0.1833
+   ],
+   "n_train": [
+    156,
+    32,
+    144
+   ],
+   "atlas_source": "6",
+   "page": "67"
+  },
+  {
+   "path": "256/test/PTLA/LBG/PTLA_010.png",
+   "targets": [
+    "PRBL",
+    "PTDU"
+   ],
+   "source_species": "PTLA",
+   "genus": "PLTD",
+   "source_conf": 0.97,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    155,
+    27,
+    40
+   ],
+   "atlas_source": "6",
+   "page": "559"
+  },
+  {
+   "path": "256/test/TATU/RA/NZAG_008.png",
+   "targets": [
+    "TANG",
+    "TLEV"
+   ],
+   "source_species": "TATU",
+   "genus": "TRYB",
+   "source_conf": 0.965,
+   "target_conf_before": [
+    0.0031,
+    0.0
+   ],
+   "n_train": [
+    66,
+    25,
+    20
+   ],
+   "atlas_source": "12",
+   "page": "59"
+  },
+  {
+   "path": "256/test/CMLF/LBG/CMLF_004.png",
+   "targets": [
+    "CRBU",
+    "CRAC"
+   ],
+   "source_species": "CMLF",
+   "genus": "CRAT",
+   "source_conf": 0.922,
+   "target_conf_before": [
+    0.0,
+    0.0016
+   ],
+   "n_train": [
+    33,
+    49,
+    70
+   ],
+   "atlas_source": "6",
+   "page": "134"
+  },
+  {
+   "path": "256/test/PTDU/RA/PTDU_006.png",
+   "targets": [
+    "PROH",
+    "PMNT"
+   ],
+   "source_species": "PTDU",
+   "genus": "PLTD",
+   "source_conf": 0.85,
+   "target_conf_before": [
+    0.001,
+    0.0
+   ],
+   "n_train": [
+    40,
+    34,
+    40
+   ],
+   "atlas_source": "7",
+   "page": "183"
+  },
+  {
+   "path": "256/test/AUPU/LBG/AUPU_053.png",
+   "targets": [
+    "AUTL",
+    "AGSL"
+   ],
+   "source_species": "AUPU",
+   "genus": "AULA",
+   "source_conf": 0.98,
+   "target_conf_before": [
+    0.0004,
+    0.0003
+   ],
+   "n_train": [
+    73,
+    33,
+    21
+   ],
+   "atlas_source": "6",
+   "page": "94"
+  },
+  {
+   "path": "256/test/NLAN/IDF/NLAN_004.png",
+   "targets": [
+    "NCAR",
+    "NSNM"
+   ],
+   "source_species": "NLAN",
+   "genus": "NASP",
+   "source_conf": 0.909,
+   "target_conf_before": [
+    0.0,
+    0.0004
+   ],
+   "n_train": [
+    47,
+    52,
+    27
+   ],
+   "atlas_source": "5",
+   "page": "459"
+  },
+  {
+   "path": "256/test/NIVA/RA/NIVA_001.png",
+   "targets": [
+    "NCLA",
+    "NSUA"
+   ],
+   "source_species": "NIVA",
+   "genus": "NITZ",
+   "source_conf": 0.855,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    47,
+    58,
+    80
+   ],
+   "atlas_source": "12",
+   "page": "131"
+  },
+  {
+   "path": "256/test/NSOC/LBG/NSOC_003.png",
+   "targets": [
+    "NAGN",
+    "NAUR"
+   ],
+   "source_species": "NSOC",
+   "genus": "NITZ",
+   "source_conf": 0.899,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    110,
+    82,
+    26
+   ],
+   "atlas_source": "6",
+   "page": "529"
+  },
+  {
+   "path": "256/test/ADPY/RA/ADPY_017.png",
+   "targets": [
+    "ADKR",
+    "ADDA"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "source_conf": 0.745,
+   "target_conf_before": [
+    0.0003,
+    0.0
+   ],
+   "n_train": [
+    152,
+    37,
+    73
+   ],
+   "atlas_source": "7",
+   "page": "139"
+  },
+  {
+   "path": "256/test/SANG/LAR/SANG_004.png",
+   "targets": [
+    "SBRE",
+    "SRBA"
+   ],
+   "source_species": "SANG",
+   "genus": "SURI",
+   "source_conf": 0.518,
+   "target_conf_before": [
+    0.0,
+    0.0022
+   ],
+   "n_train": [
+    53,
+    32,
+    21
+   ],
+   "atlas_source": "14",
+   "page": "266"
+  },
+  {
+   "path": "256/test/PSME/BRG/PSME_004.png",
+   "targets": [
+    "PALV",
+    "PSBR"
+   ],
+   "source_species": "PSME",
+   "genus": "PDTS",
+   "source_conf": 0.633,
+   "target_conf_before": [
+    0.0002,
+    0.145
+   ],
+   "n_train": [
+    88,
+    68,
+    101
+   ],
+   "atlas_source": "2",
+   "page": "227"
+  },
+  {
+   "path": "256/test/ADEG/LBG/ADEG_014.png",
+   "targets": [
+    "ADRU",
+    "ADEX"
+   ],
+   "source_species": "ADEG",
+   "genus": "ACHD",
+   "source_conf": 0.998,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    147,
+    139,
+    46
+   ],
+   "atlas_source": "6",
+   "page": "28"
+  },
+  {
+   "path": "256/test/NFIC/LBG/NFIC_009.png",
+   "targets": [
+    "NDIS",
+    "NSFI"
+   ],
+   "source_species": "NFIL",
+   "genus": "NITZ",
+   "source_conf": 0.856,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    105,
+    151,
+    22
+   ],
+   "atlas_source": "6",
+   "page": "499"
+  },
+  {
+   "path": "256/test/HUCO/RA/DCOT_002.png",
+   "targets": [
+    "HPEP",
+    "HSMA"
+   ],
+   "source_species": "HUCO",
+   "genus": "HUMI",
+   "source_conf": 0.914,
+   "target_conf_before": [
+    0.0001,
+    0.0001
+   ],
+   "n_train": [
+    49,
+    24,
+    34
+   ],
+   "atlas_source": "9",
+   "page": "92"
+  },
+  {
+   "path": "256/test/MALC/BRG/MALC_020.png",
+   "targets": [
+    "MING",
+    "MPMI"
+   ],
+   "source_species": "MALC",
+   "genus": "MAYA",
+   "source_conf": 0.837,
+   "target_conf_before": [
+    0.0009,
+    0.0003
+   ],
+   "n_train": [
+    116,
+    78,
+    101
+   ],
+   "atlas_source": "4",
+   "page": "191"
+  },
+  {
+   "path": "256/test/NMIC/IDF/NMIC_001.png",
+   "targets": [
+    "NSUA",
+    "NAUR"
+   ],
+   "source_species": "NMIC",
+   "genus": "NITZ",
+   "source_conf": 0.532,
+   "target_conf_before": [
+    0.0002,
+    0.0001
+   ],
+   "n_train": [
+    111,
+    80,
+    26
+   ],
+   "atlas_source": "5",
+   "page": "465"
+  },
+  {
+   "path": "256/test/EICD/BRG/EICD_006.png",
+   "targets": [
+    "EMIN",
+    "EEXI"
+   ],
+   "source_species": "EICD",
+   "genus": "EUNO",
+   "source_conf": 0.592,
+   "target_conf_before": [
+    0.2537,
+    0.0
+   ],
+   "n_train": [
+    21,
+    68,
+    24
+   ],
+   "atlas_source": "3",
+   "page": "215"
+  },
+  {
+   "path": "256/test/ABRT/BRG/PBIO_006.png",
+   "targets": [
+    "ADMO",
+    "ADSU"
+   ],
+   "source_species": "ABRT",
+   "genus": "ACHD",
+   "source_conf": 0.815,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    37,
+    71,
+    91
+   ],
+   "atlas_source": "3",
+   "page": "159"
+  },
+  {
+   "path": "256/test/NTRV/LBG/NTRV_020.png",
+   "targets": [
+    "NSNM",
+    "NMCB"
+   ],
+   "source_species": "NTRV",
+   "genus": "NASP",
+   "source_conf": 0.991,
+   "target_conf_before": [
+    0.0003,
+    0.0
+   ],
+   "n_train": [
+    68,
+    27,
+    27
+   ],
+   "atlas_source": "6",
+   "page": "469"
+  },
+  {
+   "path": "256/test/POCL/RA/COCE_017.png",
+   "targets": [
+    "PCOS",
+    "PADE"
+   ],
+   "source_species": "POCL",
+   "genus": "PANT",
+   "source_conf": 0.994,
+   "target_conf_before": [
+    0.0011,
+    0.0009
+   ],
+   "n_train": [
+    115,
+    51,
+    58
+   ],
+   "atlas_source": "7",
+   "page": "61"
+  },
+  {
+   "path": "256/test/PLFR/LAR/PLFR_009.png",
+   "targets": [
+    "PDAU",
+    "PTLA"
+   ],
+   "source_species": "PLFR",
+   "genus": "PLTD",
+   "source_conf": 0.944,
+   "target_conf_before": [
+    0.0023,
+    0.0036
+   ],
+   "n_train": [
+    138,
+    122,
+    155
+   ],
+   "atlas_source": "13",
+   "page": "176"
+  },
+  {
+   "path": "256/test/ADMI/LBG/ADMI_011.png",
+   "targets": [
+    "ADEX",
+    "ADPY"
+   ],
+   "source_species": "ADMI",
+   "genus": "ACHD",
+   "source_conf": 0.91,
+   "target_conf_before": [
+    0.0,
+    0.0002
+   ],
+   "n_train": [
+    223,
+    46,
+    152
+   ],
+   "atlas_source": "6",
+   "page": "39"
+  },
+  {
+   "path": "256/test/NPAL/LBG/NPAL_009.png",
+   "targets": [
+    "NSTS",
+    "NZAD"
+   ],
+   "source_species": "NPAL",
+   "genus": "NITZ",
+   "source_conf": 0.982,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    173,
+    151,
+    53
+   ],
+   "atlas_source": "6",
+   "page": "517"
+  },
+  {
+   "path": "256/test/NACI/RA/NACI_001.png",
+   "targets": [
+    "NIGR",
+    "NLAL"
+   ],
+   "source_species": "NACI",
+   "genus": "NITZ",
+   "source_conf": 0.873,
+   "target_conf_before": [
+    0.0282,
+    0.0
+   ],
+   "n_train": [
+    46,
+    36,
+    43
+   ],
+   "atlas_source": "12",
+   "page": "43"
+  },
+  {
+   "path": "256/test/NLAN/IDF/NLAN_012.png",
+   "targets": [
+    "NCAR",
+    "NMEN"
+   ],
+   "source_species": "NLAN",
+   "genus": "NASP",
+   "source_conf": 0.867,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    47,
+    52,
+    20
+   ],
+   "atlas_source": "5",
+   "page": "459"
+  },
+  {
+   "path": "256/test/GLAT/RA/GLAT_018.png",
+   "targets": [
+    "GVID",
+    "GCUN"
+   ],
+   "source_species": "GLAT",
+   "genus": "GOMP",
+   "source_conf": 0.957,
+   "target_conf_before": [
+    0.0004,
+    0.0
+   ],
+   "n_train": [
+    56,
+    23,
+    130
+   ],
+   "atlas_source": "11",
+   "page": "187"
+  },
+  {
+   "path": "256/test/NVEN/LBG/NVEN_039.png",
+   "targets": [
+    "NTRV",
+    "NSNM"
+   ],
+   "source_species": "NVEN",
+   "genus": "NASP",
+   "source_conf": 0.998,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    135,
+    68,
+    27
+   ],
+   "atlas_source": "6",
+   "page": "474"
+  },
+  {
+   "path": "256/test/NFIC/LBG/NFIC_004.png",
+   "targets": [
+    "NIPU",
+    "NPAL"
+   ],
+   "source_species": "NFIL",
+   "genus": "NITZ",
+   "source_conf": 0.78,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    105,
+    60,
+    173
+   ],
+   "atlas_source": "6",
+   "page": "499"
+  },
+  {
+   "path": "256/test/NIAR/RA/NIAR_009.png",
+   "targets": [
+    "NMIC",
+    "NAMP"
+   ],
+   "source_species": "NIAR",
+   "genus": "NITZ",
+   "source_conf": 0.748,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    88,
+    111,
+    120
+   ],
+   "atlas_source": "12",
+   "page": "61"
+  },
+  {
+   "path": "256/test/FPEC/BRG/FPEC_012.png",
+   "targets": [
+    "FGRA",
+    "FVAU"
+   ],
+   "source_species": "FPEC",
+   "genus": "FRAG",
+   "source_conf": 0.775,
+   "target_conf_before": [
+    0.0001,
+    0.1141
+   ],
+   "n_train": [
+    138,
+    200,
+    72
+   ],
+   "atlas_source": "2",
+   "page": "201"
+  },
+  {
+   "path": "256/test/NMEN/RA/NMEN_003.png",
+   "targets": [
+    "NCTO",
+    "NERI"
+   ],
+   "source_species": "NMEN",
+   "genus": "NASP",
+   "source_conf": 0.748,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    20,
+    42,
+    72
+   ],
+   "atlas_source": "10",
+   "page": "71"
+  },
+  {
+   "path": "256/test/CEUG/BRG/CEUG_013.png",
+   "targets": [
+    "CPED",
+    "CNTH"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "source_conf": 0.977,
+   "target_conf_before": [
+    0.0008,
+    0.0002
+   ],
+   "n_train": [
+    110,
+    64,
+    83
+   ],
+   "atlas_source": "3",
+   "page": "69"
+  },
+  {
+   "path": "256/test/FAUT/BRG/FAUT_001.png",
+   "targets": [
+    "FCRO",
+    "FVAU"
+   ],
+   "source_species": "FAUT",
+   "genus": "FRAG",
+   "source_conf": 0.581,
+   "target_conf_before": [
+    0.0234,
+    0.0
+   ],
+   "n_train": [
+    54,
+    52,
+    72
+   ],
+   "atlas_source": "2",
+   "page": "177"
+  },
+  {
+   "path": "256/test/HLMO/IDF/AMMO_009.png",
+   "targets": [
+    "HVEN",
+    "HABO"
+   ],
+   "source_species": "HLMO",
+   "genus": "HALA",
+   "source_conf": 0.94,
+   "target_conf_before": [
+    0.0017,
+    0.001
+   ],
+   "n_train": [
+    70,
+    87,
+    25
+   ],
+   "atlas_source": "5",
+   "page": "59"
+  },
+  {
+   "path": "256/test/GRHB/LAR/GRHB_004.png",
+   "targets": [
+    "GBOB",
+    "GMIC"
+   ],
+   "source_species": "GRHB",
+   "genus": "GOMP",
+   "source_conf": 0.903,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    20,
+    31,
+    60
+   ],
+   "atlas_source": "14",
+   "page": "166"
+  },
+  {
+   "path": "256/test/NVEN/LBG/NVEN_048.png",
+   "targets": [
+    "NTCX",
+    "NSPD"
+   ],
+   "source_species": "NVEN",
+   "genus": "NASP",
+   "source_conf": 0.995,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    135,
+    20,
+    22
+   ],
+   "atlas_source": "6",
+   "page": "474"
+  },
+  {
+   "path": "256/test/NTPT/IDF/NTPT_004.png",
+   "targets": [
+    "NNOV",
+    "NRAD"
+   ],
+   "source_species": "NTPT",
+   "genus": "NASP",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.0003,
+    0.0
+   ],
+   "n_train": [
+    62,
+    20,
+    27
+   ],
+   "atlas_source": "5",
+   "page": "509"
+  },
+  {
+   "path": "256/test/ENCM/LBG/ENCM_024.png",
+   "targets": [
+    "ECES",
+    "ECTA"
+   ],
+   "source_species": "ENCM",
+   "genus": "ECNS",
+   "source_conf": 0.878,
+   "target_conf_before": [
+    0.0,
+    0.0002
+   ],
+   "n_train": [
+    92,
+    52,
+    45
+   ],
+   "atlas_source": "6",
+   "page": "243"
+  },
+  {
+   "path": "256/test/COPL/LAR/COPL_013.png",
+   "targets": [
+    "CPED",
+    "CLNT"
+   ],
+   "source_species": "COPL",
+   "genus": "COCO",
+   "source_conf": 0.994,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    118,
+    64,
+    68
+   ],
+   "atlas_source": "13",
+   "page": "160"
+  },
+  {
+   "path": "256/test/DMES/BRG/DMES_017.png",
+   "targets": [
+    "DMON",
+    "DITE"
+   ],
+   "source_species": "DMES",
+   "genus": "DIAS",
+   "source_conf": 0.989,
+   "target_conf_before": [
+    0.0011,
+    0.0
+   ],
+   "n_train": [
+    56,
+    79,
+    45
+   ],
+   "atlas_source": "2",
+   "page": "159"
+  },
+  {
+   "path": "256/test/EICD/BRG/EICD_008.png",
+   "targets": [
+    "EARB",
+    "ESUB"
+   ],
+   "source_species": "EICD",
+   "genus": "EUNO",
+   "source_conf": 0.871,
+   "target_conf_before": [
+    0.0,
+    0.0003
+   ],
+   "n_train": [
+    21,
+    41,
+    44
+   ],
+   "atlas_source": "3",
+   "page": "215"
+  },
+  {
+   "path": "256/test/EMIN/IDF/EMIN_001.png",
+   "targets": [
+    "EINC",
+    "ESUB"
+   ],
+   "source_species": "EMIN",
+   "genus": "EUNO",
+   "source_conf": 0.835,
+   "target_conf_before": [
+    0.0087,
+    0.0004
+   ],
+   "n_train": [
+    68,
+    35,
+    44
+   ],
+   "atlas_source": "5",
+   "page": "213"
+  },
+  {
+   "path": "256/test/NDIS/IDF/NDIS_006.png",
+   "targets": [
+    "NAMP",
+    "NCOM"
+   ],
+   "source_species": "NDIS",
+   "genus": "NITZ",
+   "source_conf": 0.999,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    151,
+    120,
+    54
+   ],
+   "atlas_source": "5",
+   "page": "409"
+  },
+  {
+   "path": "256/test/TATU/RA/NZAG_012.png",
+   "targets": [
+    "TKUE",
+    "TANG"
+   ],
+   "source_species": "TATU",
+   "genus": "TRYB",
+   "source_conf": 0.973,
+   "target_conf_before": [
+    0.0,
+    0.0011
+   ],
+   "n_train": [
+    66,
+    50,
+    25
+   ],
+   "atlas_source": "12",
+   "page": "59"
+  },
+  {
+   "path": "256/test/GMIN/LBG/GMIN_005.png",
+   "targets": [
+    "GADC",
+    "GAGU"
+   ],
+   "source_species": "GMIN",
+   "genus": "GOMP",
+   "source_conf": 0.632,
+   "target_conf_before": [
+    0.0001,
+    0.0003
+   ],
+   "n_train": [
+    130,
+    48,
+    42
+   ],
+   "atlas_source": "6",
+   "page": "351"
+  },
+  {
+   "path": "256/test/SSVE/RA/SSVE_010.png",
+   "targets": [
+    "SRMA",
+    "SBND"
+   ],
+   "source_species": "SSVE",
+   "genus": "SSPE",
+   "source_conf": 0.974,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    98,
+    24,
+    50
+   ],
+   "atlas_source": "8",
+   "page": "106"
+  },
+  {
+   "path": "256/test/KAPG/BRG/KGES_009.png",
+   "targets": [
+    "KCLE",
+    "KALA"
+   ],
+   "source_species": "KAPL",
+   "genus": "KARA",
+   "source_conf": 0.984,
+   "target_conf_before": [
+    0.0,
+    0.0117
+   ],
+   "n_train": [
+    102,
+    89,
+    38
+   ],
+   "atlas_source": "3",
+   "page": "109"
+  },
+  {
+   "path": "256/test/GPUM/LBG/GPUM_003.png",
+   "targets": [
+    "GAUG",
+    "GPSA"
+   ],
+   "source_species": "GPUM",
+   "genus": "GOMP",
+   "source_conf": 0.976,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    288,
+    36,
+    27
+   ],
+   "atlas_source": "6",
+   "page": "357"
+  },
+  {
+   "path": "256/test/CPAR/RA/CPAR_001.png",
+   "targets": [
+    "CSUT",
+    "CNLP"
+   ],
+   "source_species": "CPAR",
+   "genus": "CYMB",
+   "source_conf": 0.577,
+   "target_conf_before": [
+    0.0057,
+    0.071
+   ],
+   "n_train": [
+    78,
+    34,
+    55
+   ],
+   "atlas_source": "11",
+   "page": "59"
+  },
+  {
+   "path": "256/test/ECPM/IDF/ECPM_011.png",
+   "targets": [
+    "ECTA",
+    "ESUM"
+   ],
+   "source_species": "ECPM",
+   "genus": "ECNS",
+   "source_conf": 0.657,
+   "target_conf_before": [
+    0.0005,
+    0.0163
+   ],
+   "n_train": [
+    111,
+    45,
+    68
+   ],
+   "atlas_source": "5",
+   "page": "209"
+  },
+  {
+   "path": "256/test/NCTV/RA/NCTV_003.png",
+   "targets": [
+    "NSNM",
+    "NSIA"
+   ],
+   "source_species": "NCTV",
+   "genus": "NASP",
+   "source_conf": 0.907,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    142,
+    27,
+    97
+   ],
+   "atlas_source": "10",
+   "page": "29"
+  },
+  {
+   "path": "256/test/APED/LBG/APED_002.png",
+   "targets": [
+    "AVTU",
+    "AMMC"
+   ],
+   "source_species": "APED",
+   "genus": "AMPH",
+   "source_conf": 0.939,
+   "target_conf_before": [
+    0.0,
+    0.0016
+   ],
+   "n_train": [
+    156,
+    24,
+    28
+   ],
+   "atlas_source": "6",
+   "page": "67"
+  },
+  {
+   "path": "256/test/CNLP/LBG/CNLP_005.png",
+   "targets": [
+    "CCMP",
+    "CAEX"
+   ],
+   "source_species": "CNLP",
+   "genus": "CYMB",
+   "source_conf": 0.572,
+   "target_conf_before": [
+    0.0005,
+    0.0991
+   ],
+   "n_train": [
+    55,
+    37,
+    109
+   ],
+   "atlas_source": "6",
+   "page": "174"
+  },
+  {
+   "path": "256/test/PADE/LBG/CYDE_003.png",
+   "targets": [
+    "PWUE",
+    "POCL"
+   ],
+   "source_species": "PADE",
+   "genus": "PANT",
+   "source_conf": 0.973,
+   "target_conf_before": [
+    0.0004,
+    0.0076
+   ],
+   "n_train": [
+    58,
+    28,
+    115
+   ],
+   "atlas_source": "6",
+   "page": "154"
+  },
+  {
+   "path": "256/test/GLGN/LAR/GPLA_009.png",
+   "targets": [
+    "GPAR",
+    "GPRO"
+   ],
+   "source_species": "GLGN",
+   "genus": "GOMP",
+   "source_conf": 0.879,
+   "target_conf_before": [
+    0.0081,
+    0.0
+   ],
+   "n_train": [
+    67,
+    127,
+    33
+   ],
+   "atlas_source": "14",
+   "page": "162"
+  },
+  {
+   "path": "256/test/GCUN/LBG/GCUN_010.png",
+   "targets": [
+    "GITA",
+    "GPRO"
+   ],
+   "source_species": "GCUN",
+   "genus": "GOMP",
+   "source_conf": 0.902,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    130,
+    31,
+    33
+   ],
+   "atlas_source": "6",
+   "page": "343"
+  },
+  {
+   "path": "256/test/LGOP/LBG/LGOE_017.png",
+   "targets": [
+    "LFRQ",
+    "LMUT"
+   ],
+   "source_species": "LGOP",
+   "genus": "LUSP",
+   "source_conf": 0.998,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    122,
+    26,
+    28
+   ],
+   "atlas_source": "6",
+   "page": "409"
+  },
+  {
+   "path": "256/test/POBL/LBG/KOBG_009.png",
+   "targets": [
+    "PSXO",
+    "PBAH"
+   ],
+   "source_species": "POBL",
+   "genus": "PTSA",
+   "source_conf": 0.932,
+   "target_conf_before": [
+    0.0216,
+    0.0
+   ],
+   "n_train": [
+    83,
+    23,
+    64
+   ],
+   "atlas_source": "6",
+   "page": "397"
+  },
+  {
+   "path": "256/test/NTPT/IDF/NTPT_013.png",
+   "targets": [
+    "NVEN",
+    "NTRV"
+   ],
+   "source_species": "NTPT",
+   "genus": "NASP",
+   "source_conf": 0.997,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    62,
+    135,
+    68
+   ],
+   "atlas_source": "5",
+   "page": "509"
+  },
+  {
+   "path": "256/test/EARB/RA/EARB_002.png",
+   "targets": [
+    "EMIN",
+    "EIMP"
+   ],
+   "source_species": "EARB",
+   "genus": "EUNO",
+   "source_conf": 0.971,
+   "target_conf_before": [
+    0.0027,
+    0.0001
+   ],
+   "n_train": [
+    41,
+    68,
+    23
+   ],
+   "atlas_source": "8",
+   "page": "137"
+  },
+  {
+   "path": "256/test/NAAM/RA/NAAM_012.png",
+   "targets": [
+    "NTRV",
+    "NROS"
+   ],
+   "source_species": "NAAM",
+   "genus": "NASP",
+   "source_conf": 0.974,
+   "target_conf_before": [
+    0.0,
+    0.0024
+   ],
+   "n_train": [
+    47,
+    68,
+    61
+   ],
+   "atlas_source": "10",
+   "page": "23"
+  },
+  {
+   "path": "256/test/NANT/LBG/NANT_008.png",
+   "targets": [
+    "NTCX",
+    "NVEN"
+   ],
+   "source_species": "NANT",
+   "genus": "NASP",
+   "source_conf": 0.978,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    111,
+    20,
+    135
+   ],
+   "atlas_source": "6",
+   "page": "425"
+  },
+  {
+   "path": "256/test/GAGU/RA/GAGU_009.png",
+   "targets": [
+    "GPSA",
+    "GTER"
+   ],
+   "source_species": "GAGU",
+   "genus": "GOMP",
+   "source_conf": 0.859,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    42,
+    27,
+    111
+   ],
+   "atlas_source": "11",
+   "page": "156"
+  },
+  {
+   "path": "256/test/CPLA/BRG/CPLA_006.png",
+   "targets": [
+    "CEUG",
+    "COPL"
+   ],
+   "source_species": "CPLA",
+   "genus": "COCO",
+   "source_conf": 0.927,
+   "target_conf_before": [
+    0.0087,
+    0.0012
+   ],
+   "n_train": [
+    105,
+    110,
+    118
+   ],
+   "atlas_source": "3",
+   "page": "81"
+  },
+  {
+   "path": "256/test/NTAB/RA/NTAB_009.png",
+   "targets": [
+    "NGES",
+    "NAGN"
+   ],
+   "source_species": "NTAB",
+   "genus": "NITZ",
+   "source_conf": 0.981,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    58,
+    45,
+    82
+   ],
+   "atlas_source": "12",
+   "page": "141"
+  },
+  {
+   "path": "256/test/AUPU/RA/AUPU_007.png",
+   "targets": [
+    "AGSL",
+    "AUTL"
+   ],
+   "source_species": "AUPU",
+   "genus": "AULA",
+   "source_conf": 0.939,
+   "target_conf_before": [
+    0.0002,
+    0.0041
+   ],
+   "n_train": [
+    73,
+    21,
+    33
+   ],
+   "atlas_source": "7",
+   "page": "42"
+  },
+  {
+   "path": "256/test/ADPY/LBG/ADPY_014.png",
+   "targets": [
+    "ADSB",
+    "ADGL"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "source_conf": 0.929,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    152,
+    170,
+    28
+   ],
+   "atlas_source": "6",
+   "page": "41"
+  },
+  {
+   "path": "256/test/SBND/RA/SBND_006.png",
+   "targets": [
+    "SRMA",
+    "SSVE"
+   ],
+   "source_species": "SBND",
+   "genus": "SSPE",
+   "source_conf": 0.968,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    50,
+    24,
+    98
+   ],
+   "atlas_source": "8",
+   "page": "104"
+  },
+  {
+   "path": "256/test/HVEN/LBG/HVEN_002.png",
+   "targets": [
+    "HABO",
+    "HLMO"
+   ],
+   "source_species": "HVEN",
+   "genus": "HALA",
+   "source_conf": 0.965,
+   "target_conf_before": [
+    0.0009,
+    0.0003
+   ],
+   "n_train": [
+    87,
+    25,
+    70
+   ],
+   "atlas_source": "6",
+   "page": "382"
+  },
+  {
+   "path": "256/test/NFIC/LBG/NFIC_023.png",
+   "targets": [
+    "NAGN",
+    "NSOL"
+   ],
+   "source_species": "NFIL",
+   "genus": "NITZ",
+   "source_conf": 0.976,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    105,
+    82,
+    58
+   ],
+   "atlas_source": "6",
+   "page": "499"
+  },
+  {
+   "path": "256/test/TATU/RA/NZAG_010.png",
+   "targets": [
+    "TKUE",
+    "TANG"
+   ],
+   "source_species": "TATU",
+   "genus": "TRYB",
+   "source_conf": 0.976,
+   "target_conf_before": [
+    0.0001,
+    0.0024
+   ],
+   "n_train": [
+    66,
+    50,
+    25
+   ],
+   "atlas_source": "12",
+   "page": "59"
+  },
+  {
+   "path": "256/test/EIMP/LBG/EIMP_004.png",
+   "targets": [
+    "ETEN",
+    "EEXI"
+   ],
+   "source_species": "EIMP",
+   "genus": "EUNO",
+   "source_conf": 0.81,
+   "target_conf_before": [
+    0.0186,
+    0.0019
+   ],
+   "n_train": [
+    23,
+    78,
+    24
+   ],
+   "atlas_source": "6",
+   "page": "262"
+  },
+  {
+   "path": "256/test/GCUN/LBG/GCUN_033.png",
+   "targets": [
+    "GCLA",
+    "GAGV"
+   ],
+   "source_species": "GCUN",
+   "genus": "GOMP",
+   "source_conf": 0.99,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    130,
+    23,
+    59
+   ],
+   "atlas_source": "6",
+   "page": "343"
+  },
+  {
+   "path": "256/test/FPEC/BRG/FPEC_023.png",
+   "targets": [
+    "FVAU",
+    "FPRU"
+   ],
+   "source_species": "FPEC",
+   "genus": "FRAG",
+   "source_conf": 0.591,
+   "target_conf_before": [
+    0.0167,
+    0.0019
+   ],
+   "n_train": [
+    138,
+    72,
+    84
+   ],
+   "atlas_source": "2",
+   "page": "201"
+  },
+  {
+   "path": "256/test/ADRI/LBG/ADRI_001.png",
+   "targets": [
+    "AZHA",
+    "ADMO"
+   ],
+   "source_species": "ADRI",
+   "genus": "ACHD",
+   "source_conf": 0.541,
+   "target_conf_before": [
+    0.1162,
+    0.0006
+   ],
+   "n_train": [
+    72,
+    84,
+    71
+   ],
+   "atlas_source": "6",
+   "page": "43"
+  },
+  {
+   "path": "256/test/GITA/LAR/GITA_006.png",
+   "targets": [
+    "GAUG",
+    "GBOB"
+   ],
+   "source_species": "GITA",
+   "genus": "GOMP",
+   "source_conf": 0.914,
+   "target_conf_before": [
+    0.0305,
+    0.0
+   ],
+   "n_train": [
+    31,
+    36,
+    31
+   ],
+   "atlas_source": "14",
+   "page": "148"
+  },
+  {
+   "path": "256/test/DOCU/LBG/DOCU_047.png",
+   "targets": [
+    "DSEP",
+    "DPAR"
+   ],
+   "source_species": "DOCU",
+   "genus": "DIPL",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.0004,
+    0.0
+   ],
+   "n_train": [
+    140,
+    82,
+    70
+   ],
+   "atlas_source": "6",
+   "page": "196"
+  },
+  {
+   "path": "256/test/NANT/LBG/NANT_006.png",
+   "targets": [
+    "NTRV",
+    "NCAT"
+   ],
+   "source_species": "NANT",
+   "genus": "NASP",
+   "source_conf": 0.997,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    111,
+    68,
+    26
+   ],
+   "atlas_source": "6",
+   "page": "425"
+  },
+  {
+   "path": "256/test/CNDI/BRG/CNDI_004.png",
+   "targets": [
+    "CEUG",
+    "COPL"
+   ],
+   "source_species": "CNDI",
+   "genus": "COCO",
+   "source_conf": 0.943,
+   "target_conf_before": [
+    0.002,
+    0.0358
+   ],
+   "n_train": [
+    50,
+    110,
+    118
+   ],
+   "atlas_source": "3",
+   "page": "75"
+  },
+  {
+   "path": "256/test/ETEN/LBG/ETEN_008.png",
+   "targets": [
+    "EBIL",
+    "ESUB"
+   ],
+   "source_species": "ETEN",
+   "genus": "EUNO",
+   "source_conf": 0.817,
+   "target_conf_before": [
+    0.0,
+    0.0033
+   ],
+   "n_train": [
+    78,
+    33,
+    44
+   ],
+   "atlas_source": "6",
+   "page": "278"
+  },
+  {
+   "path": "256/test/GLOV/IDF/GOLI_012.png",
+   "targets": [
+    "GNLC",
+    "GLOL"
+   ],
+   "source_species": "GLOV",
+   "genus": "GPNL",
+   "source_conf": 0.982,
+   "target_conf_before": [
+    0.0006,
+    0.0012
+   ],
+   "n_train": [
+    83,
+    24,
+    20
+   ],
+   "atlas_source": "5",
+   "page": "297"
+  },
+  {
+   "path": "256/test/NTRV/LBG/NTRV_015.png",
+   "targets": [
+    "NRCS",
+    "NVEN"
+   ],
+   "source_species": "NTRV",
+   "genus": "NASP",
+   "source_conf": 0.969,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    68,
+    62,
+    135
+   ],
+   "atlas_source": "6",
+   "page": "469"
+  },
+  {
+   "path": "256/test/HVEN/LBG/HVEN_012.png",
+   "targets": [
+    "HABO",
+    "HLMO"
+   ],
+   "source_species": "HVEN",
+   "genus": "HALA",
+   "source_conf": 0.99,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    87,
+    25,
+    70
+   ],
+   "atlas_source": "6",
+   "page": "382"
+  },
+  {
+   "path": "256/test/ACAF/LBG/ACAF_023.png",
+   "targets": [
+    "ADTC",
+    "ADSU"
+   ],
+   "source_species": "ACAF",
+   "genus": "ACHD",
+   "source_conf": 0.576,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    131,
+    28,
+    91
+   ],
+   "atlas_source": "6",
+   "page": "15"
+  },
+  {
+   "path": "256/test/ADSU/LAR/ADSU_009.png",
+   "targets": [
+    "ABRT",
+    "ARPY"
+   ],
+   "source_species": "ADSU",
+   "genus": "ACHD",
+   "source_conf": 0.772,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    91,
+    37,
+    25
+   ],
+   "atlas_source": "13",
+   "page": "140"
+  },
+  {
+   "path": "256/test/PDAU/RA/PDAU_002.png",
+   "targets": [
+    "PROH",
+    "PRBL"
+   ],
+   "source_species": "PDAU",
+   "genus": "PLTD",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.0009,
+    0.001
+   ],
+   "n_train": [
+    122,
+    34,
+    27
+   ],
+   "atlas_source": "7",
+   "page": "182"
+  },
+  {
+   "path": "256/test/GMIN/LBG/GMIN_019.png",
+   "targets": [
+    "GAGV",
+    "GITA"
+   ],
+   "source_species": "GMIN",
+   "genus": "GOMP",
+   "source_conf": 0.987,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    130,
+    59,
+    31
+   ],
+   "atlas_source": "6",
+   "page": "351"
+  },
+  {
+   "path": "256/test/CATO/RA/CATO_006.png",
+   "targets": [
+    "CDTG",
+    "CMEN"
+   ],
+   "source_species": "CATO",
+   "genus": "CYCL",
+   "source_conf": 0.982,
+   "target_conf_before": [
+    0.0,
+    0.0006
+   ],
+   "n_train": [
+    202,
+    77,
+    94
+   ],
+   "atlas_source": "7",
+   "page": "52"
+  },
+  {
+   "path": "256/test/NSIA/LBG/NSIA_004.png",
+   "targets": [
+    "NGRE",
+    "NRAD"
+   ],
+   "source_species": "NSIA",
+   "genus": "NASP",
+   "source_conf": 0.996,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    97,
+    104,
+    27
+   ],
+   "atlas_source": "6",
+   "page": "462"
+  },
+  {
+   "path": "256/test/ADSB/BRG/ADSB_004.png",
+   "targets": [
+    "ABRT",
+    "ADRU"
+   ],
+   "source_species": "ADSB",
+   "genus": "ACHD",
+   "source_conf": 0.961,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    170,
+    37,
+    139
+   ],
+   "atlas_source": "3",
+   "page": "49"
+  },
+  {
+   "path": "256/test/ADEU/BRG/ADEU_008.png",
+   "targets": [
+    "ADSA",
+    "ADGL"
+   ],
+   "source_species": "ADEU",
+   "genus": "ACHD",
+   "source_conf": 0.97,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    160,
+    54,
+    28
+   ],
+   "atlas_source": "3",
+   "page": "27"
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_052.png",
+   "targets": [
+    "ACOP",
+    "AMDN"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "source_conf": 0.974,
+   "target_conf_before": [
+    0.0001,
+    0.0006
+   ],
+   "n_train": [
+    144,
+    32,
+    22
+   ],
+   "atlas_source": "6",
+   "page": "60"
+  },
+  {
+   "path": "256/test/FSBH/BRG/FSBH_007.png",
+   "targets": [
+    "FPYG",
+    "FHEL"
+   ],
+   "source_species": "FSBH",
+   "genus": "FALL",
+   "source_conf": 0.89,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    130,
+    37,
+    43
+   ],
+   "atlas_source": "4",
+   "page": "109"
+  },
+  {
+   "path": "256/test/NPAL/LBG/NPAL_018.png",
+   "targets": [
+    "NDIS",
+    "NHAN"
+   ],
+   "source_species": "NPAL",
+   "genus": "NITZ",
+   "source_conf": 0.916,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    173,
+    151,
+    39
+   ],
+   "atlas_source": "6",
+   "page": "517"
+  },
+  {
+   "path": "256/test/CPLA/BRG/CPLA_009.png",
+   "targets": [
+    "CEUG",
+    "CLNT"
+   ],
+   "source_species": "CPLA",
+   "genus": "COCO",
+   "source_conf": 0.955,
+   "target_conf_before": [
+    0.0035,
+    0.0007
+   ],
+   "n_train": [
+    105,
+    110,
+    68
+   ],
+   "atlas_source": "3",
+   "page": "81"
+  },
+  {
+   "path": "256/test/HLMO/IDF/AMMO_002.png",
+   "targets": [
+    "HABO",
+    "HVEN"
+   ],
+   "source_species": "HLMO",
+   "genus": "HALA",
+   "source_conf": 0.524,
+   "target_conf_before": [
+    0.0464,
+    0.3492
+   ],
+   "n_train": [
+    70,
+    25,
+    87
+   ],
+   "atlas_source": "5",
+   "page": "59"
+  },
+  {
+   "path": "256/test/PSME/BRG/PSME_022.png",
+   "targets": [
+    "PPRS",
+    "PUSB"
+   ],
+   "source_species": "PSME",
+   "genus": "PDTS",
+   "source_conf": 0.735,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    88,
+    44,
+    23
+   ],
+   "atlas_source": "2",
+   "page": "227"
+  },
+  {
+   "path": "256/test/MING/BRG/MING_003.png",
+   "targets": [
+    "MALC",
+    "MPMI"
+   ],
+   "source_species": "MING",
+   "genus": "MAYA",
+   "source_conf": 0.972,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    78,
+    116,
+    101
+   ],
+   "atlas_source": "4",
+   "page": "193"
+  },
+  {
+   "path": "256/test/GADC/LBG/GADC_015.png",
+   "targets": [
+    "GVID",
+    "GCAP"
+   ],
+   "source_species": "GADC",
+   "genus": "GOMP",
+   "source_conf": 0.994,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    48,
+    23,
+    36
+   ],
+   "atlas_source": "6",
+   "page": "335"
+  },
+  {
+   "path": "256/test/ADCT/LAR/ADCT_013.png",
+   "targets": [
+    "ADGL",
+    "AHOF"
+   ],
+   "source_species": "ADCT",
+   "genus": "ACHD",
+   "source_conf": 0.631,
+   "target_conf_before": [
+    0.0,
+    0.0019
+   ],
+   "n_train": [
+    151,
+    28,
+    115
+   ],
+   "atlas_source": "13",
+   "page": "118"
+  },
+  {
+   "path": "256/test/ENCM/LBG/ENCM_002.png",
+   "targets": [
+    "ECES",
+    "ECPM"
+   ],
+   "source_species": "ENCM",
+   "genus": "ECNS",
+   "source_conf": 0.827,
+   "target_conf_before": [
+    0.0,
+    0.1537
+   ],
+   "n_train": [
+    92,
+    52,
+    111
+   ],
+   "atlas_source": "6",
+   "page": "243"
+  },
+  {
+   "path": "256/test/PUSB/IDF/PPSC_002.png",
+   "targets": [
+    "PPRS",
+    "PSME"
+   ],
+   "source_species": "PUSB",
+   "genus": "PDTS",
+   "source_conf": 0.868,
+   "target_conf_before": [
+    0.0307,
+    0.0001
+   ],
+   "n_train": [
+    23,
+    44,
+    88
+   ],
+   "atlas_source": "5",
+   "page": "551"
+  },
+  {
+   "path": "256/test/KALA/RA/KALA_011.png",
+   "targets": [
+    "KAKO",
+    "KCLE"
+   ],
+   "source_species": "KALA",
+   "genus": "KARA",
+   "source_conf": 0.959,
+   "target_conf_before": [
+    0.0009,
+    0.0
+   ],
+   "n_train": [
+    38,
+    35,
+    89
+   ],
+   "atlas_source": "7",
+   "page": "174"
+  },
+  {
+   "path": "256/test/NTPT/IDF/NTPT_010.png",
+   "targets": [
+    "NVEN",
+    "NCTE"
+   ],
+   "source_species": "NTPT",
+   "genus": "NASP",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    62,
+    135,
+    109
+   ],
+   "atlas_source": "5",
+   "page": "509"
+  },
+  {
+   "path": "256/test/SLAC/LAR/SLAC_012.png",
+   "targets": [
+    "SRBA",
+    "SUMI"
+   ],
+   "source_species": "SLAC",
+   "genus": "SURI",
+   "source_conf": 0.998,
+   "target_conf_before": [
+    0.0,
+    0.0002
+   ],
+   "n_train": [
+    68,
+    21,
+    35
+   ],
+   "atlas_source": "14",
+   "page": "270"
+  },
+  {
+   "path": "256/test/CPED/BRG/CPED_001.png",
+   "targets": [
+    "CNTH",
+    "CNDI"
+   ],
+   "source_species": "CPED",
+   "genus": "COCO",
+   "source_conf": 0.893,
+   "target_conf_before": [
+    0.0002,
+    0.0002
+   ],
+   "n_train": [
+    64,
+    83,
+    50
+   ],
+   "atlas_source": "3",
+   "page": "79"
+  },
+  {
+   "path": "256/test/CMEN/LBG/CMEN_015.png",
+   "targets": [
+    "CDTG",
+    "CMDU"
+   ],
+   "source_species": "CMEN",
+   "genus": "CYCL",
+   "source_conf": 0.999,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    94,
+    77,
+    117
+   ],
+   "atlas_source": "6",
+   "page": "161"
+  },
+  {
+   "path": "256/test/GLAT/RA/GLAT_004.png",
+   "targets": [
+    "GCAP",
+    "GOLD"
+   ],
+   "source_species": "GLAT",
+   "genus": "GOMP",
+   "source_conf": 0.846,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    56,
+    36,
+    35
+   ],
+   "atlas_source": "11",
+   "page": "187"
+  },
+  {
+   "path": "256/test/PSME/BRG/PSME_003.png",
+   "targets": [
+    "PALV",
+    "PUSB"
+   ],
+   "source_species": "PSME",
+   "genus": "PDTS",
+   "source_conf": 0.748,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    88,
+    68,
+    23
+   ],
+   "atlas_source": "2",
+   "page": "227"
+  },
+  {
+   "path": "256/test/SVTL/RA/SVTL_006.png",
+   "targets": [
+    "SPUP",
+    "SRAE"
+   ],
+   "source_species": "SVTL",
+   "genus": "SELL",
+   "source_conf": 0.959,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    55,
+    97,
+    23
+   ],
+   "atlas_source": "10",
+   "page": "214"
+  },
+  {
+   "path": "256/test/ADLA/BRG/ADLA_005.png",
+   "targets": [
+    "ADPY",
+    "ADEU"
+   ],
+   "source_species": "ADLA",
+   "genus": "ACHD",
+   "source_conf": 0.956,
+   "target_conf_before": [
+    0.001,
+    0.0076
+   ],
+   "n_train": [
+    87,
+    152,
+    160
+   ],
+   "atlas_source": "3",
+   "page": "35"
+  },
+  {
+   "path": "256/test/NSNM/RA/NSNM_007.png",
+   "targets": [
+    "NJOU",
+    "NTPT"
+   ],
+   "source_species": "NSNM",
+   "genus": "NASP",
+   "source_conf": 0.839,
+   "target_conf_before": [
+    0.0,
+    0.0002
+   ],
+   "n_train": [
+    27,
+    33,
+    62
+   ],
+   "atlas_source": "10",
+   "page": "93"
+  },
+  {
+   "path": "256/test/NDIS/IDF/NDIS_013.png",
+   "targets": [
+    "NFIL",
+    "NDES"
+   ],
+   "source_species": "NDIS",
+   "genus": "NITZ",
+   "source_conf": 0.996,
+   "target_conf_before": [
+    0.0004,
+    0.0
+   ],
+   "n_train": [
+    151,
+    105,
+    28
+   ],
+   "atlas_source": "5",
+   "page": "409"
+  },
+  {
+   "path": "256/test/ECAE/RA/ECAE_002.png",
+   "targets": [
+    "ENMI",
+    "ENNG"
+   ],
+   "source_species": "ECAE",
+   "genus": "ENCY",
+   "source_conf": 0.923,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    51,
+    115,
+    23
+   ],
+   "atlas_source": "11",
+   "page": "101"
+  },
+  {
+   "path": "256/test/SSUE/IDF/SSUE_013.png",
+   "targets": [
+    "SUMI",
+    "SBRE"
+   ],
+   "source_species": "SSUE",
+   "genus": "SURI",
+   "source_conf": 0.987,
+   "target_conf_before": [
+    0.0027,
+    0.0
+   ],
+   "n_train": [
+    33,
+    35,
+    32
+   ],
+   "atlas_source": "5",
+   "page": "631"
+  },
+  {
+   "path": "256/test/GMIC/IDF/GMIC_001.png",
+   "targets": [
+    "GCLA",
+    "GSPP"
+   ],
+   "source_species": "GMIC",
+   "genus": "GOMP",
+   "source_conf": 0.964,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    60,
+    23,
+    21
+   ],
+   "atlas_source": "5",
+   "page": "293"
+  },
+  {
+   "path": "256/test/NDIS/IDF/NDIS_015.png",
+   "targets": [
+    "NGES",
+    "NINT"
+   ],
+   "source_species": "NDIS",
+   "genus": "NITZ",
+   "source_conf": 0.997,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    151,
+    45,
+    25
+   ],
+   "atlas_source": "5",
+   "page": "409"
+  },
+  {
+   "path": "256/test/GPUM/LBG/GPUM_027.png",
+   "targets": [
+    "GITA",
+    "GLGN"
+   ],
+   "source_species": "GPUM",
+   "genus": "GOMP",
+   "source_conf": 0.998,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    288,
+    31,
+    67
+   ],
+   "atlas_source": "6",
+   "page": "357"
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_070.png",
+   "targets": [
+    "APOT",
+    "ACOP"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "source_conf": 0.94,
+   "target_conf_before": [
+    0.0001,
+    0.0003
+   ],
+   "n_train": [
+    144,
+    28,
+    32
+   ],
+   "atlas_source": "6",
+   "page": "60"
+  },
+  {
+   "path": "256/test/NACD/RA/NACD_019.png",
+   "targets": [
+    "NDIS",
+    "NAGN"
+   ],
+   "source_species": "NACD",
+   "genus": "NITZ",
+   "source_conf": 0.931,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    69,
+    151,
+    82
+   ],
+   "atlas_source": "12",
+   "page": "45"
+  },
+  {
+   "path": "256/test/POBL/LBG/KOBG_052.png",
+   "targets": [
+    "PTCO",
+    "PBAH"
+   ],
+   "source_species": "POBL",
+   "genus": "PTSA",
+   "source_conf": 0.979,
+   "target_conf_before": [
+    0.0126,
+    0.0
+   ],
+   "n_train": [
+    83,
+    130,
+    64
+   ],
+   "atlas_source": "6",
+   "page": "397"
+  },
+  {
+   "path": "256/test/NAAM/RA/NAAM_008.png",
+   "targets": [
+    "NRCS",
+    "NCAT"
+   ],
+   "source_species": "NAAM",
+   "genus": "NASP",
+   "source_conf": 0.579,
+   "target_conf_before": [
+    0.4006,
+    0.0007
+   ],
+   "n_train": [
+    47,
+    62,
+    26
+   ],
+   "atlas_source": "10",
+   "page": "23"
+  },
+  {
+   "path": "256/test/NGRE/RA/NGRE_022.png",
+   "targets": [
+    "NCPR",
+    "NLUN"
+   ],
+   "source_species": "NGRE",
+   "genus": "NASP",
+   "source_conf": 0.976,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    104,
+    85,
+    25
+   ],
+   "atlas_source": "10",
+   "page": "63"
+  },
+  {
+   "path": "256/test/NSUA/LAR/NSUA_003.png",
+   "targets": [
+    "NINT",
+    "NYCO"
+   ],
+   "source_species": "NSUA",
+   "genus": "NITZ",
+   "source_conf": 0.896,
+   "target_conf_before": [
+    0.0,
+    0.0194
+   ],
+   "n_train": [
+    80,
+    25,
+    87
+   ],
+   "atlas_source": "14",
+   "page": "240"
+  },
+  {
+   "path": "256/test/ADMI/LBG/ADMI_009.png",
+   "targets": [
+    "ADSU",
+    "ADEG"
+   ],
+   "source_species": "ADMI",
+   "genus": "ACHD",
+   "source_conf": 0.873,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    223,
+    91,
+    147
+   ],
+   "atlas_source": "6",
+   "page": "39"
+  },
+  {
+   "path": "256/test/DOCU/LBG/DOCU_054.png",
+   "targets": [
+    "DSEP",
+    "DPAR"
+   ],
+   "source_species": "DOCU",
+   "genus": "DIPL",
+   "source_conf": 0.999,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    140,
+    82,
+    70
+   ],
+   "atlas_source": "6",
+   "page": "196"
+  },
+  {
+   "path": "256/test/ADMO/BRG/ADMO_031.png",
+   "targets": [
+    "ADSA",
+    "ADCA"
+   ],
+   "source_species": "ADMO",
+   "genus": "ACHD",
+   "source_conf": 0.843,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    71,
+    54,
+    24
+   ],
+   "atlas_source": "3",
+   "page": "23"
+  },
+  {
+   "path": "256/test/PTCO/LBG/PTCO_040.png",
+   "targets": [
+    "PLHU",
+    "PSXO"
+   ],
+   "source_species": "PTCO",
+   "genus": "PTSA",
+   "source_conf": 0.531,
+   "target_conf_before": [
+    0.0011,
+    0.0
+   ],
+   "n_train": [
+    130,
+    93,
+    23
+   ],
+   "atlas_source": "6",
+   "page": "571"
+  },
+  {
+   "path": "256/test/MING/BRG/MING_002.png",
+   "targets": [
+    "MPMI",
+    "MALC"
+   ],
+   "source_species": "MING",
+   "genus": "MAYA",
+   "source_conf": 0.924,
+   "target_conf_before": [
+    0.0,
+    0.0003
+   ],
+   "n_train": [
+    78,
+    101,
+    116
+   ],
+   "atlas_source": "4",
+   "page": "193"
+  },
+  {
+   "path": "256/test/NZAD/LBG/NZAD_024.png",
+   "targets": [
+    "NLIN",
+    "NPAE"
+   ],
+   "source_species": "NZAD",
+   "genus": "NITZ",
+   "source_conf": 0.973,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    53,
+    40,
+    178
+   ],
+   "atlas_source": "6",
+   "page": "479"
+  },
+  {
+   "path": "256/test/POCL/RA/COCE_014.png",
+   "targets": [
+    "PADE",
+    "PCOS"
+   ],
+   "source_species": "POCL",
+   "genus": "PANT",
+   "source_conf": 0.632,
+   "target_conf_before": [
+    0.0817,
+    0.0989
+   ],
+   "n_train": [
+    115,
+    58,
+    51
+   ],
+   "atlas_source": "7",
+   "page": "61"
+  },
+  {
+   "path": "256/test/POCL/RA/COCE_006.png",
+   "targets": [
+    "PWUE",
+    "PCOS"
+   ],
+   "source_species": "POCL",
+   "genus": "PANT",
+   "source_conf": 0.897,
+   "target_conf_before": [
+    0.0071,
+    0.0281
+   ],
+   "n_train": [
+    115,
+    28,
+    51
+   ],
+   "atlas_source": "7",
+   "page": "61"
+  },
+  {
+   "path": "256/test/ADLA/BRG/ADLA_006.png",
+   "targets": [
+    "ADTH",
+    "ADJK"
+   ],
+   "source_species": "ADLA",
+   "genus": "ACHD",
+   "source_conf": 0.913,
+   "target_conf_before": [
+    0.0011,
+    0.0
+   ],
+   "n_train": [
+    87,
+    27,
+    68
+   ],
+   "atlas_source": "3",
+   "page": "35"
+  },
+  {
+   "path": "256/test/GMIC/IDF/GMIC_002.png",
+   "targets": [
+    "GITA",
+    "GELG"
+   ],
+   "source_species": "GMIC",
+   "genus": "GOMP",
+   "source_conf": 0.992,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    60,
+    31,
+    121
+   ],
+   "atlas_source": "5",
+   "page": "293"
+  },
+  {
+   "path": "256/test/NZAD/LBG/NZAD_005.png",
+   "targets": [
+    "NSFI",
+    "NCLA"
+   ],
+   "source_species": "NZAD",
+   "genus": "NITZ",
+   "source_conf": 0.983,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    53,
+    22,
+    58
+   ],
+   "atlas_source": "6",
+   "page": "479"
+  },
+  {
+   "path": "256/test/FHEL/BRG/FHEL_003.png",
+   "targets": [
+    "FPYG",
+    "FLEN"
+   ],
+   "source_species": "FHEL",
+   "genus": "FALL",
+   "source_conf": 0.98,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    43,
+    37,
+    53
+   ],
+   "atlas_source": "4",
+   "page": "101"
+  },
+  {
+   "path": "256/test/NVEN/LBG/NVEN_051.png",
+   "targets": [
+    "NCTV",
+    "NCAT"
+   ],
+   "source_species": "NVEN",
+   "genus": "NASP",
+   "source_conf": 0.996,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    135,
+    142,
+    26
+   ],
+   "atlas_source": "6",
+   "page": "474"
+  },
+  {
+   "path": "256/test/FSBH/LBG/FSBH_011.png",
+   "targets": [
+    "FSPY",
+    "FTNR"
+   ],
+   "source_species": "FSBH",
+   "genus": "FALL",
+   "source_conf": 0.992,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    130,
+    20,
+    21
+   ],
+   "atlas_source": "6",
+   "page": "291"
+  },
+  {
+   "path": "256/test/MALC/BRG/MALC_012.png",
+   "targets": [
+    "MING",
+    "MPMI"
+   ],
+   "source_species": "MALC",
+   "genus": "MAYA",
+   "source_conf": 0.955,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    116,
+    78,
+    101
+   ],
+   "atlas_source": "4",
+   "page": "191"
+  },
+  {
+   "path": "256/test/ADDA/BRG/PDAO_003.png",
+   "targets": [
+    "ADSO",
+    "ADGL"
+   ],
+   "source_species": "ADDA",
+   "genus": "ACHD",
+   "source_conf": 0.938,
+   "target_conf_before": [
+    0.0067,
+    0.0
+   ],
+   "n_train": [
+    73,
+    68,
+    28
+   ],
+   "atlas_source": "3",
+   "page": "161"
+  },
+  {
+   "path": "256/test/NSTS/LBG/NSTS_001.png",
+   "targets": [
+    "NPAE",
+    "NPAL"
+   ],
+   "source_species": "NSTS",
+   "genus": "NITZ",
+   "source_conf": 0.57,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    151,
+    178,
+    173
+   ],
+   "atlas_source": "6",
+   "page": "531"
+  },
+  {
+   "path": "256/test/GMIN/LBG/GMIN_010.png",
+   "targets": [
+    "GCAP",
+    "GCLA"
+   ],
+   "source_species": "GMIN",
+   "genus": "GOMP",
+   "source_conf": 0.904,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    130,
+    36,
+    23
+   ],
+   "atlas_source": "6",
+   "page": "351"
+  },
+  {
+   "path": "256/test/NAAM/RA/NAAM_010.png",
+   "targets": [
+    "NVEN",
+    "NMCB"
+   ],
+   "source_species": "NAAM",
+   "genus": "NASP",
+   "source_conf": 0.958,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    47,
+    135,
+    27
+   ],
+   "atlas_source": "10",
+   "page": "23"
+  },
+  {
+   "path": "256/test/PTCO/LBG/PTCO_047.png",
+   "targets": [
+    "POBL",
+    "PSXO"
+   ],
+   "source_species": "PTCO",
+   "genus": "PTSA",
+   "source_conf": 0.593,
+   "target_conf_before": [
+    0.0004,
+    0.0
+   ],
+   "n_train": [
+    130,
+    83,
+    23
+   ],
+   "atlas_source": "6",
+   "page": "571"
+  },
+  {
+   "path": "256/test/NRCS/LBG/NRCS_009.png",
+   "targets": [
+    "NCPR",
+    "NGRE"
+   ],
+   "source_species": "NRCS",
+   "genus": "NASP",
+   "source_conf": 0.983,
+   "target_conf_before": [
+    0.0013,
+    0.0
+   ],
+   "n_train": [
+    62,
+    85,
+    104
+   ],
+   "atlas_source": "6",
+   "page": "457"
+  },
+  {
+   "path": "256/test/ADMI/RA/ADMI_017.png",
+   "targets": [
+    "AHOF",
+    "ADCA"
+   ],
+   "source_species": "ADMI",
+   "genus": "ACHD",
+   "source_conf": 0.835,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    223,
+    115,
+    24
+   ],
+   "atlas_source": "7",
+   "page": "135"
+  },
+  {
+   "path": "256/test/MALC/BRG/MALC_004.png",
+   "targets": [
+    "MPMI",
+    "MING"
+   ],
+   "source_species": "MALC",
+   "genus": "MAYA",
+   "source_conf": 0.588,
+   "target_conf_before": [
+    0.0004,
+    0.0001
+   ],
+   "n_train": [
+    116,
+    101,
+    78
+   ],
+   "atlas_source": "4",
+   "page": "191"
+  },
+  {
+   "path": "256/test/ECAE/RA/ECAE_013.png",
+   "targets": [
+    "ENNG",
+    "EAUE"
+   ],
+   "source_species": "ECAE",
+   "genus": "ENCY",
+   "source_conf": 0.569,
+   "target_conf_before": [
+    0.0,
+    0.1787
+   ],
+   "n_train": [
+    51,
+    23,
+    27
+   ],
+   "atlas_source": "11",
+   "page": "101"
+  },
+  {
+   "path": "256/test/SLAC/LAR/SLAC_020.png",
+   "targets": [
+    "SSUE",
+    "SUMI"
+   ],
+   "source_species": "SLAC",
+   "genus": "SURI",
+   "source_conf": 0.998,
+   "target_conf_before": [
+    0.0001,
+    0.0006
+   ],
+   "n_train": [
+    68,
+    33,
+    35
+   ],
+   "atlas_source": "14",
+   "page": "270"
+  },
+  {
+   "path": "256/test/ADSO/BRG/PSAT_009.png",
+   "targets": [
+    "AASI",
+    "ADJK"
+   ],
+   "source_species": "ADSO",
+   "genus": "ACHD",
+   "source_conf": 0.623,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    68,
+    25,
+    68
+   ],
+   "atlas_source": "3",
+   "page": "171"
+  },
+  {
+   "path": "256/test/KCLE/BRG/KCLE_009.png",
+   "targets": [
+    "KALA",
+    "KAKO"
+   ],
+   "source_species": "KCLE",
+   "genus": "KARA",
+   "source_conf": 0.929,
+   "target_conf_before": [
+    0.0001,
+    0.001
+   ],
+   "n_train": [
+    89,
+    38,
+    35
+   ],
+   "atlas_source": "3",
+   "page": "101"
+  },
+  {
+   "path": "256/test/NSTS/LBG/NSTS_012.png",
+   "targets": [
+    "NINT",
+    "NTAB"
+   ],
+   "source_species": "NSTS",
+   "genus": "NITZ",
+   "source_conf": 0.852,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    151,
+    25,
+    58
+   ],
+   "atlas_source": "6",
+   "page": "531"
+  },
+  {
+   "path": "256/test/AOVA/LBG/AOVA_020.png",
+   "targets": [
+    "APED",
+    "AMDN"
+   ],
+   "source_species": "AOVA",
+   "genus": "AMPH",
+   "source_conf": 0.702,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    44,
+    156,
+    22
+   ],
+   "atlas_source": "6",
+   "page": "65"
+  },
+  {
+   "path": "256/test/GMIN/LBG/GMIN_022.png",
+   "targets": [
+    "GLGN",
+    "GPUM"
+   ],
+   "source_species": "GMIN",
+   "genus": "GOMP",
+   "source_conf": 0.96,
+   "target_conf_before": [
+    0.0,
+    0.0027
+   ],
+   "n_train": [
+    130,
+    67,
+    288
+   ],
+   "atlas_source": "6",
+   "page": "351"
+  },
+  {
+   "path": "256/test/ADMO/BRG/ADMO_029.png",
+   "targets": [
+    "APEE",
+    "ADCA"
+   ],
+   "source_species": "ADMO",
+   "genus": "ACHD",
+   "source_conf": 0.905,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    71,
+    27,
+    24
+   ],
+   "atlas_source": "3",
+   "page": "23"
+  },
+  {
+   "path": "256/test/CEUG/LBG/CEUG_018.png",
+   "targets": [
+    "CPED",
+    "COPL"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "source_conf": 0.95,
+   "target_conf_before": [
+    0.0022,
+    0.0001
+   ],
+   "n_train": [
+    110,
+    64,
+    118
+   ],
+   "atlas_source": "6",
+   "page": "115"
+  },
+  {
+   "path": "256/test/GPUM/LBG/GPUM_028.png",
+   "targets": [
+    "GSPP",
+    "GCLA"
+   ],
+   "source_species": "GPUM",
+   "genus": "GOMP",
+   "source_conf": 0.995,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    288,
+    21,
+    23
+   ],
+   "atlas_source": "6",
+   "page": "356"
+  },
+  {
+   "path": "256/test/ACAF/LBG/ACAF_024.png",
+   "targets": [
+    "ADSO",
+    "ADMI"
+   ],
+   "source_species": "ACAF",
+   "genus": "ACHD",
+   "source_conf": 0.836,
+   "target_conf_before": [
+    0.0,
+    0.0049
+   ],
+   "n_train": [
+    131,
+    68,
+    223
+   ],
+   "atlas_source": "6",
+   "page": "15"
+  },
+  {
+   "path": "256/test/CAEX/LAR/CAEX_004.png",
+   "targets": [
+    "CTUM",
+    "CCMP"
+   ],
+   "source_species": "CAEX",
+   "genus": "CYMB",
+   "source_conf": 0.985,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    109,
+    27,
+    37
+   ],
+   "atlas_source": "14",
+   "page": "88"
+  },
+  {
+   "path": "256/test/MPMI/BRG/MPMI_008.png",
+   "targets": [
+    "MALC",
+    "MING"
+   ],
+   "source_species": "MPMI",
+   "genus": "MAYA",
+   "source_conf": 0.73,
+   "target_conf_before": [
+    0.0393,
+    0.0
+   ],
+   "n_train": [
+    101,
+    116,
+    78
+   ],
+   "atlas_source": "4",
+   "page": "195"
+  },
+  {
+   "path": "256/test/PSBR/RA/PSBR_019.png",
+   "targets": [
+    "PALV",
+    "PUSB"
+   ],
+   "source_species": "PSBR",
+   "genus": "PDTS",
+   "source_conf": 0.989,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    101,
+    68,
+    23
+   ],
+   "atlas_source": "8",
+   "page": "91"
+  },
+  {
+   "path": "256/test/FVAU/BRG/FVAU_021.png",
+   "targets": [
+    "FMIV",
+    "FPEC"
+   ],
+   "source_species": "FVAU",
+   "genus": "FRAG",
+   "source_conf": 0.84,
+   "target_conf_before": [
+    0.0004,
+    0.0834
+   ],
+   "n_train": [
+    72,
+    43,
+    138
+   ],
+   "atlas_source": "2",
+   "page": "207"
+  },
+  {
+   "path": "256/test/AUPU/LBG/AUPU_008.png",
+   "targets": [
+    "AUTL",
+    "AGSL"
+   ],
+   "source_species": "AUPU",
+   "genus": "AULA",
+   "source_conf": 0.925,
+   "target_conf_before": [
+    0.0039,
+    0.0007
+   ],
+   "n_train": [
+    73,
+    33,
+    21
+   ],
+   "atlas_source": "6",
+   "page": "94"
+  },
+  {
+   "path": "256/test/ADSB/LBG/ADSB_051.png",
+   "targets": [
+    "ADTH",
+    "ADCT"
+   ],
+   "source_species": "ADSB",
+   "genus": "ACHD",
+   "source_conf": 0.803,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    170,
+    27,
+    151
+   ],
+   "atlas_source": "6",
+   "page": "47"
+  },
+  {
+   "path": "256/test/GPLI/IDF/GPLI_012.png",
+   "targets": [
+    "GPHQ",
+    "GOAH"
+   ],
+   "source_species": "GPLI",
+   "genus": "GOPP",
+   "source_conf": 0.926,
+   "target_conf_before": [
+    0.0459,
+    0.0001
+   ],
+   "n_train": [
+    65,
+    36,
+    30
+   ],
+   "atlas_source": "5",
+   "page": "303"
+  },
+  {
+   "path": "256/test/PMNT/LBG/PMNT_007.png",
+   "targets": [
+    "PRBL",
+    "PLRC"
+   ],
+   "source_species": "PMNT",
+   "genus": "PLTD",
+   "source_conf": 0.963,
+   "target_conf_before": [
+    0.0005,
+    0.0001
+   ],
+   "n_train": [
+    40,
+    27,
+    37
+   ],
+   "atlas_source": "6",
+   "page": "562"
+  },
+  {
+   "path": "256/test/NCTO/RA/NCTO_008.png",
+   "targets": [
+    "NPNU",
+    "NCAR"
+   ],
+   "source_species": "NCTO",
+   "genus": "NASP",
+   "source_conf": 0.961,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    42,
+    48,
+    52
+   ],
+   "atlas_source": "10",
+   "page": "49"
+  },
+  {
+   "path": "256/test/MING/BRG/MING_011.png",
+   "targets": [
+    "MALC",
+    "MPMI"
+   ],
+   "source_species": "MING",
+   "genus": "MAYA",
+   "source_conf": 0.888,
+   "target_conf_before": [
+    0.0018,
+    0.0
+   ],
+   "n_train": [
+    78,
+    116,
+    101
+   ],
+   "atlas_source": "4",
+   "page": "193"
+  },
+  {
+   "path": "256/test/ECAE/RA/ECAE_014.png",
+   "targets": [
+    "ENNG",
+    "ESLE"
+   ],
+   "source_species": "ECAE",
+   "genus": "ENCY",
+   "source_conf": 0.952,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    51,
+    23,
+    89
+   ],
+   "atlas_source": "11",
+   "page": "101"
+  },
+  {
+   "path": "256/test/ENCM/LBG/ENCM_012.png",
+   "targets": [
+    "ECTA",
+    "ECES"
+   ],
+   "source_species": "ENCM",
+   "genus": "ECNS",
+   "source_conf": 0.842,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    92,
+    45,
+    52
+   ],
+   "atlas_source": "6",
+   "page": "243"
+  },
+  {
+   "path": "256/test/FPEC/BRG/FPEC_003.png",
+   "targets": [
+    "FVAU",
+    "FMES"
+   ],
+   "source_species": "FPEC",
+   "genus": "FRAG",
+   "source_conf": 0.738,
+   "target_conf_before": [
+    0.0053,
+    0.0
+   ],
+   "n_train": [
+    138,
+    72,
+    87
+   ],
+   "atlas_source": "2",
+   "page": "201"
+  },
+  {
+   "path": "256/test/KAPG/BRG/KGES_001.png",
+   "targets": [
+    "KAKO",
+    "KCLE"
+   ],
+   "source_species": "KAPL",
+   "genus": "KARA",
+   "source_conf": 0.923,
+   "target_conf_before": [
+    0.0031,
+    0.0007
+   ],
+   "n_train": [
+    102,
+    35,
+    89
+   ],
+   "atlas_source": "3",
+   "page": "109"
+  },
+  {
+   "path": "256/test/PADE/LBG/CYDE_007.png",
+   "targets": [
+    "POCL",
+    "PWUE"
+   ],
+   "source_species": "PADE",
+   "genus": "PANT",
+   "source_conf": 0.966,
+   "target_conf_before": [
+    0.0237,
+    0.0005
+   ],
+   "n_train": [
+    58,
+    115,
+    28
+   ],
+   "atlas_source": "6",
+   "page": "154"
+  },
+  {
+   "path": "256/test/ADLA/BRG/ADLA_015.png",
+   "targets": [
+    "ADMO",
+    "ADDA"
+   ],
+   "source_species": "ADLA",
+   "genus": "ACHD",
+   "source_conf": 0.891,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    87,
+    71,
+    73
+   ],
+   "atlas_source": "3",
+   "page": "35"
+  },
+  {
+   "path": "256/test/CMDU/RA/CMED_001.png",
+   "targets": [
+    "CMEN",
+    "CATO"
+   ],
+   "source_species": "CMDU",
+   "genus": "CYCL",
+   "source_conf": 0.969,
+   "target_conf_before": [
+    0.0171,
+    0.0015
+   ],
+   "n_train": [
+    117,
+    94,
+    202
+   ],
+   "atlas_source": "7",
+   "page": "62"
+  },
+  {
+   "path": "256/test/CEUG/BRG/CEUG_006.png",
+   "targets": [
+    "COPS",
+    "CLNT"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "source_conf": 0.982,
+   "target_conf_before": [
+    0.0,
+    0.0007
+   ],
+   "n_train": [
+    110,
+    67,
+    68
+   ],
+   "atlas_source": "3",
+   "page": "69"
+  },
+  {
+   "path": "256/test/ADSU/LAR/ADSU_038.png",
+   "targets": [
+    "ADSO",
+    "ADSH"
+   ],
+   "source_species": "ADSU",
+   "genus": "ACHD",
+   "source_conf": 0.88,
+   "target_conf_before": [
+    0.0,
+    0.0003
+   ],
+   "n_train": [
+    91,
+    68,
+    87
+   ],
+   "atlas_source": "13",
+   "page": "140"
+  },
+  {
+   "path": "256/test/ADPY/LBG/ADPY_015.png",
+   "targets": [
+    "ADMC",
+    "ADMI"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "source_conf": 0.948,
+   "target_conf_before": [
+    0.0001,
+    0.0003
+   ],
+   "n_train": [
+    152,
+    20,
+    223
+   ],
+   "atlas_source": "6",
+   "page": "41"
+  },
+  {
+   "path": "256/test/NGER/RA/NGER_005.png",
+   "targets": [
+    "NMCB",
+    "NJOU"
+   ],
+   "source_species": "NGER",
+   "genus": "NASP",
+   "source_conf": 0.989,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    94,
+    27,
+    33
+   ],
+   "atlas_source": "10",
+   "page": "59"
+  },
+  {
+   "path": "256/test/POCL/RA/COCE_010.png",
+   "targets": [
+    "PWUE",
+    "PADE"
+   ],
+   "source_species": "POCL",
+   "genus": "PANT",
+   "source_conf": 0.6,
+   "target_conf_before": [
+    0.0286,
+    0.0053
+   ],
+   "n_train": [
+    115,
+    28,
+    58
+   ],
+   "atlas_source": "7",
+   "page": "61"
+  },
+  {
+   "path": "256/test/ADLA/BRG/ADLA_003.png",
+   "targets": [
+    "ADEU",
+    "ADCV"
+   ],
+   "source_species": "ADLA",
+   "genus": "ACHD",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    87,
+    160,
+    31
+   ],
+   "atlas_source": "3",
+   "page": "35"
+  },
+  {
+   "path": "256/test/DITE/LBG/DITE_031.png",
+   "targets": [
+    "DEHR",
+    "DMES"
+   ],
+   "source_species": "DITE",
+   "genus": "DIAS",
+   "source_conf": 0.969,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    45,
+    44,
+    56
+   ],
+   "atlas_source": "6",
+   "page": "186"
+  },
+  {
+   "path": "256/test/DMES/BRG/DMES_004.png",
+   "targets": [
+    "DVUL",
+    "DMON"
+   ],
+   "source_species": "DMES",
+   "genus": "DIAS",
+   "source_conf": 0.988,
+   "target_conf_before": [
+    0.0,
+    0.004
+   ],
+   "n_train": [
+    56,
+    66,
+    79
+   ],
+   "atlas_source": "2",
+   "page": "159"
+  },
+  {
+   "path": "256/test/DEHR/LAR/DEHR_011.png",
+   "targets": [
+    "DVUL",
+    "DITE"
+   ],
+   "source_species": "DEHR",
+   "genus": "DIAS",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.001,
+    0.0
+   ],
+   "n_train": [
+    44,
+    66,
+    45
+   ],
+   "atlas_source": "13",
+   "page": "46"
+  },
+  {
+   "path": "256/test/FVAU/BRG/FVAU_008.png",
+   "targets": [
+    "FRAD",
+    "FMIV"
+   ],
+   "source_species": "FVAU",
+   "genus": "FRAG",
+   "source_conf": 0.884,
+   "target_conf_before": [
+    0.0,
+    0.0011
+   ],
+   "n_train": [
+    72,
+    31,
+    43
+   ],
+   "atlas_source": "2",
+   "page": "207"
+  },
+  {
+   "path": "256/test/ENVE/LBG/ENVE_019.png",
+   "targets": [
+    "ENMI",
+    "ENNG"
+   ],
+   "source_species": "ENVE",
+   "genus": "ENCY",
+   "source_conf": 0.991,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    144,
+    115,
+    23
+   ],
+   "atlas_source": "6",
+   "page": "238"
+  },
+  {
+   "path": "256/test/GEVA/RA/GEVA_017.png",
+   "targets": [
+    "GSVA",
+    "GCFU"
+   ],
+   "source_species": "GERI",
+   "genus": "GNEI",
+   "source_conf": 0.964,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    39,
+    29,
+    66
+   ],
+   "atlas_source": "11",
+   "page": "145"
+  },
+  {
+   "path": "256/test/TATU/RA/NZAG_013.png",
+   "targets": [
+    "TKUE",
+    "TLEV"
+   ],
+   "source_species": "TATU",
+   "genus": "TRYB",
+   "source_conf": 0.991,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    66,
+    50,
+    20
+   ],
+   "atlas_source": "12",
+   "page": "59"
+  },
+  {
+   "path": "256/test/PADE/LBG/CYDE_021.png",
+   "targets": [
+    "PWUE",
+    "POCL"
+   ],
+   "source_species": "PADE",
+   "genus": "PANT",
+   "source_conf": 0.983,
+   "target_conf_before": [
+    0.0003,
+    0.0051
+   ],
+   "n_train": [
+    58,
+    28,
+    115
+   ],
+   "atlas_source": "6",
+   "page": "154"
+  },
+  {
+   "path": "256/test/NCAR/RA/NCAR_029.png",
+   "targets": [
+    "NMEN",
+    "NPRA"
+   ],
+   "source_species": "NCAR",
+   "genus": "NASP",
+   "source_conf": 0.952,
+   "target_conf_before": [
+    0.0,
+    0.0002
+   ],
+   "n_train": [
+    52,
+    20,
+    28
+   ],
+   "atlas_source": "10",
+   "page": "33"
+  },
+  {
+   "path": "256/test/FSBH/LBG/FSBH_045.png",
+   "targets": [
+    "FHEL",
+    "FSLU"
+   ],
+   "source_species": "FSBH",
+   "genus": "FALL",
+   "source_conf": 0.994,
+   "target_conf_before": [
+    0.0,
+    0.0004
+   ],
+   "n_train": [
+    130,
+    43,
+    70
+   ],
+   "atlas_source": "6",
+   "page": "291"
+  },
+  {
+   "path": "256/test/NVEN/LBG/NVEN_010.png",
+   "targets": [
+    "NERI",
+    "NCPR"
+   ],
+   "source_species": "NVEN",
+   "genus": "NASP",
+   "source_conf": 0.998,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    135,
+    72,
+    85
+   ],
+   "atlas_source": "6",
+   "page": "474"
+  },
+  {
+   "path": "256/test/PRST/LAR/PRST_021.png",
+   "targets": [
+    "PTDE",
+    "PDAU"
+   ],
+   "source_species": "PRST",
+   "genus": "PLTD",
+   "source_conf": 0.984,
+   "target_conf_before": [
+    0.0001,
+    0.0004
+   ],
+   "n_train": [
+    66,
+    54,
+    122
+   ],
+   "atlas_source": "13",
+   "page": "180"
+  },
+  {
+   "path": "256/test/NSTS/LBG/NSTS_009.png",
+   "targets": [
+    "NHAN",
+    "NACI"
+   ],
+   "source_species": "NSTS",
+   "genus": "NITZ",
+   "source_conf": 0.796,
+   "target_conf_before": [
+    0.0077,
+    0.0
+   ],
+   "n_train": [
+    151,
+    39,
+    46
+   ],
+   "atlas_source": "6",
+   "page": "531"
+  },
+  {
+   "path": "256/test/CAGR/RA/CAGR_006.png",
+   "targets": [
+    "CMDU",
+    "CMEN"
+   ],
+   "source_species": "CATO",
+   "genus": "CYCL",
+   "source_conf": 0.995,
+   "target_conf_before": [
+    0.0009,
+    0.0002
+   ],
+   "n_train": [
+    202,
+    117,
+    94
+   ],
+   "atlas_source": "7",
+   "page": "53"
+  },
+  {
+   "path": "256/test/FVAU/BRG/FVAU_011.png",
+   "targets": [
+    "FPEC",
+    "FAUT"
+   ],
+   "source_species": "FVAU",
+   "genus": "FRAG",
+   "source_conf": 0.938,
+   "target_conf_before": [
+    0.0277,
+    0.0008
+   ],
+   "n_train": [
+    72,
+    138,
+    54
+   ],
+   "atlas_source": "2",
+   "page": "207"
+  },
+  {
+   "path": "256/test/PRST/LAR/PRST_006.png",
+   "targets": [
+    "PTDU",
+    "PGRN"
+   ],
+   "source_species": "PRST",
+   "genus": "PLTD",
+   "source_conf": 0.963,
+   "target_conf_before": [
+    0.0008,
+    0.0003
+   ],
+   "n_train": [
+    66,
+    40,
+    26
+   ],
+   "atlas_source": "13",
+   "page": "180"
+  },
+  {
+   "path": "256/test/AOVA/LBG/AOVA_016.png",
+   "targets": [
+    "APOT",
+    "ACOP"
+   ],
+   "source_species": "AOVA",
+   "genus": "AMPH",
+   "source_conf": 0.997,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    44,
+    28,
+    32
+   ],
+   "atlas_source": "6",
+   "page": "65"
+  },
+  {
+   "path": "256/test/NINC/RA/NINC_011.png",
+   "targets": [
+    "NPAE",
+    "NACD"
+   ],
+   "source_species": "NINC",
+   "genus": "NITZ",
+   "source_conf": 0.903,
+   "target_conf_before": [
+    0.0,
+    0.0015
+   ],
+   "n_train": [
+    125,
+    178,
+    69
+   ],
+   "atlas_source": "12",
+   "page": "101"
+  },
+  {
+   "path": "256/test/NMTA/RA/NRCH_018.png",
+   "targets": [
+    "NGRE",
+    "NANT"
+   ],
+   "source_species": "NMTA",
+   "genus": "NASP",
+   "source_conf": 0.986,
+   "target_conf_before": [
+    0.0001,
+    0.0001
+   ],
+   "n_train": [
+    112,
+    104,
+    111
+   ],
+   "atlas_source": "10",
+   "page": "85"
+  },
+  {
+   "path": "256/test/GEVA/RA/GEVA_024.png",
+   "targets": [
+    "GCFU",
+    "GSVA"
+   ],
+   "source_species": "GERI",
+   "genus": "GNEI",
+   "source_conf": 0.995,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    39,
+    66,
+    29
+   ],
+   "atlas_source": "11",
+   "page": "145"
+  },
+  {
+   "path": "256/test/ADSB/BRG/ADSB_007.png",
+   "targets": [
+    "ADMC",
+    "ADMI"
+   ],
+   "source_species": "ADSB",
+   "genus": "ACHD",
+   "source_conf": 0.822,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    170,
+    20,
+    223
+   ],
+   "atlas_source": "3",
+   "page": "49"
+  },
+  {
+   "path": "256/test/ADSU/LAR/ADSU_040.png",
+   "targets": [
+    "ADKR",
+    "ADEG"
+   ],
+   "source_species": "ADSU",
+   "genus": "ACHD",
+   "source_conf": 0.68,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    91,
+    37,
+    147
+   ],
+   "atlas_source": "13",
+   "page": "140"
+  },
+  {
+   "path": "256/test/NCPR/LAR/NCPR_002.png",
+   "targets": [
+    "NSIA",
+    "NNOV"
+   ],
+   "source_species": "NCPR",
+   "genus": "NASP",
+   "source_conf": 0.985,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    85,
+    97,
+    20
+   ],
+   "atlas_source": "14",
+   "page": "6"
+  },
+  {
+   "path": "256/test/NSTS/LBG/NSTS_015.png",
+   "targets": [
+    "NINC",
+    "NGES"
+   ],
+   "source_species": "NSTS",
+   "genus": "NITZ",
+   "source_conf": 0.752,
+   "target_conf_before": [
+    0.2343,
+    0.0
+   ],
+   "n_train": [
+    151,
+    125,
+    45
+   ],
+   "atlas_source": "6",
+   "page": "531"
+  },
+  {
+   "path": "256/test/CEXF/RA/CEXF_007.png",
+   "targets": [
+    "CCMP",
+    "CPPV"
+   ],
+   "source_species": "CEXF",
+   "genus": "CYMB",
+   "source_conf": 0.874,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    76,
+    37,
+    32
+   ],
+   "atlas_source": "11",
+   "page": "47"
+  },
+  {
+   "path": "256/test/ENVE/LBG/ENVE_010.png",
+   "targets": [
+    "ENNG",
+    "ENMI"
+   ],
+   "source_species": "ENVE",
+   "genus": "ENCY",
+   "source_conf": 0.911,
+   "target_conf_before": [
+    0.0,
+    0.0019
+   ],
+   "n_train": [
+    144,
+    23,
+    115
+   ],
+   "atlas_source": "6",
+   "page": "238"
+  },
+  {
+   "path": "256/test/EEXI/BRG/EEXI_001.png",
+   "targets": [
+    "EMIN",
+    "EBOT"
+   ],
+   "source_species": "EEXI",
+   "genus": "EUNO",
+   "source_conf": 0.719,
+   "target_conf_before": [
+    0.0001,
+    0.0004
+   ],
+   "n_train": [
+    24,
+    68,
+    25
+   ],
+   "atlas_source": "3",
+   "page": "199"
+  },
+  {
+   "path": "256/test/NVEN/LBG/NVEN_009.png",
+   "targets": [
+    "NGER",
+    "NLAN"
+   ],
+   "source_species": "NVEN",
+   "genus": "NASP",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    135,
+    94,
+    47
+   ],
+   "atlas_source": "6",
+   "page": "474"
+  },
+  {
+   "path": "256/test/DMES/BRG/DMES_016.png",
+   "targets": [
+    "DVUL",
+    "DEHR"
+   ],
+   "source_species": "DMES",
+   "genus": "DIAS",
+   "source_conf": 0.977,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    56,
+    66,
+    44
+   ],
+   "atlas_source": "2",
+   "page": "159"
+  },
+  {
+   "path": "256/test/ADPY/LBG/ADPY_005.png",
+   "targets": [
+    "ADTH",
+    "ADEG"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "source_conf": 0.809,
+   "target_conf_before": [
+    0.0018,
+    0.0
+   ],
+   "n_train": [
+    152,
+    27,
+    147
+   ],
+   "atlas_source": "6",
+   "page": "41"
+  },
+  {
+   "path": "256/test/GLAT/RA/GLAT_016.png",
+   "targets": [
+    "GMIS",
+    "GEXL"
+   ],
+   "source_species": "GLAT",
+   "genus": "GOMP",
+   "source_conf": 0.782,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    56,
+    28,
+    60
+   ],
+   "atlas_source": "11",
+   "page": "187"
+  },
+  {
+   "path": "256/test/ENVE/LBG/ENVE_021.png",
+   "targets": [
+    "ECAE",
+    "ESLE"
+   ],
+   "source_species": "ENVE",
+   "genus": "ENCY",
+   "source_conf": 0.951,
+   "target_conf_before": [
+    0.0,
+    0.0348
+   ],
+   "n_train": [
+    144,
+    51,
+    89
+   ],
+   "atlas_source": "6",
+   "page": "237"
+  },
+  {
+   "path": "256/test/NLAN/IDF/NLAN_002.png",
+   "targets": [
+    "NTRV",
+    "NCRY"
+   ],
+   "source_species": "NLAN",
+   "genus": "NASP",
+   "source_conf": 0.976,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    47,
+    68,
+    95
+   ],
+   "atlas_source": "5",
+   "page": "459"
+  },
+  {
+   "path": "256/test/PMNT/LBG/PMNT_004.png",
+   "targets": [
+    "PTDE",
+    "PROH"
+   ],
+   "source_species": "PMNT",
+   "genus": "PLTD",
+   "source_conf": 0.947,
+   "target_conf_before": [
+    0.0009,
+    0.0007
+   ],
+   "n_train": [
+    40,
+    54,
+    34
+   ],
+   "atlas_source": "6",
+   "page": "562"
+  },
+  {
+   "path": "256/test/KCLE/BRG/KCLE_013.png",
+   "targets": [
+    "KALA",
+    "KAPL"
+   ],
+   "source_species": "KCLE",
+   "genus": "KARA",
+   "source_conf": 0.995,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    89,
+    38,
+    102
+   ],
+   "atlas_source": "3",
+   "page": "101"
+  },
+  {
+   "path": "256/test/AHOF/LBG/AHOF_079.png",
+   "targets": [
+    "ARPY",
+    "ADSB"
+   ],
+   "source_species": "AHOF",
+   "genus": "ACHD",
+   "source_conf": 0.859,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    115,
+    25,
+    170
+   ],
+   "atlas_source": "6",
+   "page": "32"
+  },
+  {
+   "path": "256/test/ADCT/RA/ADCT_002.png",
+   "targets": [
+    "ADLA",
+    "ADJK"
+   ],
+   "source_species": "ADCT",
+   "genus": "ACHD",
+   "source_conf": 0.573,
+   "target_conf_before": [
+    0.0007,
+    0.0573
+   ],
+   "n_train": [
+    151,
+    87,
+    68
+   ],
+   "atlas_source": "7",
+   "page": "117"
+  },
+  {
+   "path": "256/test/ADPY/LBG/ADPY_001.png",
+   "targets": [
+    "ADTH",
+    "ADJK"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "source_conf": 0.916,
+   "target_conf_before": [
+    0.0015,
+    0.0001
+   ],
+   "n_train": [
+    152,
+    27,
+    68
+   ],
+   "atlas_source": "6",
+   "page": "41"
+  },
+  {
+   "path": "256/test/FGRA/LBG/FGRA_037.png",
+   "targets": [
+    "FAUT",
+    "FPRU"
+   ],
+   "source_species": "FGRA",
+   "genus": "FRAG",
+   "source_conf": 0.897,
+   "target_conf_before": [
+    0.0001,
+    0.0123
+   ],
+   "n_train": [
+    200,
+    54,
+    84
+   ],
+   "atlas_source": "6",
+   "page": "300"
+  },
+  {
+   "path": "256/test/NRCS/LBG/NRCS_007.png",
+   "targets": [
+    "NANT",
+    "NCTO"
+   ],
+   "source_species": "NRCS",
+   "genus": "NASP",
+   "source_conf": 0.841,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    62,
+    111,
+    42
+   ],
+   "atlas_source": "6",
+   "page": "457"
+  },
+  {
+   "path": "256/test/NCAR/RA/NCAR_015.png",
+   "targets": [
+    "NPRA",
+    "NCAT"
+   ],
+   "source_species": "NCAR",
+   "genus": "NASP",
+   "source_conf": 0.951,
+   "target_conf_before": [
+    0.0,
+    0.0094
+   ],
+   "n_train": [
+    52,
+    28,
+    26
+   ],
+   "atlas_source": "10",
+   "page": "33"
+  },
+  {
+   "path": "256/test/NTPT/IDF/NTPT_002.png",
+   "targets": [
+    "NSPD",
+    "NCRY"
+   ],
+   "source_species": "NTPT",
+   "genus": "NASP",
+   "source_conf": 0.997,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    62,
+    22,
+    95
+   ],
+   "atlas_source": "5",
+   "page": "509"
+  },
+  {
+   "path": "256/test/DSEP/LBG/DSEP_001.png",
+   "targets": [
+    "DPAR",
+    "DOCU"
+   ],
+   "source_species": "DSEP",
+   "genus": "DIPL",
+   "source_conf": 0.672,
+   "target_conf_before": [
+    0.0009,
+    0.001
+   ],
+   "n_train": [
+    82,
+    70,
+    140
+   ],
+   "atlas_source": "6",
+   "page": "199"
+  },
+  {
+   "path": "256/test/PLFR/LAR/PLFR_017.png",
+   "targets": [
+    "PLRC",
+    "PMNT"
+   ],
+   "source_species": "PLFR",
+   "genus": "PLTD",
+   "source_conf": 0.979,
+   "target_conf_before": [
+    0.0,
+    0.0005
+   ],
+   "n_train": [
+    138,
+    37,
+    40
+   ],
+   "atlas_source": "13",
+   "page": "176"
+  },
+  {
+   "path": "256/test/GEVA/RA/GEVA_005.png",
+   "targets": [
+    "GSVA",
+    "GCFU"
+   ],
+   "source_species": "GERI",
+   "genus": "GNEI",
+   "source_conf": 0.954,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    39,
+    29,
+    66
+   ],
+   "atlas_source": "11",
+   "page": "145"
+  },
+  {
+   "path": "256/test/NAMP/LBG/NAMP_016.png",
+   "targets": [
+    "NSTS",
+    "NINT"
+   ],
+   "source_species": "NAMP",
+   "genus": "NITZ",
+   "source_conf": 0.992,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    120,
+    151,
+    25
+   ],
+   "atlas_source": "6",
+   "page": "486"
+  },
+  {
+   "path": "256/test/GPAR/LBG/GPAR_034.png",
+   "targets": [
+    "GSPP",
+    "GITA"
+   ],
+   "source_species": "GPAR",
+   "genus": "GOMP",
+   "source_conf": 0.956,
+   "target_conf_before": [
+    0.0001,
+    0.0
+   ],
+   "n_train": [
+    127,
+    21,
+    31
+   ],
+   "atlas_source": "6",
+   "page": "354"
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_043.png",
+   "targets": [
+    "AOVA",
+    "AVTU"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "source_conf": 0.987,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    144,
+    44,
+    24
+   ],
+   "atlas_source": "6",
+   "page": "60"
+  },
+  {
+   "path": "256/test/NTPT/IDF/NTPT_014.png",
+   "targets": [
+    "NANT",
+    "NPNU"
+   ],
+   "source_species": "NTPT",
+   "genus": "NASP",
+   "source_conf": 0.999,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    62,
+    111,
+    48
+   ],
+   "atlas_source": "5",
+   "page": "509"
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_020.png",
+   "targets": [
+    "APOT",
+    "APED"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "source_conf": 0.811,
+   "target_conf_before": [
+    0.0,
+    0.1839
+   ],
+   "n_train": [
+    144,
+    28,
+    156
+   ],
+   "atlas_source": "6",
+   "page": "60"
+  },
+  {
+   "path": "256/test/GCUN/LBG/GCUN_031.png",
+   "targets": [
+    "GPSA",
+    "GPRO"
+   ],
+   "source_species": "GCUN",
+   "genus": "GOMP",
+   "source_conf": 0.863,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    130,
+    27,
+    33
+   ],
+   "atlas_source": "6",
+   "page": "343"
+  },
+  {
+   "path": "256/test/CFON/BRG/CFON_011.png",
+   "targets": [
+    "CSIL",
+    "CLCT"
+   ],
+   "source_species": "CFON",
+   "genus": "CALO",
+   "source_conf": 0.952,
+   "target_conf_before": [
+    0.0048,
+    0.0167
+   ],
+   "n_train": [
+    63,
+    24,
+    111
+   ],
+   "atlas_source": "4",
+   "page": "47"
+  },
+  {
+   "path": "256/test/NSOC/LBG/NSOC_001.png",
+   "targets": [
+    "NSOL",
+    "NIFT"
+   ],
+   "source_species": "NSOC",
+   "genus": "NITZ",
+   "source_conf": 0.992,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    110,
+    58,
+    29
+   ],
+   "atlas_source": "6",
+   "page": "529"
+  },
+  {
+   "path": "256/test/ESUM/IDF/ESUM_005.png",
+   "targets": [
+    "ENCM",
+    "ECES"
+   ],
+   "source_species": "ESUM",
+   "genus": "ECNS",
+   "source_conf": 0.958,
+   "target_conf_before": [
+    0.0129,
+    0.0
+   ],
+   "n_train": [
+    68,
+    92,
+    52
+   ],
+   "atlas_source": "5",
+   "page": "233"
+  },
+  {
+   "path": "256/test/POBL/LBG/KOBG_011.png",
+   "targets": [
+    "PSXO",
+    "PLHU"
+   ],
+   "source_species": "POBL",
+   "genus": "PTSA",
+   "source_conf": 0.978,
+   "target_conf_before": [
+    0.0023,
+    0.0001
+   ],
+   "n_train": [
+    83,
+    23,
+    93
+   ],
+   "atlas_source": "6",
+   "page": "397"
+  },
+  {
+   "path": "256/test/SCON/RA/SCON_003.png",
+   "targets": [
+    "SBND",
+    "SSVE"
+   ],
+   "source_species": "SCON",
+   "genus": "SSPE",
+   "source_conf": 0.993,
+   "target_conf_before": [
+    0.0005,
+    0.0
+   ],
+   "n_train": [
+    51,
+    50,
+    98
+   ],
+   "atlas_source": "8",
+   "page": "105"
+  },
+  {
+   "path": "256/test/CEUG/LBG/CEUG_030.png",
+   "targets": [
+    "CLNT",
+    "CNDI"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "source_conf": 0.745,
+   "target_conf_before": [
+    0.0007,
+    0.0117
+   ],
+   "n_train": [
+    110,
+    68,
+    50
+   ],
+   "atlas_source": "6",
+   "page": "115"
+  },
+  {
+   "path": "256/test/NMTA/RA/NRCH_004.png",
+   "targets": [
+    "NGRE",
+    "NAAM"
+   ],
+   "source_species": "NMTA",
+   "genus": "NASP",
+   "source_conf": 0.95,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    112,
+    104,
+    47
+   ],
+   "atlas_source": "10",
+   "page": "85"
+  },
+  {
+   "path": "256/test/ECPM/IDF/ECPM_009.png",
+   "targets": [
+    "ENCM",
+    "ESUM"
+   ],
+   "source_species": "ECPM",
+   "genus": "ECNS",
+   "source_conf": 0.525,
+   "target_conf_before": [
+    0.4378,
+    0.0123
+   ],
+   "n_train": [
+    111,
+    92,
+    68
+   ],
+   "atlas_source": "5",
+   "page": "209"
+  },
+  {
+   "path": "256/test/NZSU/RA/NZSU_003.png",
+   "targets": [
+    "NACD",
+    "NDES"
+   ],
+   "source_species": "NZSU",
+   "genus": "NITZ",
+   "source_conf": 0.695,
+   "target_conf_before": [
+    0.0,
+    0.0005
+   ],
+   "n_train": [
+    141,
+    69,
+    28
+   ],
+   "atlas_source": "12",
+   "page": "139"
+  },
+  {
+   "path": "256/test/NGRE/RA/NGRE_007.png",
+   "targets": [
+    "NCAR",
+    "NSNM"
+   ],
+   "source_species": "NGRE",
+   "genus": "NASP",
+   "source_conf": 0.988,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    104,
+    52,
+    27
+   ],
+   "atlas_source": "10",
+   "page": "63"
+  },
+  {
+   "path": "256/test/GBOB/LBG/GBOB_017.png",
+   "targets": [
+    "GMEX",
+    "GPSA"
+   ],
+   "source_species": "GBOB",
+   "genus": "GOMP",
+   "source_conf": 0.669,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    31,
+    35,
+    27
+   ],
+   "atlas_source": "6",
+   "page": "339"
+  },
+  {
+   "path": "256/test/LGOP/LBG/LGOE_018.png",
+   "targets": [
+    "LMIT",
+    "LMUT"
+   ],
+   "source_species": "LGOP",
+   "genus": "LUSP",
+   "source_conf": 0.994,
+   "target_conf_before": [
+    0.0002,
+    0.0001
+   ],
+   "n_train": [
+    122,
+    46,
+    28
+   ],
+   "atlas_source": "6",
+   "page": "409"
+  },
+  {
+   "path": "256/test/NIAR/RA/NIAR_013.png",
+   "targets": [
+    "NPAE",
+    "NYCO"
+   ],
+   "source_species": "NIAR",
+   "genus": "NITZ",
+   "source_conf": 0.665,
+   "target_conf_before": [
+    0.2679,
+    0.0
+   ],
+   "n_train": [
+    88,
+    178,
+    87
+   ],
+   "atlas_source": "12",
+   "page": "61"
+  },
+  {
+   "path": "256/test/NPAD/IDF/NPAD_010.png",
+   "targets": [
+    "NIAR",
+    "NSFI"
+   ],
+   "source_species": "NPAL",
+   "genus": "NITZ",
+   "source_conf": 0.659,
+   "target_conf_before": [
+    0.1036,
+    0.0
+   ],
+   "n_train": [
+    173,
+    88,
+    22
+   ],
+   "atlas_source": "5",
+   "page": "467"
+  },
+  {
+   "path": "256/test/ADLA/BRG/ADLA_023.png",
+   "targets": [
+    "ADGL",
+    "ADRU"
+   ],
+   "source_species": "ADLA",
+   "genus": "ACHD",
+   "source_conf": 0.994,
+   "target_conf_before": [
+    0.0,
+    0.0028
+   ],
+   "n_train": [
+    87,
+    28,
+    139
+   ],
+   "atlas_source": "3",
+   "page": "35"
+  },
+  {
+   "path": "256/test/MPMI/BRG/MPMI_001.png",
+   "targets": [
+    "MALC",
+    "MING"
+   ],
+   "source_species": "MPMI",
+   "genus": "MAYA",
+   "source_conf": 0.954,
+   "target_conf_before": [
+    0.0033,
+    0.0
+   ],
+   "n_train": [
+    101,
+    116,
+    78
+   ],
+   "atlas_source": "4",
+   "page": "195"
+  },
+  {
+   "path": "256/test/HVEN/LBG/HVEN_007.png",
+   "targets": [
+    "HLMO",
+    "HABO"
+   ],
+   "source_species": "HVEN",
+   "genus": "HALA",
+   "source_conf": 0.989,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    87,
+    70,
+    25
+   ],
+   "atlas_source": "6",
+   "page": "382"
+  }
+ ]
+}

@@ -76,6 +76,35 @@ some_vces = {
 }
 
 
+# some_vces = {
+#     19858: [1, 396],    # puffer -> goldfish, lionfish
+#     17586: [353, 347],  # hartebeest -> gazelle, bison
+#     48998: [980, 970],  # valley -> volcano, alp
+#     47454: [953, 957],  # strawberry -> pineapple, pomegranate
+#     1666: [34, 37],     # loggerhead -> leatherback turtle, box turtle
+#     3607: [75, 76],     # black and gold garden spider -> black widow, tarantula
+#     16431: [329, 327],  # sea urchin -> sea cucumber, starfish
+#     4548: [88, 87],     # lorikeet -> macaw, African grey
+#     13578: [272, 269],  # red wolf -> coyote, timber wolf
+#     47680: [955, 956],  # pineapple -> jackfruit, custard apple
+#     3541: [72, 78],     # harvestman -> black and gold garden spider, tick
+#     38424: [574, 429],  # rugby ball -> golf ball, baseball
+#     2613: [60, 56],     # thunder snake -> night snake, king snake
+#     1356: [32, 29],     # eft -> tailed frog, axolotl
+#     14431: [289, 293],  # leopard -> snow leopard, cheetah
+# }
+
+
+
+
+
+if hps.vce_list:
+    # JSON produced by evaluation/select_vces.py: {"entries": [{"idx": ..., "targets": [...]}, ...]}
+    import json
+    with open(hps.vce_list) as f:
+        some_vces = {e['idx']: e['targets'] for e in json.load(f)['entries']}
+
+
 def _plot_counterfactuals(dir, original_imgs, orig_labels, segmentations, targets,
                           perturbed_imgs, perturbed_probabilities, original_probabilities, radii, class_labels, filenames=None, img_idcs=None, num_plot_imgs=hps.num_imgs):
     num_imgs = num_plot_imgs
@@ -166,6 +195,7 @@ imgs = torch.zeros((num_imgs, 3, img_size, img_size))
 segmentations = torch.zeros((num_imgs, 3, img_size, img_size))
 targets_tensor = torch.zeros(num_imgs, dtype=torch.long)
 labels_tensor = torch.zeros(num_imgs, dtype=torch.long)
+dataset_idcs_tensor = torch.zeros(num_imgs, dtype=torch.long)
 filenames = []
 
 image_idx = 0
@@ -188,6 +218,7 @@ for i, (img_idx, target_classes) in enumerate(selected_vces):
         for i in range(len(target_classes)):
             targets_tensor[image_idx+i] = target_classes[i]
             labels_tensor[image_idx+i] = label
+            dataset_idcs_tensor[image_idx+i] = img_idx
             imgs[image_idx+i] = in_image
         image_idx += len(target_classes)
         if image_idx >= num_imgs:
@@ -208,7 +239,7 @@ for method in [hps.method]:
     elif method.lower() == 'apgd':
         radii = np.array([12.])
         attack_type = 'apgd'
-        norm = 'L2' 
+        norm = 'L2'
         stepsize = None
         steps = 75
     elif method.lower() == 'dvces':
@@ -325,6 +356,7 @@ for method in [hps.method]:
 
                 data_dict['gt_imgs'] = imgs[:batch_end_idx]
                 data_dict['gt_labels'] = labels_tensor[:batch_end_idx]
+                data_dict['dataset_idcs'] = dataset_idcs_tensor[:batch_end_idx]
                 data_dict['segmentations'] = segmentations[:batch_end_idx]
                 data_dict['targets'] = targets_tensor[:batch_end_idx]
                 data_dict['counterfactuals'] = out_imgs[:batch_end_idx]

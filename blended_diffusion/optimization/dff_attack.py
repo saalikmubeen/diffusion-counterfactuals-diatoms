@@ -282,7 +282,7 @@ class DiffusionAttack():
                 "num_head_channels": 64,
                 "num_res_blocks": 2,
                 "resblock_updown": True,
-                "use_fp16": True,
+                "use_fp16": str(getattr(self.args, "device", "cuda")).startswith("cuda"),  # fp16 only on GPU (CPU can't run it)
                 "use_scale_shift_norm": True,
             }
         )
@@ -293,9 +293,10 @@ class DiffusionAttack():
 
         self.model, self.diffusion = create_model_and_diffusion(**self.model_config)
         self.model.num_classes = 1000
+        print("Loading diffusion checkpoint:", self.args.diffusion_ckpt)
         self.model.load_state_dict(
             torch.load(
-                f"checkpoints/256x256_diffusion_uncond.pt",
+                self.args.diffusion_ckpt,
                 map_location="cpu"
             )
         )
@@ -328,14 +329,31 @@ class DiffusionAttack():
         evaluator = Evaluator(args, self.classifier_config, {}, None)
 
 
-        self.classifier = evaluator.load_model(
-            self.args.classifier_type, prewrapper=partial(ResizeAndMeanWrapper, size=self.args.classifier_size_1, interpolation=self.args.interpolation_int_1)
-        )
-        print('temp o resize o mean wrapper on')
+        if getattr(self.args, 'diatom_classifier', ''):
+            # Diatom classifier (diatoms/diatom_classifier.py): takes the 256x256 native-size
+            # image in [0, 1], center-crops 224 and normalises itself. clip_size = 256 keeps
+            # ImageAugmentations from resizing the image to 224 (that would break the crop).
+            from diatoms.diatom_classifier import load_diatom_classifier
+            self.classifier, self.imagenet_labels, desc = load_diatom_classifier(self.args.diatom_classifier)
+            print('diatom classifier:', desc)
+            self.args.classifier_size_1 = 256
+        else:
+            self.classifier = evaluator.load_model(
+                self.args.classifier_type, prewrapper=partial(ResizeAndMeanWrapper, size=self.args.classifier_size_1, interpolation=self.args.interpolation_int_1)
+            )
+            print('temp o resize o mean wrapper on')
         self.classifier.to(self.device)
         self.classifier.eval()
 
-        if self.args.second_classifier_type != -1:
+        if getattr(self.args, 'diatom_classifier_2', ''):
+            from diatoms.diatom_classifier import load_diatom_classifier
+            self.second_classifier, labels_2, desc = load_diatom_classifier(self.args.diatom_classifier_2)
+            assert list(labels_2) == list(self.imagenet_labels), 'both diatom classifiers need the same classes'
+            print('second diatom classifier:', desc)
+            self.args.second_classifier_type = 99  # any value != -1 enables the second-classifier code paths
+            self.second_classifier.to(self.device)
+            self.second_classifier.eval()
+        elif self.args.second_classifier_type != -1:
             self.second_classifier = evaluator.load_model(
                 self.args.second_classifier_type, prewrapper=partial(ResizeAndMeanWrapper, size=self.args.classifier_size_2,
                                                               interpolation=self.args.interpolation_int_2)

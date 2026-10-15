@@ -1,0 +1,291 @@
+{
+ "seed": 1,
+ "loader_matches_imagenet_VCEs": true,
+ "class_group": {
+  "1": "A",
+  "397": "B",
+  "396": "A",
+  "27": "A",
+  "32": "B",
+  "29": "B",
+  "33": "A",
+  "34": "B",
+  "37": "B",
+  "52": "A",
+  "56": "B",
+  "60": "B",
+  "70": "A",
+  "72": "B",
+  "78": "B",
+  "75": "A",
+  "76": "A",
+  "87": "A",
+  "90": "B",
+  "88": "A",
+  "269": "A",
+  "271": "B",
+  "272": "A",
+  "288": "A",
+  "289": "B",
+  "293": "B",
+  "327": "A",
+  "328": "B",
+  "329": "A",
+  "347": "A",
+  "351": "B",
+  "353": "A",
+  "429": "A",
+  "768": "B",
+  "574": "A",
+  "949": "A",
+  "953": "B",
+  "957": "B",
+  "955": "A",
+  "956": "A",
+  "970": "A",
+  "979": "B",
+  "980": "A"
+ },
+ "entries": [
+  {
+   "idx": 19858,
+   "label": 397,
+   "targets": [
+    1,
+    396
+   ],
+   "source": "paper-fig14",
+   "path": "n02655020/ILSVRC2012_val_00008212.JPEG",
+   "label_name": "puffer",
+   "target_names": [
+    "goldfish",
+    "lionfish"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 17586,
+   "label": 351,
+   "targets": [
+    353,
+    347
+   ],
+   "source": "paper-fig14",
+   "path": "n02422106/ILSVRC2012_val_00036270.JPEG",
+   "label_name": "hartebeest",
+   "target_names": [
+    "gazelle",
+    "bison"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 48998,
+   "label": 979,
+   "targets": [
+    980,
+    970
+   ],
+   "source": "paper-fig14",
+   "path": "n09468604/ILSVRC2012_val_00045923.JPEG",
+   "label_name": "valley",
+   "target_names": [
+    "volcano",
+    "alp"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 47454,
+   "label": 949,
+   "targets": [
+    953,
+    957
+   ],
+   "source": "paper-fig14",
+   "path": "n07745940/ILSVRC2012_val_00001936.JPEG",
+   "label_name": "strawberry",
+   "target_names": [
+    "pineapple",
+    "pomegranate"
+   ],
+   "group": "A"
+  },
+  {
+   "idx": 1666,
+   "label": 33,
+   "targets": [
+    34,
+    37
+   ],
+   "source": "paper-fig5",
+   "path": "n01664065/ILSVRC2012_val_00022469.JPEG",
+   "label_name": "loggerhead",
+   "target_names": [
+    "leatherback turtle",
+    "box turtle"
+   ],
+   "group": "A"
+  },
+  {
+   "idx": 3607,
+   "label": 72,
+   "targets": [
+    75,
+    76
+   ],
+   "source": "paper-fig5",
+   "path": "n01773157/ILSVRC2012_val_00004140.JPEG",
+   "label_name": "black and gold garden spider",
+   "target_names": [
+    "black widow",
+    "tarantula"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 16431,
+   "label": 328,
+   "targets": [
+    329,
+    327
+   ],
+   "source": "paper-fig5",
+   "path": "n02319095/ILSVRC2012_val_00039456.JPEG",
+   "label_name": "sea urchin",
+   "target_names": [
+    "sea cucumber",
+    "starfish"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 4548,
+   "label": 90,
+   "targets": [
+    88,
+    87
+   ],
+   "source": "paper-fig5",
+   "path": "n01820546/ILSVRC2012_val_00047491.JPEG",
+   "label_name": "lorikeet",
+   "target_names": [
+    "macaw",
+    "African grey"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 13578,
+   "label": 271,
+   "targets": [
+    272,
+    269
+   ],
+   "source": "paper-fig5",
+   "path": "n02114712/ILSVRC2012_val_00028593.JPEG",
+   "label_name": "red wolf",
+   "target_names": [
+    "coyote",
+    "timber wolf"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 47680,
+   "label": 953,
+   "targets": [
+    955,
+    956
+   ],
+   "source": "paper-fig5",
+   "path": "n07753275/ILSVRC2012_val_00029522.JPEG",
+   "label_name": "pineapple",
+   "target_names": [
+    "jackfruit",
+    "custard apple"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 3541,
+   "label": 70,
+   "targets": [
+    72,
+    78
+   ],
+   "source": "paper-fig14",
+   "path": "n01770081/ILSVRC2012_val_00040621.JPEG",
+   "label_name": "harvestman",
+   "target_names": [
+    "black and gold garden spider",
+    "tick"
+   ],
+   "group": "A"
+  },
+  {
+   "idx": 38424,
+   "label": 768,
+   "targets": [
+    574,
+    429
+   ],
+   "source": "paper-fig14",
+   "path": "n04118538/ILSVRC2012_val_00027616.JPEG",
+   "label_name": "rugby ball",
+   "target_names": [
+    "golf ball",
+    "baseball"
+   ],
+   "group": "B"
+  },
+  {
+   "idx": 2613,
+   "label": 52,
+   "targets": [
+    60,
+    56
+   ],
+   "source": "paper-fig14",
+   "path": "n01728572/ILSVRC2012_val_00016737.JPEG",
+   "label_name": "thunder snake",
+   "target_names": [
+    "night snake",
+    "king snake"
+   ],
+   "group": "A"
+  },
+  {
+   "idx": 1356,
+   "label": 27,
+   "targets": [
+    32,
+    29
+   ],
+   "source": "paper-fig14",
+   "path": "n01631663/ILSVRC2012_val_00003214.JPEG",
+   "label_name": "eft",
+   "target_names": [
+    "tailed frog",
+    "axolotl"
+   ],
+   "group": "A"
+  },
+  {
+   "idx": 14431,
+   "label": 288,
+   "targets": [
+    289,
+    293
+   ],
+   "source": "paper-fig14",
+   "path": "n02128385/ILSVRC2012_val_00032869.JPEG",
+   "label_name": "leopard",
+   "target_names": [
+    "snow leopard",
+    "cheetah"
+   ],
+   "group": "A"
+  }
+ ]
+}

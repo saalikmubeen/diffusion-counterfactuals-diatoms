@@ -1,0 +1,5 @@
+test split (random): 3411 images, 587 species present; attacks: L2 PGD-10 (fp32) on 3411 images
+model                                      top-1   top-5  eps 0.25   eps 0.5   eps 1.0   eps 2.0
+independent classifier (original)                        0.833   0.865     0.597     0.186     0.017     0.001
+r50madry_random_eps0.5 (epoch 19)          0.919   0.987     0.899     0.865     0.768     0.459
+r50madry_random_eps1.0 (epoch 19)          0.909   0.987     0.889     0.870     0.818     0.621
