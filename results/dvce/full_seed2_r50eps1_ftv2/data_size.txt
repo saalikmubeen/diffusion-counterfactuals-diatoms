@@ -1,0 +1,20 @@
+602 counterfactuals; training images per species (random split): target median 52 (range 20-288), source median 88
+
+BY N_TARGET (training images of the target species)
+       bin    n  reached  LPIPS  locality  transfer   traits toward target
+     20-39  240    91.7%  0.175       36x     53.3%        74.3% (n=440)
+     40-79  186    96.2%  0.176       36x     60.2%        72.6% (n=328)
+    80-149  148    95.3%  0.154       50x     62.2%        72.5% (n=233)
+     >=150   28   100.0%  0.149       48x     57.1%        82.2% (n=45)
+  Spearman with log(training images): reached +0.09 (p=0.029), LPIPS -0.16 (p=0.0001), transfer +0.08 (p=0.048), locality +0.00 (p=0.92), traits -0.00 (p=0.99)
+  lowest quartile (<= 28 images, n=155) vs highest (>= 87, n=154): reached 91.0% vs 96.1% (Fisher p=0.1), transfer 54.8% vs 63.0% (p=0.17), LPIPS 0.169 vs 0.151 (Mann-Whitney p=0.00049)
+
+BY N_SOURCE (training images of the source species)
+       bin    n  reached  LPIPS  locality  transfer   traits toward target
+     20-39   42    76.2%  0.198       51x     47.6%        57.4% (n=54)
+     40-79  220    93.2%  0.176       39x     51.4%        71.2% (n=361)
+    80-149  262    98.1%  0.161       39x     63.4%        74.7% (n=491)
+     >=150   78    94.9%  0.159       38x     62.8%        82.9% (n=140)
+  Spearman with log(training images): reached +0.13 (p=0.0019), LPIPS -0.19 (p=1.7e-06), transfer +0.09 (p=0.021), locality -0.04 (p=0.28), traits +0.10 (p=0.017)
+  lowest quartile (<= 58 images, n=152) vs highest (>= 130, n=164): reached 90.8% vs 95.7% (Fisher p=0.11), transfer 57.2% vs 61.0% (p=0.57), LPIPS 0.183 vs 0.160 (Mann-Whitney p=0.00017)
+

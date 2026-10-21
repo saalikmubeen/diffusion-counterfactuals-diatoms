@@ -118,6 +118,14 @@ photos of each target species (chance = 50%):
 All full-run rates p < 1e-10 (602 counterfactuals). Details:
 [`results/traits/summary.txt`](results/traits/summary.txt), `diatoms/COMMANDS.md` section 19.
 
+### Does quality depend on how much training data a species has?
+
+Yes, mainly through the **source** species. Specimens of species with 20–39 training images reach the
+target in only 74% of cases, against 97–98% with 80 or more, and their edits are larger. Rare species are
+mostly long, cropped diatoms, but in a joint regression training-set size, not cropping, predicts whether
+the target is reached. Cropping predicts larger edits and lower transfer. Details are in
+`diatoms/COMMANDS.md` section 25.
+
 ### Ablations: is each component needed?
 
 Same 50 test specimens and 100 targets, one component swapped at a time.
@@ -265,8 +273,9 @@ Outputs go to `results/dvce/<NAME>/`:
 
 ## Limitations
 
-- **Cropping:** 46% of specimens exceed 224 px and lose their ends; most
-  failure cases are among them, and cropping costs classifier accuracy.
+- **Cropping and rare species:** 46% of specimens exceed 224 px and lose their ends (larger edits,
+  lower transfer). Counterfactuals are less reliable for species with few training images, and species
+  with fewer than 20 were not tested.
 - **Split:** the explained classifier is trained on a random image split. A
   page-split classifier gives explanations that change the same traits, but it
   is much weaker (37%) and the comparison uses 50 specimens.

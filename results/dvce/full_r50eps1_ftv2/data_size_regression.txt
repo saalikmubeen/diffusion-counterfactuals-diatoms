@@ -1,0 +1,8 @@
+Joint regressions (logistic for reached/transfer, OLS for LPIPS) over 602 counterfactuals; coefficients per unit of log(training images) and for cropped (0/1).
+
+seed1: reached  log n_source +1.13 (p=0.0006), log n_target +0.59 (p=0.06), cropped -0.40 (p=0.3)
+       LPIPS    log n_source -0.0124 (p=0.004), log n_target -0.0093 (p=0.008), cropped +0.0293 (p=2e-10)
+       transfer log n_source -0.06 (p=0.7), log n_target +0.27 (p=0.05), cropped -0.41 (p=0.02)
+seed2: reached  log n_source +0.89 (p=0.008), log n_target +0.64 (p=0.05), cropped -0.47 (p=0.2)
+       LPIPS    log n_source -0.0119 (p=0.003), log n_target -0.0113 (p=0.0006), cropped +0.0284 (p=5e-11)
+       transfer log n_source +0.13 (p=0.4), log n_target +0.20 (p=0.1), cropped -0.50 (p=0.004)

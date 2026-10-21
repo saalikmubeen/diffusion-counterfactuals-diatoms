@@ -1038,6 +1038,38 @@ Full run: length 82%, width 70%, elongation 87%, stria period 68%.
 
 ---
 
+## 25. Counterfactual quality vs. training-set size per species (2026-10-21) ✅
+
+Professor's question: are counterfactuals worse for species with few training images? CPU only, about
+3 min per seed.
+
+```bash
+B=DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s
+python diatoms/data_size_analysis.py --pth ${B}_1_wid_0_2_dvces/302.pth ${B}_1_wid_1_2_dvces/300.pth \
+    --traits results/traits/traits_full.csv --out results/dvce/full_r50eps1_ftv2/data_size.txt
+python diatoms/data_size_analysis.py --pth ${B}_2_wid_0_2_dvces/302.pth ${B}_2_wid_1_2_dvces/300.pth \
+    --traits results/traits/traits_full_seed2.csv --out results/dvce/full_seed2_r50eps1_ftv2/data_size.txt
+```
+
+| source species, training images | n | reached | LPIPS | transfer | traits toward target | cropped |
+|---|---|---|---|---|---|---|
+| 20–39 | 42 | **73.8%** | 0.202 | 47.6% | 58% | 81% |
+| 40–79 | 220 | 91.8% | 0.177 | 54.1% | 71% | 60% |
+| 80–149 | 262 | 97.7% | 0.164 | 59.2% | 75% | 41% |
+| ≥150 | 78 | 97.4% | 0.160 | 59.0% | 81% | 33% |
+
+Target species show the same direction, but weaker (reached 91.7% → 100%, LPIPS 0.177 → 0.158).
+
+Joint regressions (`results/dvce/full_r50eps1_ftv2/data_size_regression.txt`, both seeds):
+- **reached** depends on log(source training size) (p = 0.0006 / 0.008), not on cropping (p = 0.3 / 0.2)
+- **LPIPS** depends on cropping (p < 1e-9) and on both training sizes (p < 0.01)
+- **transfer** depends on cropping (p = 0.02 / 0.004)
+
+→ Part of the "cropped diatoms fail" result (section 22 / breakdown) is really a data-size effect: rare
+species are mostly long, cropped diatoms. Species with fewer than 20 training images were never tested.
+
+---
+
 ## Where things are
 
 | Path | What |
