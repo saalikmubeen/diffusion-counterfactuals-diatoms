@@ -1,0 +1,6 @@
+evaluator: r50imagenet_page_eps0/best.pt: resnet50, init imagenet_r50, eps 0.0, epoch 12
+602 counterfactuals from ['DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_0_2_dvces/302.pth', 'DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_1_2_dvces/300.pth']
+
+originals:        source species correct 46.5% | already predicts target 4.8% | mean p(target) 0.035
+counterfactuals:  predicts target 56.5% | still source 1.7% | mean p(target) 0.457 | prediction in target genus 71.3%
+among originals it classified correctly (n=280): predicts target on counterfactual 57.1%

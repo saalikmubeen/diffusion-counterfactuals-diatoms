@@ -1,0 +1,8 @@
+602 counterfactuals (301 source diatoms), same pairs for every run
+
+run                 reached  med p  LPIPS      L1  in/out in/out224
+full                  93.9%  0.993  0.171  0.0200     52x       37x
+
+
+L1: mean absolute pixel change; in/out: mean change inside the diatom / outside it (whole 256 canvas);
+in/out224: same, background restricted to the central 224x224 crop the classifier sees.

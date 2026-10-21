@@ -48,6 +48,7 @@ from eval_independent_classifier import (DIATLAS, IMAGENET_MEAN, IMAGENET_STD,  
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(REPO, 'data', 'diatlas')
 DATA_NATIVE = os.path.join(REPO, 'data', 'diatlas_nativesize_crop224_canvas256')
+DATA_FIT = os.path.join(REPO, 'data', 'diatlas_nativesize_fit224_canvas256')   # long diatoms shrunk to fit, not cropped
 
 
 class NormalizedClassifier(nn.Module):
@@ -152,7 +153,7 @@ class DiatlasSpecies(Dataset):
         idx = {c: i for i, c in enumerate(classes)}
         with open(os.path.join(DIATLAS, 'diatoms.csv')) as f:
             species_of = {r['path'].lstrip('/'): r[label_key] for r in csv.DictReader(f)}
-        with open(os.path.join(DATA_NATIVE if preproc == 'nativesize' else DATA, 'splits.csv')) as f:
+        with open(os.path.join({'nativesize': DATA_NATIVE, 'nativefit': DATA_FIT}.get(preproc, DATA), 'splits.csv')) as f:
             rows = list(csv.DictReader(f))
         if split_mode == 'random':
             for r in rows:
@@ -165,6 +166,8 @@ class DiatlasSpecies(Dataset):
             self.paths = [os.path.join(DATA, r['path']) for r in rows]
         elif preproc == 'nativesize':
             self.paths = [os.path.join(DATA_NATIVE, r['path']) for r in rows]
+        elif preproc == 'nativefit':
+            self.paths = [os.path.join(DATA_FIT, r['path']) for r in rows]
         else:
             self.paths = [os.path.join(DIATLAS, r['orig_path']) for r in rows]
         self.targets = [idx[species_of[r['orig_path']]] for r in rows]
@@ -275,7 +278,7 @@ def main():
     p.add_argument('--weight_decay', type=float, default=5e-4)
     p.add_argument('--workers', type=int, default=8)
     p.add_argument('--seed', type=int, default=0)
-    p.add_argument('--preproc', choices=['nativesize', 'ours', 'padcrop'], default='nativesize',
+    p.add_argument('--preproc', choices=['nativesize', 'nativefit', 'ours', 'padcrop'], default='nativesize',
                    help="'nativesize' = data/diatlas_nativesize_crop224_canvas256, classifier gets the center 224 "
                         "crop (DVCE input); 'ours' = stretch-to-fit 256, resized; 'padcrop' = PadCropDiatom transform on the fly")
     p.add_argument('--keep_empty', action='store_true', help='keep images without species_code (genus-only)')
@@ -318,7 +321,7 @@ def main():
 
     net, arch = build_network(args.init, len(classes))
     model = ResizeToClassifier(NormalizedClassifier(net),
-                               mode='centercrop' if args.preproc == 'nativesize' else 'resize').cuda()
+                               mode='centercrop' if args.preproc in ('nativesize', 'nativefit') else 'resize').cuda()
     opt = torch.optim.SGD(model.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.weight_decay, nesterov=True)
     steps_total = args.epochs * len(train_dl)
     sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: 0.5 * (1 + math.cos(math.pi * s / steps_total)))
@@ -328,7 +331,7 @@ def main():
         torch.save({'state_dict': model.model.state_dict(),  # NormalizedClassifier: net.* + mean/std
                     'classes': classes, 'label_key': label_key, 'labels': args.labels, 'split_mode': args.split_mode, 'arch': arch, 'init': args.init, 'num_classes': len(classes),
                     'input': ('[0,1] RGB, 224x224 = center crop of the 256 native-size image'
-                              if args.preproc == 'nativesize' else '[0,1] RGB, 224x224 (256 resized, bicubic)')
+                              if args.preproc in ('nativesize', 'nativefit') else '[0,1] RGB, 224x224 (256 resized, bicubic)')
                              + '; ImageNet mean/std inside', 'preproc': args.preproc,
                     'eps_train_l2_256': args.eps, 'epoch': epoch, 'val_acc': val_acc, 'val_robust_acc': val_rob,
                     'eval_eps': eval_eps, 'args': vars(args)}, os.path.join(out_dir, name))

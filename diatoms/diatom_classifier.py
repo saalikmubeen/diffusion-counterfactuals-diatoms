@@ -42,7 +42,7 @@ def load_diatom_classifier(ckpt):
         net = NormalizedClassifier(getattr(torchvision.models, ck.get('arch', 'resnet18'))(num_classes=ck['num_classes']))
         net.load_state_dict(ck['state_dict'])
         classes = ck['classes']
-        mode = 'centercrop' if ck.get('preproc', 'nativesize') == 'nativesize' else 'resize'
+        mode = 'centercrop' if ck.get('preproc', 'nativesize') in ('nativesize', 'nativefit') else 'resize'
         desc = (f"{os.path.basename(os.path.dirname(ckpt))}/{os.path.basename(ckpt)}: {ck.get('arch')}, "
                 f"init {ck.get('init', 'independent').replace('supervisor', 'independent')}, eps {ck.get('eps_train_l2_256')}, epoch {ck.get('epoch')}")
     model = _ToModelDevice(ResizeToClassifier(net, mode=mode)).eval()

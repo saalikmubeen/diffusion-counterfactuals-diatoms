@@ -1,0 +1,10 @@
+100 counterfactuals from 50 source diatoms
+
+EXPLAINED CLASSIFIER
+  target reached:   98.0%   p(target) 0.020 -> 0.981 (mean), median after 1.000
+  closeness:        LPIPS 0.063 (median 0.061), L1 0.0087
+  where it changed: inside the diatom 0.0410 vs background 0.0006 (72x more on the diatom)
+
+TRANSFER: do independent classifiers (never used for guidance) also see the target?
+  independent_robust target seen 49.0% (when it classified the original correctly: 44.4%, n=72)   p(target) 0.009 -> 0.274
+  independent_nonrobust target seen 98.0% (when it classified the original correctly: 98.8%, n=84)   p(target) 0.020 -> 0.981

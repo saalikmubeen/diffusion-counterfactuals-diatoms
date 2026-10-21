@@ -43,11 +43,15 @@ To make this work outside natural images, we:
   neighbourhoods
 
 On 301 unseen test specimens, 93.9% of 602 counterfactuals reach the target
-species, and the changes concentrate 52× more on the specimen than on the
-background. They alter diagnostic traits such as outline, stria density and
-marginal structures, and about a quarter transfer to independently trained
-classifiers. We also show that random image splits of DIATLAS leak atlas-page
-information and overestimate generalisation by more than 2×.
+species, and the changes concentrate 37× more on the specimen than on the
+visible background. A classifier trained only on other atlas pages, which never
+saw the sources, predicts the target species for 56.5% of the counterfactuals
+(4.8% on the originals), and automatically measured traits move towards the
+target species in 68–87% of cases. Explanations of a classifier trained on
+held-out pages change the same traits. We also show that the evaluation split changes what accuracy
+means on DIATLAS: random image splits measure recognition within known samples,
+while holding out whole atlas pages measures generalisation to new samples and
+roughly halves species-level accuracy.
 
 ## Method
 
@@ -64,8 +68,11 @@ DIATLAS ──► native-size preprocessing (crop 224, canvas 256) ──► pag
                     (classifier sees the center 224 crop)
 ```
 
-- **Preprocessing.** Specimens keep their native pixel size (stretching erases
-  size, a species trait). Images longer than 224 px are center-cropped and
+- **Preprocessing.** Specimens keep their native pixel size, so the diffusion
+  prior keeps their size and counterfactuals can show size changes. (For the
+  classifier alone, stretching is not worse: in a controlled test stretched
+  images reach 51% vs 43% for native-size crops, because cropping hides the
+  ends of long diatoms; see `diatoms/COMMANDS.md` section 20.) Images longer than 224 px are center-cropped and
   placed on a 256×256 canvas with seamless padding. The center 224×224 crop is
   the classifier input; the full canvas is the diffusion input.
 - **Targets.** For each source specimen, two species of the same genus are
@@ -86,12 +93,65 @@ during training.
 | Target reached | **93.9%** (median p(target) 0.99) |
 | p(target), before → after | 0.008 → 0.887 |
 | LPIPS to the original | 0.171 |
-| Change on specimen / background (L1 ratio) | **52×** |
-| Transfer to an independent robust ResNet-18 | 26.2% (its p(target) 0.010 → 0.167) |
-| Transfer to an independent non-robust ResNet-18 | 25.9% (its p(target) 0.005 → 0.252) |
+| Change on specimen / background, within the classifier's 224 crop | **37×** |
+| Classifier trained on held-out atlas pages predicts the target | **56.5%** (4.8% on the originals) |
+| Third-party ResNet-18s predict the target (may have seen the test pages) | 26.2% robust / 25.9% non-robust |
 
 Selected best, typical and failure cases:
 [`results/dvce/full_r50eps1_ftv2/selection/`](results/dvce/full_r50eps1_ftv2/selection/).
+
+### Do counterfactuals change diagnostic traits?
+
+Traits measured automatically on originals, counterfactuals and real training
+photos of each target species (chance = 50%):
+
+| Trait | Moves towards the target species | Non-robust classifier (control) |
+|---|---|---|
+| Length | **81%** | 52% |
+| Width | **69%** | 46% |
+| Elongation (length / width) | **87%** | 53% |
+| Stria period | **68%** | 41% |
+
+All full-run rates p < 1e-10 (602 counterfactuals). Details:
+[`results/traits/summary.txt`](results/traits/summary.txt), `diatoms/COMMANDS.md` section 19.
+
+### Ablations: is each component needed?
+
+Same 50 test specimens and 100 targets, one component swapped at a time.
+"Transfer": the target is also predicted by the classifier trained on
+held-out atlas pages (it never saw the sources).
+
+| | Target reached | LPIPS | Change on specimen / background (224 crop) | Transfer |
+|---|---|---|---|---|
+| **Full model** (fine-tuned prior, robust ResNet-50) | 98% | 0.170 | 39× | **56%** |
+| ImageNet prior instead | 99% | 0.201 | 30× | 47% |
+| Non-robust classifier instead | 98% | 0.063 | 53× | 4% |
+
+- **The robust classifier is essential.** Explaining a standard classifier
+  gives near-invisible, adversarial-like edits that flip it but almost never
+  convince an unrelated robust model.
+- **The fine-tuned prior makes edits smaller and more local** (LPIPS lower for
+  82/100 counterfactuals, p = 6e-13). Transfer is higher too (56% vs 47%, not
+  significant on 100 counterfactuals). The ImageNet prior adds non-diatom
+  artefacts.
+
+### Do the explanations depend on the training split?
+
+The same robust ResNet-50 trained on held-out atlas pages (37% test accuracy)
+was explained on the same 50 specimens; a second random seed of the main run is
+the noise floor.
+
+| Compared with the main run | Seed 2 | Page-split classifier |
+|---|---|---|
+| Traits changed in the same direction | 85% | **84%** |
+| Main counterfactuals convince the page-split classifier | — | **76%** |
+
+The explanations change the same traits, and the random-split classifier's
+counterfactuals convince a classifier trained across pages.
+
+![Ablation examples](results/dvce/comparison/comparison.png)
+
+*Columns: original; full model; ImageNet prior; non-robust classifier.*
 
 ### Diffusion prior
 
@@ -185,19 +245,23 @@ Outputs go to `results/dvce/<NAME>/`:
 | Result | Command (details in [`diatoms/COMMANDS.md`](diatoms/COMMANDS.md)) |
 |---|---|
 | Counterfactual table | usage step 4 → `results/dvce/full/summary.txt` |
+| Trait table | `diatoms/trait_check.py` (section 19) |
+| Clean evaluator, preprocessing test, split dependence | sections 20–21 |
+| Ablation table | `run_dvce_experiment.sh` with `DIFFUSION=…` / `CLASSIFIER=independent`, then `diatoms/compare_dvce_runs.py` (section 18) |
 | Diffusion prior table | `diatoms/sample_diffusion.py --mode recon` + `diatoms/recon_metrics.py` (section 16) |
 | Split table | `diatoms/train_classifier.py --labels independent759 / species_pages3 / genus_train100` (section 13) |
 
 ## Limitations
 
 - **Cropping:** 46% of specimens exceed 224 px and lose their ends; most
-  failure cases are among them.
-- **Split:** the explained classifier is trained and evaluated on a random
-  image split (seen atlas pages).
+  failure cases are among them, and cropping costs classifier accuracy.
+- **Split:** the explained classifier is trained on a random image split. A
+  page-split classifier gives explanations that change the same traits, but it
+  is much weaker (37%) and the comparison uses 50 specimens.
 - **Edit size:** some counterfactuals redraw rather than minimally edit the
   specimen (median LPIPS 0.165). Stronger regularisation reduces edits at the
   cost of success rate.
-- **No expert validation yet:** whether the changes match the traits
+- **No expert validation yet:** measured traits move towards the target, but whether the changes match the traits
   diatomists use has not been judged by a specialist.
 
 

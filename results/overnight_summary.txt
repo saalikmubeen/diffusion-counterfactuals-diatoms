@@ -1,0 +1,104 @@
+OVERNIGHT SUMMARY (2026-10-21 07:02:25)
+
+== Preprocessing, clean test (ImageNet ResNet-50, page split, 15 epochs): best val accuracy
+  r50imagenet_page_eps0: best val acc 0.4287
+  r50imagenet_page_eps0_stretched: best val acc 0.5117
+  r50imagenet_page_eps0_fit: best val acc 0.4762
+
+== Page-split classifiers, page-split test set
+test split (page): 4214 images, 339 species present; attacks: L2 PGD-10 (fp32) on 4214 images
+
+model                                      top-1   top-5   eps 0.5   eps 1.0
+r50madry_page_eps1.0 (epoch 15)            0.374   0.657     0.325     0.275
+r50imagenet_page_eps0 (epoch 12)           0.416   0.693     0.021     0.003
+
+== DVCE with the page-split classifier (own summary)
+100 counterfactuals from 50 source diatoms
+
+EXPLAINED CLASSIFIER
+  target reached:   97.0%   p(target) 0.021 -> 0.917 (mean), median after 0.993
+  closeness:        LPIPS 0.178 (median 0.174), L1 0.0193
+  where it changed: inside the diatom 0.0891 vs background 0.0020 (45x more on the diatom)
+
+TRANSFER: do independent classifiers (never used for guidance) also see the target?
+  independent_robust target seen 27.0% (when it classified the original correctly: 25.0%, n=72)   p(target) 0.009 -> 0.171
+  independent_nonrobust target seen 19.0% (when it classified the original correctly: 20.2%, n=84)   p(target) 0.020 -> 0.201
+
+== Same 50 pairs: main vs seed 2 vs page-split classifier
+100 counterfactuals (50 source diatoms), same pairs for every run
+
+run                 reached  med p  LPIPS      L1  in/out in/out224         clean_r50_page             robust_r18    robust_r50_rand_e05     robust_r50_page_e1
+main                  98.0%  0.994  0.170  0.0192     54x       39x    56.0% (p 0.455)    32.0% (p 0.218)    98.0% (p 0.928)    76.0% (p 0.647)
+seed2                 98.0%  0.994  0.168  0.0191     52x       37x    58.0% (p 0.465)    26.0% (p 0.197)    98.0% (p 0.922)    75.0% (p 0.660)
+pagesplit_clf         97.0%  0.993  0.178  0.0193     45x       32x    74.0% (p 0.609)    27.0% (p 0.171)    90.0% (p 0.814)    97.0% (p 0.917)
+
+LPIPS main vs seed2: 0.170 vs 0.168, paired Wilcoxon p = 2.5e-01; seed2 edit larger in 43/100
+  success                 98.0% vs  98.0%  (only main: 0, only seed2: 0, exact McNemar p = 1.0e+00)
+  clean_r50_page          56.0% vs  58.0%  (only main: 9, only seed2: 11, exact McNemar p = 8.2e-01)
+  robust_r18              32.0% vs  26.0%  (only main: 10, only seed2: 4, exact McNemar p = 1.8e-01)
+  robust_r50_rand_e05     98.0% vs  98.0%  (only main: 0, only seed2: 0, exact McNemar p = 1.0e+00)
+  robust_r50_page_e1      76.0% vs  75.0%  (only main: 5, only seed2: 4, exact McNemar p = 1.0e+00)
+LPIPS main vs pagesplit_clf: 0.170 vs 0.178, paired Wilcoxon p = 1.3e-02; pagesplit_clf edit larger in 60/100
+  success                 98.0% vs  97.0%  (only main: 2, only pagesplit_clf: 1, exact McNemar p = 1.0e+00)
+  clean_r50_page          56.0% vs  74.0%  (only main: 7, only pagesplit_clf: 25, exact McNemar p = 2.1e-03)
+  robust_r18              32.0% vs  27.0%  (only main: 10, only pagesplit_clf: 5, exact McNemar p = 3.0e-01)
+  robust_r50_rand_e05     98.0% vs  90.0%  (only main: 8, only pagesplit_clf: 0, exact McNemar p = 7.8e-03)
+  robust_r50_page_e1      76.0% vs  97.0%  (only main: 0, only pagesplit_clf: 21, exact McNemar p = 9.5e-07)
+
+L1: mean absolute pixel change; in/out: mean change inside the diatom / outside it (whole 256 canvas);
+in/out224: same, background restricted to the central 224x224 crop the classifier sees.
+
+== Do explanations change? (reference: main run)
+100 counterfactuals; reference run: main
+
+run             LPIPS between  change-map corr  target-specific trait agree
+seed2                   0.102             0.44                  85% (79/93)
+pagesplit_clf           0.124             0.55                  84% (79/94)
+imagenet_prior          0.128             0.58                  81% (72/89)
+nonrobust_clf           0.159             0.33                  62% (26/42)
+
+pagesplit_clf vs seed2 (paired Wilcoxon): LPIPS between p = 1.8e-05, change-map corr p = 1.5e-08
+imagenet_prior vs seed2 (paired Wilcoxon): LPIPS between p = 3.0e-05, change-map corr p = 1.4e-11
+nonrobust_clf vs seed2 (paired Wilcoxon): LPIPS between p = 9.5e-17, change-map corr p = 2.3e-09
+
+== Trait check
+MEASUREMENT RELIABILITY (reference training images)
+trait           measured  species R2  (share of variance explained by species)
+length               51%        0.64
+width               100%        0.80
+elongation           51%        0.69
+stria_period         93%        0.49
+
+RUN main50: 100 counterfactuals
+trait               direction: towards target        specificity: B1 vs B2
+length               91.7% (22/24, p=3.6e-05)      70.0% (7/10, p=3.4e-01)
+                 direction 95% CI (cluster bootstrap over 18 sources): [80.8%, 100.0%]; median share of gap to target mean closed 0.26 [0.11, 0.57]
+width                76.5% (52/68, p=1.4e-05)     64.9% (24/37, p=9.9e-02)
+                 direction 95% CI (cluster bootstrap over 44 sources): [64.8%, 87.3%]; median share of gap to target mean closed 0.16 [0.11, 0.36]
+elongation           90.0% (18/20, p=4.0e-04)       87.5% (7/8, p=7.0e-02)
+                 direction 95% CI (cluster bootstrap over 14 sources): [75.0%, 100.0%]; median share of gap to target mean closed 0.68 [0.25, 1.10]
+stria_period         62.0% (31/50, p=1.2e-01)     63.6% (14/22, p=2.9e-01)
+                 direction 95% CI (cluster bootstrap over 33 sources): [47.7%, 75.9%]; median share of gap to target mean closed 0.24 [0.00, 0.61]
+
+RUN seed2: 100 counterfactuals
+trait               direction: towards target        specificity: B1 vs B2
+length               83.3% (20/24, p=1.5e-03)      70.0% (7/10, p=3.4e-01)
+                 direction 95% CI (cluster bootstrap over 18 sources): [64.0%, 100.0%]; median share of gap to target mean closed 0.20 [0.08, 0.67]
+width                73.5% (50/68, p=1.3e-04)     70.3% (26/37, p=2.0e-02)
+                 direction 95% CI (cluster bootstrap over 44 sources): [62.7%, 83.8%]; median share of gap to target mean closed 0.16 [0.06, 0.30]
+elongation           85.0% (17/20, p=2.6e-03)      100.0% (8/8, p=7.8e-03)
+                 direction 95% CI (cluster bootstrap over 14 sources): [70.0%, 100.0%]; median share of gap to target mean closed 0.82 [0.28, 1.02]
+stria_period         56.0% (28/50, p=4.8e-01)     45.5% (10/22, p=8.3e-01)
+                 direction 95% CI (cluster bootstrap over 33 sources): [40.8%, 71.4%]; median share of gap to target mean closed 0.12 [0.00, 0.79]
+
+RUN pagesplit_clf: 100 counterfactuals
+trait               direction: towards target        specificity: B1 vs B2
+length               79.2% (19/24, p=6.6e-03)      80.0% (8/10, p=1.1e-01)
+                 direction 95% CI (cluster bootstrap over 18 sources): [58.3%, 95.8%]; median share of gap to target mean closed 0.36 [0.05, 0.70]
+width                82.4% (56/68, p=6.2e-08)     73.0% (27/37, p=7.6e-03)
+                 direction 95% CI (cluster bootstrap over 44 sources): [72.9%, 91.2%]; median share of gap to target mean closed 0.26 [0.14, 0.47]
+elongation           90.0% (18/20, p=4.0e-04)      100.0% (8/8, p=7.8e-03)
+                 direction 95% CI (cluster bootstrap over 14 sources): [73.7%, 100.0%]; median share of gap to target mean closed 0.79 [0.56, 1.12]
+stria_period         62.0% (31/50, p=1.2e-01)     73.9% (17/23, p=3.5e-02)
+                 direction 95% CI (cluster bootstrap over 33 sources): [48.0%, 75.0%]; median share of gap to target mean closed 0.23 [0.00, 0.63]
+

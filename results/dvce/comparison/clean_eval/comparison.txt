@@ -1,0 +1,16 @@
+100 counterfactuals (50 source diatoms), same pairs for every run
+
+run                 reached  med p  LPIPS      L1  in/out in/out224         clean_r50_page
+main                  98.0%  0.994  0.170  0.0192     54x       39x    56.0% (p 0.455)
+imagenet_prior        99.0%  0.991  0.201  0.0196     40x       30x    47.0% (p 0.335)
+nonrobust_clf         98.0%  1.000  0.063  0.0087     72x       53x     4.0% (p 0.039)
+
+LPIPS main vs imagenet_prior: 0.170 vs 0.201, paired Wilcoxon p = 5.7e-13; imagenet_prior edit larger in 82/100
+  success                 98.0% vs  99.0%  (only main: 0, only imagenet_prior: 1, exact McNemar p = 1.0e+00)
+  clean_r50_page          56.0% vs  47.0%  (only main: 18, only imagenet_prior: 9, exact McNemar p = 1.2e-01)
+LPIPS main vs nonrobust_clf: 0.170 vs 0.063, paired Wilcoxon p = 4.1e-18; nonrobust_clf edit larger in 1/100
+  success                 98.0% vs  98.0%  (only main: 2, only nonrobust_clf: 2, exact McNemar p = 1.0e+00)
+  clean_r50_page          56.0% vs   4.0%  (only main: 52, only nonrobust_clf: 0, exact McNemar p = 4.4e-16)
+
+L1: mean absolute pixel change; in/out: mean change inside the diatom / outside it (whole 256 canvas);
+in/out224: same, background restricted to the central 224x224 crop the classifier sees.

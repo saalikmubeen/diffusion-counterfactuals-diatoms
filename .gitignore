@@ -17,3 +17,6 @@ Miniconda3-*.sh
 /results/dvce/*/figures/
 /results/diffusion/*/
 
+
+# paper draft (kept local until submission)
+/paper/

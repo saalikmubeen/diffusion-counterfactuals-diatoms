@@ -1,0 +1,51 @@
+MEASUREMENT RELIABILITY (reference training images)
+trait           measured  species R2  (share of variance explained by species)
+length               50%        0.64
+width               100%        0.83
+elongation           50%        0.77
+stria_period         92%        0.48
+
+RUN full: 602 counterfactuals
+trait               direction: towards target        specificity: B1 vs B2
+length             81.2% (125/154, p=2.1e-15)     66.0% (33/50, p=3.3e-02)
+                 direction 95% CI (cluster bootstrap over 106 sources): [74.7%, 87.8%]; median share of gap to target mean closed 0.19 [0.12, 0.29]
+width              69.1% (302/437, p=9.0e-16)   69.7% (147/211, p=1.1e-08)
+                 direction 95% CI (cluster bootstrap over 274 sources): [64.3%, 73.5%]; median share of gap to target mean closed 0.11 [0.08, 0.15]
+elongation         86.5% (122/141, p=1.3e-19)     88.5% (46/52, p=1.0e-08)
+                 direction 95% CI (cluster bootstrap over 96 sources): [81.0%, 91.8%]; median share of gap to target mean closed 0.43 [0.33, 0.71]
+stria_period       68.1% (218/320, p=8.1e-11)    66.9% (93/139, p=8.3e-05)
+                 direction 95% CI (cluster bootstrap over 217 sources): [62.8%, 73.8%]; median share of gap to target mean closed 0.40 [0.21, 0.60]
+
+RUN main50: 100 counterfactuals
+trait               direction: towards target        specificity: B1 vs B2
+length               92.0% (23/25, p=1.9e-05)      70.0% (7/10, p=3.4e-01)
+                 direction 95% CI (cluster bootstrap over 18 sources): [81.5%, 100.0%]; median share of gap to target mean closed 0.27 [0.12, 0.67]
+width                76.5% (52/68, p=1.4e-05)     61.8% (21/34, p=2.3e-01)
+                 direction 95% CI (cluster bootstrap over 43 sources): [64.2%, 87.7%]; median share of gap to target mean closed 0.14 [0.09, 0.35]
+elongation           89.5% (17/19, p=7.3e-04)       85.7% (6/7, p=1.2e-01)
+                 direction 95% CI (cluster bootstrap over 13 sources): [73.7%, 100.0%]; median share of gap to target mean closed 0.83 [0.22, 1.07]
+stria_period         62.0% (31/50, p=1.2e-01)     70.0% (14/20, p=1.2e-01)
+                 direction 95% CI (cluster bootstrap over 33 sources): [47.7%, 75.9%]; median share of gap to target mean closed 0.24 [0.00, 0.61]
+
+RUN imagenet_prior: 100 counterfactuals
+trait               direction: towards target        specificity: B1 vs B2
+length               80.0% (20/25, p=4.1e-03)      80.0% (8/10, p=1.1e-01)
+                 direction 95% CI (cluster bootstrap over 18 sources): [62.1%, 95.7%]; median share of gap to target mean closed 0.29 [0.11, 0.63]
+width                76.5% (52/68, p=1.4e-05)     73.5% (25/34, p=9.0e-03)
+                 direction 95% CI (cluster bootstrap over 43 sources): [64.2%, 86.5%]; median share of gap to target mean closed 0.15 [0.07, 0.29]
+elongation           89.5% (17/19, p=7.3e-04)       85.7% (6/7, p=1.2e-01)
+                 direction 95% CI (cluster bootstrap over 13 sources): [73.7%, 100.0%]; median share of gap to target mean closed 0.40 [0.15, 0.94]
+stria_period         54.2% (26/48, p=6.7e-01)     64.7% (11/17, p=3.3e-01)
+                 direction 95% CI (cluster bootstrap over 32 sources): [38.8%, 70.2%]; median share of gap to target mean closed 0.14 [0.00, 0.62]
+
+RUN nonrobust_clf: 100 counterfactuals
+trait               direction: towards target        specificity: B1 vs B2
+length               52.0% (13/25, p=1.0e+00)      40.0% (4/10, p=7.5e-01)
+                 direction 95% CI (cluster bootstrap over 18 sources): [33.3%, 70.4%]; median share of gap to target mean closed 0.03 [0.00, 0.05]
+width                45.6% (31/68, p=5.4e-01)     44.1% (15/34, p=6.1e-01)
+                 direction 95% CI (cluster bootstrap over 43 sources): [32.9%, 59.4%]; median share of gap to target mean closed 0.00 [0.00, 0.03]
+elongation           52.6% (10/19, p=1.0e+00)       42.9% (3/7, p=1.0e+00)
+                 direction 95% CI (cluster bootstrap over 13 sources): [25.0%, 75.0%]; median share of gap to target mean closed 0.03 [-0.02, 0.17]
+stria_period         40.8% (20/49, p=2.5e-01)      40.0% (8/20, p=5.0e-01)
+                 direction 95% CI (cluster bootstrap over 33 sources): [25.5%, 57.2%]; median share of gap to target mean closed 0.00 [0.00, 0.08]
+

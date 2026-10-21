@@ -22,9 +22,11 @@ import numpy as np
 from PIL import Image
 
 
-def pad_crop_diatom(img, src_scale, tgt_scale, tgt_size=224, to_gray=True, crop_size=None):
+def pad_crop_diatom(img, src_scale, tgt_scale, tgt_size=224, to_gray=True, crop_size=None, fit=False):
     """crop_size: center-crop limit (default tgt_size). With crop_size=224, tgt_size=256 the
-    diatom content is identical to his 224 version, on a larger 256 canvas."""
+    diatom content is identical to his 224 version, on a larger 256 canvas.
+    fit=True: instead of cropping, shrink diatoms longer than crop_size to fit (aspect ratio
+    kept), so the whole valve stays visible; smaller diatoms keep their native size."""
     crop_size = crop_size or tgt_size
     img_cv = cv2.cvtColor(np.array(img.convert('RGB')), cv2.COLOR_RGB2BGR)
 
@@ -38,6 +40,10 @@ def pad_crop_diatom(img, src_scale, tgt_scale, tgt_size=224, to_gray=True, crop_
         img_cv = np.ascontiguousarray(np.transpose(img_cv, (1, 0, 2)))
 
     h, w = img_cv.shape[:2]
+    if fit and (h > crop_size or w > crop_size):
+        f = crop_size / max(h, w)
+        img_cv = cv2.resize(img_cv, (max(1, int(round(w * f))), max(1, int(round(h * f)))), interpolation=cv2.INTER_AREA)
+        h, w = img_cv.shape[:2]
     if h > crop_size or w > crop_size:
         sy, sx = max(0, (h - crop_size) // 2), max(0, (w - crop_size) // 2)
         img_cv = img_cv[sy:sy + crop_size, sx:sx + crop_size]

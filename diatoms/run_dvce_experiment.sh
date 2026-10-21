@@ -10,6 +10,9 @@
 #   CLASSIFIER  classifier to explain          default DiatlasModels/r50madry_random_eps1.0/best.pt
 #   DIFFUSION   diffusion model                default checkpoints/diatlas/ft_v2_nativesize/ema_0.9995_030000.pt
 #   EXTRA       extra diatlas_VCEs.py arguments (e.g. "--diatom_classifier_2 independent --deg_cone_projection 30")
+#   GPU         if set, run the halves one after the other on this GPU only
+#               (default: half 0 on GPU 0 and half 1 on GPU 1 in parallel)
+#   SHARDS      which halves to (re)run, default "0 1" (e.g. SHARDS=1 GPU=0 to redo half 1 on GPU 0)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 PY=$HOME/miniconda3/envs/python_38_dvces_cu111/bin/python
@@ -18,21 +21,28 @@ PAIRS=${PAIRS:-evaluation/vce_pairs_paper50.json}
 CLASSIFIER=${CLASSIFIER:-DiatlasModels/r50madry_random_eps1.0/best.pt}
 DIFFUSION=${DIFFUSION:-checkpoints/diatlas/ft_v2_nativesize/ema_0.9995_030000.pt}
 EXTRA=${EXTRA:-}
+GPU=${GPU:-}
+SHARDS=${SHARDS:-0 1}
 N=$($PY -c "import json; print(len(json.load(open('$PAIRS'))['entries']))")
 PER_GPU=$(( (N + 1) / 2 * 2 ))   # counterfactuals per GPU (2 per diatom)
 OUT=results/dvce/$NAME
 mkdir -p "$OUT" logs
 echo "$(date) | $NAME: $N diatoms, $((2 * N)) counterfactuals, classifier $CLASSIFIER, diffusion $DIFFUSION $EXTRA" | tee "$OUT/run_info.txt"
 
-for W in 0 1; do
-    CUDA_VISIBLE_DEVICES=$W $PY diatlas_VCEs.py --gpu 0 --vce_list "$PAIRS" --num_imgs $PER_GPU --batch_size 2 \
+run_shard() {
+    CUDA_VISIBLE_DEVICES=$2 $PY diatlas_VCEs.py --gpu 0 --vce_list "$PAIRS" --num_imgs $PER_GPU --batch_size 2 \
         --diatom_classifier "$CLASSIFIER" --diffusion_ckpt "$DIFFUSION" --denoise_dist_input \
-        --world_size 2 --world_id $W $EXTRA > "logs/dvce_${NAME}_gpu$W.out" 2>&1 &
+        --world_size 2 --world_id $1 $EXTRA > "logs/dvce_${NAME}_half$1.out" 2>&1
+}
+for W in $SHARDS; do
+    if [ -n "$GPU" ]; then run_shard $W $GPU; else run_shard $W $W & fi
 done
 wait
 echo "$(date) | DVCE done" | tee -a "$OUT/run_info.txt"
 
-CLF_DIR=DiatlasVCEs/clf_$(basename "$(dirname "$CLASSIFIER")")__diff_$(basename "$(dirname "$DIFFUSION")")
+CLF_NAME=$(basename "$(dirname "$CLASSIFIER")")
+[ "$CLF_NAME" = "." ] && CLF_NAME=$CLASSIFIER       # e.g. CLASSIFIER=independent (same rule as diatlas_VCEs.py)
+CLF_DIR=DiatlasVCEs/clf_${CLF_NAME}__diff_$(basename "$(dirname "$DIFFUSION")")
 PTHS=$(ls -t $CLF_DIR/*wid_0_2*/*.pth $CLF_DIR/*wid_1_2*/*.pth 2>/dev/null | head -2)
 echo "result files: $PTHS" | tee -a "$OUT/run_info.txt"
 CUDA_VISIBLE_DEVICES=0 $PY diatoms/dvce_postprocess.py --pth $PTHS --ckpt "$CLASSIFIER" --out_dir "$OUT" 2>/dev/null

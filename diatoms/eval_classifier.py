@@ -30,7 +30,7 @@ def load(ckpt):
     net = getattr(torchvision.models, ck.get('arch', 'resnet18'))(num_classes=ck['num_classes'])
     m = NormalizedClassifier(net)
     m.load_state_dict(ck['state_dict'])
-    mode = 'centercrop' if ck.get('preproc', 'nativesize') == 'nativesize' else 'resize'
+    mode = 'centercrop' if ck.get('preproc', 'nativesize') in ('nativesize', 'nativefit') else 'resize'
     return ResizeToClassifier(m, mode=mode), f"{os.path.basename(os.path.dirname(ckpt))} (epoch {ck.get('epoch')})"
 
 

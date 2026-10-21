@@ -1,0 +1,5 @@
+test split (page): 4214 images, 339 species present; attacks: L2 PGD-10 (fp32) on 4214 images
+
+model                                      top-1   top-5   eps 0.5   eps 1.0
+r50madry_page_eps1.0 (epoch 15)            0.374   0.657     0.325     0.275
+r50imagenet_page_eps0 (epoch 12)           0.416   0.693     0.021     0.003

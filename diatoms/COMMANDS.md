@@ -333,7 +333,10 @@ Results (val accuracy, before → after 15 epochs):
 | B `resnet18_ft_eps0_noempty_supprep` (his preprocessing) | **84.8%** → 82.5% |
 
 Conclusion: stretch-to-fit preprocessing loses the information (size) the
-classifier needs → new preprocessing in section 9. Fine-tuning his already
+classifier needs → new preprocessing in section 9.
+**Update (section 20):** this comparison was confounded (the starting model had
+been trained on native-size images, probably including our val pages). From
+ImageNet weights, stretched images classify *better* (51% vs 43%). Fine-tuning his already
 good model at lr 0.01 slightly hurt it → use a lower lr next time.
 
 ---
@@ -725,6 +728,211 @@ Done 2026-10-15 03:54 (DVCE 6.2 h + figures/metrics 16 min), `results/dvce/full_
 | both independent models see it / at least one | 21.6% / 30.6% |
 
 `overview_random8.png`: top rows of 8 random figures.
+
+---
+
+## 18. Comparison runs: is each component needed? ✅ (2026-10-20/21)
+
+Same 50 diatoms and targets as the main run (`evaluation/vce_pairs_paper50.json`),
+default DVCE settings, one component swapped at a time. Generation only, no
+training; ~1 h each on both GPUs.
+
+```bash
+# A: ImageNet diffusion prior instead of ft_v2
+NAME=abl_imagenet_prior DIFFUSION=checkpoints/256x256_diffusion_uncond.pt nohup bash diatoms/run_dvce_experiment.sh > logs/dvce_abl_imagenet.out 2>&1 &
+# B: explain the non-robust independent ResNet-18 instead of the robust ResNet-50
+NAME=abl_nonrobust_clf CLASSIFIER=independent nohup bash diatoms/run_dvce_experiment.sh > logs/dvce_abl_nonrobust.out 2>&1 &
+```
+
+If another user's job slows one GPU down, run the halves one after the other on
+the free GPU, or redo only one half: `GPU=0` and `SHARDS=1` (e.g.
+`SHARDS=1 GPU=0 NAME=abl_imagenet_prior ... bash diatoms/run_dvce_experiment.sh`).
+If the raw DIATLAS mount is missing, the independent classifier's class names
+come from `DiatlasModels/independent_resnet18/classes.txt`.
+
+Side-by-side table, paired tests and figure (same evaluators for every run):
+
+```bash
+B=DiatlasVCEs/clf_r50madry_random_eps1.0__diff_
+S=L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1
+pths() { echo "$1${S}_wid_0_2_dvces/50.pth,$1${S}_wid_1_2_dvces/50.pth"; }
+python diatoms/compare_dvce_runs.py \
+    --run main:$(pths ${B}ft_v2_nativesize/) \
+    --run imagenet_prior:$(pths ${B}checkpoints/) \
+    --run nonrobust_clf:$(pths DiatlasVCEs/clf_independent__diff_ft_v2_nativesize/) \
+    --eval_ckpt DiatlasModels/resnet18_native_eps0.5/best.pt DiatlasModels/r50madry_random_eps0.5/best.pt \
+    --eval_name indep_robust_r18 our_robust_r50_eps0.5 --out_dir results/dvce/comparison
+```
+
+A, ImageNet prior vs ft_v2 (100 counterfactuals, paired):
+
+| | ft_v2 (main) | ImageNet prior |
+|---|---|---|
+| target reached | 98% | 99% (no difference) |
+| LPIPS | **0.170** | 0.201 (ft_v2 smaller in 82/100, Wilcoxon p = 6e-13) |
+| change on the diatom vs background | **54×** | 40× |
+| independent robust R18 sees target | **32%** | 21% (McNemar p = 0.007) |
+| independent non-robust R18 sees target | **28%** | 18% (p = 0.006) |
+| length changed >10% | 26/100 | 29/100 (size bias of the ImageNet prior mostly compensated by the distance penalty) |
+
+B, non-robust classifier (the original independent ResNet-18) explained instead of the robust ResNet-50:
+
+| | full | non-robust classifier |
+|---|---|---|
+| target reached | 98% | 98% (median p 1.00) |
+| LPIPS | 0.170 | **0.063** (nearly invisible edits) |
+| change on the diatom vs background | 54× | 72× |
+| unrelated robust R50 eps 0.5 / 1.0 sees target | — | **2% / 1%** |
+| robust R18 sees target | 32% | 49% (but it was fine-tuned *from* this model, so not independent) |
+
+→ Without robustness the counterfactuals are adversarial-like: tiny changes that
+fool only the explained model (and its fine-tuned relative). Table and figure:
+`results/dvce/comparison/comparison.txt`, `comparison.png`.
+
+---
+
+## 19. Trait check: do counterfactuals move measured traits towards the target? ✅ (2026-10-21)
+
+Measures length, width, elongation (length/width) and stria period (FFT of the
+row-mean profile along the valve) on originals, counterfactuals and up to 40
+training images per species, then tests (chance 50%):
+- direction: does the counterfactual move the trait towards the target species' mean?
+- specificity: do the two counterfactuals of one source differ in the direction their targets differ?
+
+CPU only, ~2 min.
+
+```bash
+B=DiatlasVCEs/clf_r50madry_random_eps1.0__diff_
+S=L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1
+pths() { echo "$1${S}_wid_0_2_dvces/$2.pth,$1${S}_wid_1_2_dvces/$3.pth"; }
+CUDA_VISIBLE_DEVICES= python diatoms/trait_check.py \
+    --run full:$(pths ${B}ft_v2_nativesize/ 302 300) \
+    --run main50:$(pths ${B}ft_v2_nativesize/ 50 50) \
+    --run imagenet_prior:$(pths ${B}checkpoints/ 50 50) \
+    --run nonrobust_clf:$(pths DiatlasVCEs/clf_independent__diff_ft_v2_nativesize/ 50 50) \
+    --out_dir results/traits
+```
+
+Outputs in `results/traits/`: `summary.txt`, `traits_<run>.csv` (per counterfactual),
+`reference_traits.csv`. Stria periods at the edge of the search band were
+excluded after a visual check (smooth valves gave spurious ~20 px peaks).
+
+| Full run, 602 counterfactuals | species R² | towards target | specificity | non-robust classifier |
+|---|---|---|---|---|
+| length | 0.64 | **81%** (p = 2e-15) | 66% (p = 0.03) | 52% |
+| width | 0.83 | **69%** (p = 9e-16) | 70% (p = 1e-8) | 46% |
+| elongation | 0.77 | **87%** (p = 1e-19) | 89% (p = 1e-8) | 53% |
+| stria period | 0.48 | **68%** (p = 8e-11) | 67% (p = 8e-5) | 41% |
+
+→ Counterfactuals edit species-relevant morphology; the non-robust classifier's
+edits are at chance. ImageNet prior: shape traits as good, stria period at chance (54%).
+
+---
+
+## 20. Clean evaluators and the clean preprocessing test (2026-10-21) ✅
+
+Fixes from an independent review: the third-party ResNet-18 (and its robust
+fine-tune) probably saw our test pages, and the old stretched-vs-native result
+(section 8) started from that model. New models, all trained only on the page
+split (no source specimen or its page was seen):
+
+```bash
+# held-out-page evaluator (standard ResNet-50, ImageNet init), ~12 min
+CUDA_VISIBLE_DEVICES=1 python diatoms/train_classifier.py --run r50imagenet_page_eps0 --split_mode page \
+    --init imagenet_r50 --eps 0 --augment strong --epochs 15
+# same recipe on stretched images (regenerate them first: python diatoms/prepare_diatlas.py, ~1 min)
+CUDA_VISIBLE_DEVICES=1 python diatoms/train_classifier.py --run r50imagenet_page_eps0_stretched --preproc ours \
+    --split_mode page --init imagenet_r50 --eps 0 --augment strong --epochs 15
+# same recipe, native size but long diatoms shrunk to fit instead of cropped
+python diatoms/prepare_diatlas_nativesize.py --fit --out data/diatlas_nativesize_fit224_canvas256
+CUDA_VISIBLE_DEVICES=1 python diatoms/train_classifier.py --run r50imagenet_page_eps0_fit --preproc nativefit \
+    --split_mode page --init imagenet_r50 --eps 0 --augment strong --epochs 15
+```
+
+Clean preprocessing test (same 5,873 validation images of held-out pages):
+
+| preprocessing | val acc |
+|---|---|
+| native size, long diatoms cropped to 224 | 42.9% |
+| native size, long diatoms shrunk to fit | 47.6% |
+| stretched to fill the image | **51.2%** |
+
+→ The old 37% vs 83% was an artefact of the starting model. Cropping costs
+accuracy (hides the ends); stretching helps the classifier (enlarges small
+diatoms). Native size stays the right choice for the diffusion prior (section 15).
+
+Transfer to the held-out-page evaluator (CPU, ~5 min each):
+
+```bash
+B=DiatlasVCEs/clf_r50madry_random_eps1.0__diff_
+S=L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1
+pths() { echo "$1${S}_wid_0_2_dvces/$2.pth,$1${S}_wid_1_2_dvces/$3.pth"; }
+E=DiatlasModels/r50imagenet_page_eps0/best.pt
+CUDA_VISIBLE_DEVICES= python diatoms/compare_dvce_runs.py --run full:$(pths ${B}ft_v2_nativesize/ 302 300) \
+    --eval_ckpt $E --eval_name clean_r50_page --fig_sources --out_dir results/dvce/full_r50eps1_ftv2/clean_eval
+CUDA_VISIBLE_DEVICES= python diatoms/compare_dvce_runs.py --run main:$(pths ${B}ft_v2_nativesize/ 50 50) \
+    --run imagenet_prior:$(pths ${B}checkpoints/ 50 50) \
+    --run nonrobust_clf:$(pths DiatlasVCEs/clf_independent__diff_ft_v2_nativesize/ 50 50) \
+    --eval_ckpt $E --eval_name clean_r50_page --fig_sources --out_dir results/dvce/comparison/clean_eval
+```
+
+| | held-out-page evaluator predicts target |
+|---|---|
+| originals | 4.8% (correct source species 46.5%) |
+| full run, 602 counterfactuals | **56.5%** (source species 1.7%; 71% in the target's genus) |
+| 50-diatom subset: full / ImageNet prior / non-robust classifier | 56% / 47% / **4%** |
+
+Other fixes from the review (no training): locality restricted to the 224 crop
+the classifier sees (37× instead of 52×; `compare_dvce_runs.py` column
+in/out224), McNemar tests saved, cluster-bootstrap CIs and "share of gap
+closed" in `trait_check.py`, failure breakdown saved:
+
+```bash
+python diatoms/failure_breakdown.py --pth <full-run wid_0 pth> <wid_1 pth> \
+    --metrics results/dvce/full_r50eps1_ftv2/metrics.csv --pairs evaluation/vce_pairs_paper_all.json \
+    --out results/dvce/full_r50eps1_ftv2/extra/breakdown.txt
+```
+
+---
+
+## 21. Do the explanations depend on the training split? (2026-10-21) ✅
+
+Same robust ResNet-50 recipe on the page split, explained on the same 50
+diatoms; a seed-2 rerun of the main classifier is the noise floor. All of it
+(after the two trainings) is chained in one script that waits for each step:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python diatoms/train_classifier.py --run r50madry_page_eps1.0 --split_mode page \
+    --init madry_r50 --eps 1.0 --augment strong --epochs 20                                   # ~1.8 h
+GPU=1 NAME=seed2_r50eps1_ftv2 EXTRA="--seed 2" bash diatoms/run_dvce_experiment.sh            # ~2.5 h on one GPU
+setsid nohup bash diatoms/overnight_pagesplit.sh > logs/overnight_pagesplit.log 2>&1 < /dev/null &
+cat results/overnight_summary.txt
+```
+
+`overnight_pagesplit.sh`: shrink-to-fit training, page-split classifier test
+evaluation, DVCE with the page-split classifier
+(`GPU=0 NAME=pagesplit_r50eps1_ftv2 CLASSIFIER=DiatlasModels/r50madry_page_eps1.0/best.pt bash diatoms/run_dvce_experiment.sh`),
+then `compare_dvce_runs.py`, `compare_explanations.py` and `trait_check.py`
+on main / seed 2 / page-split.
+
+| | result |
+|---|---|
+| page-split robust R50 (best = epoch 15: val 38.5% clean / 27.8% robust): page-split test clean / eps 0.5 / eps 1.0 | 37.4% / 32.5% / 27.5% (random-split model: 90.9% on its own test) |
+| page-split classifier's DVCEs: reached, LPIPS, locality (224 crop) | 97%, 0.178, 32× |
+| vs main run: LPIPS between counterfactuals | seed 2: 0.102 · page-split: 0.124 (p = 2e-5) |
+| vs main run: target-specific trait agreement | seed 2: 85% · page-split: **84%** |
+| main counterfactuals → page-split classifier sees target | **76%** |
+| page-split counterfactuals → random-split robust R50 sees target | 87% (explained eps 1.0 model), 90% (eps 0.5 model) |
+| page-split counterfactuals, trait direction (width / elongation) | 82% / 90% |
+
+Evaluator numbers on originals vs counterfactuals are saved by
+`diatoms/evaluator_on_originals.py` (`results/dvce/full_r50eps1_ftv2/clean_eval/evaluator_on_originals.txt`,
+`results/dvce/pagesplit_comparison/{main_cfs_on_pagesplit_clf,pagesplit_cfs_on_explained_random_clf}.txt`).
+Trait agreement only discriminates moderately (ImageNet prior 81%, non-robust 62%).
+
+→ The explanations change the same traits; the random-split classifier's
+counterfactuals convince a classifier trained across pages. Change-map
+correlation is not used: runs with the same seed share their noise pattern.
 
 ---
 

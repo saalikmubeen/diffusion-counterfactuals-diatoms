@@ -1,0 +1,22 @@
+100 counterfactuals (50 source diatoms), same pairs for every run
+
+run                 reached  med p  LPIPS      L1  in/out in/out224         clean_r50_page             robust_r18    robust_r50_rand_e05     robust_r50_page_e1
+main                  98.0%  0.994  0.170  0.0192     54x       39x    56.0% (p 0.455)    32.0% (p 0.218)    98.0% (p 0.928)    76.0% (p 0.647)
+seed2                 98.0%  0.994  0.168  0.0191     52x       37x    58.0% (p 0.465)    26.0% (p 0.197)    98.0% (p 0.922)    75.0% (p 0.660)
+pagesplit_clf         97.0%  0.993  0.178  0.0193     45x       32x    74.0% (p 0.609)    27.0% (p 0.171)    90.0% (p 0.814)    97.0% (p 0.917)
+
+LPIPS main vs seed2: 0.170 vs 0.168, paired Wilcoxon p = 2.5e-01; seed2 edit larger in 43/100
+  success                 98.0% vs  98.0%  (only main: 0, only seed2: 0, exact McNemar p = 1.0e+00)
+  clean_r50_page          56.0% vs  58.0%  (only main: 9, only seed2: 11, exact McNemar p = 8.2e-01)
+  robust_r18              32.0% vs  26.0%  (only main: 10, only seed2: 4, exact McNemar p = 1.8e-01)
+  robust_r50_rand_e05     98.0% vs  98.0%  (only main: 0, only seed2: 0, exact McNemar p = 1.0e+00)
+  robust_r50_page_e1      76.0% vs  75.0%  (only main: 5, only seed2: 4, exact McNemar p = 1.0e+00)
+LPIPS main vs pagesplit_clf: 0.170 vs 0.178, paired Wilcoxon p = 1.3e-02; pagesplit_clf edit larger in 60/100
+  success                 98.0% vs  97.0%  (only main: 2, only pagesplit_clf: 1, exact McNemar p = 1.0e+00)
+  clean_r50_page          56.0% vs  74.0%  (only main: 7, only pagesplit_clf: 25, exact McNemar p = 2.1e-03)
+  robust_r18              32.0% vs  27.0%  (only main: 10, only pagesplit_clf: 5, exact McNemar p = 3.0e-01)
+  robust_r50_rand_e05     98.0% vs  90.0%  (only main: 8, only pagesplit_clf: 0, exact McNemar p = 7.8e-03)
+  robust_r50_page_e1      76.0% vs  97.0%  (only main: 0, only pagesplit_clf: 21, exact McNemar p = 9.5e-07)
+
+L1: mean absolute pixel change; in/out: mean change inside the diatom / outside it (whole 256 canvas);
+in/out224: same, background restricted to the central 224x224 crop the classifier sees.

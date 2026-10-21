@@ -1,0 +1,11 @@
+100 counterfactuals; reference run: main
+
+run             LPIPS between  change-map corr  target-specific trait agree
+seed2                   0.102             0.44                  85% (79/93)
+pagesplit_clf           0.124             0.55                  84% (79/94)
+imagenet_prior          0.128             0.58                  81% (72/89)
+nonrobust_clf           0.159             0.33                  62% (26/42)
+
+pagesplit_clf vs seed2 (paired Wilcoxon): LPIPS between p = 1.8e-05, change-map corr p = 1.5e-08
+imagenet_prior vs seed2 (paired Wilcoxon): LPIPS between p = 3.0e-05, change-map corr p = 1.4e-11
+nonrobust_clf vs seed2 (paired Wilcoxon): LPIPS between p = 9.5e-17, change-map corr p = 2.3e-09

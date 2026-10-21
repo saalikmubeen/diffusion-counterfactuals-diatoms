@@ -1,0 +1,5 @@
+Wed Oct 21 05:05:30 AM CEST 2026 | pagesplit_r50eps1_ftv2: 50 diatoms, 100 counterfactuals, classifier DiatlasModels/r50madry_page_eps1.0/best.pt, diffusion checkpoints/diatlas/ft_v2_nativesize/ema_0.9995_030000.pt 
+Wed Oct 21 06:58:01 AM CEST 2026 | DVCE done
+result files: DiatlasVCEs/clf_r50madry_page_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_1_2_dvces/50.pth
+DiatlasVCEs/clf_r50madry_page_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_0_2_dvces/50.pth
+Wed Oct 21 07:00:26 AM CEST 2026 | all done -> results/dvce/pagesplit_r50eps1_ftv2

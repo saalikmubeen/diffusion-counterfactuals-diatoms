@@ -1,0 +1,6 @@
+evaluator: r50madry_page_eps1.0/best.pt: resnet50, init madry_r50, eps 1.0, epoch 15
+100 counterfactuals from ['DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_0_2_dvces/50.pth', 'DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_1_2_dvces/50.pth']
+
+originals:        source species correct 56.0% | already predicts target 3.0% | mean p(target) 0.021
+counterfactuals:  predicts target 76.0% | still source 1.0% | mean p(target) 0.647 | prediction in target genus 85.0%
+among originals it classified correctly (n=56): predicts target on counterfactual 78.6%

@@ -1,0 +1,4 @@
+Tue Oct 20 10:09:44 PM CEST 2026 | abl_imagenet_prior: 50 diatoms, 100 counterfactuals, classifier DiatlasModels/r50madry_random_eps1.0/best.pt, diffusion checkpoints/256x256_diffusion_uncond.pt 
+Tue Oct 20 11:07:32 PM CEST 2026 | DVCE done
+result files: DiatlasVCEs/clf_r50madry_random_eps1.0__diff_checkpoints/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_1_2_dvces/50.pth
+DiatlasVCEs/clf_r50madry_random_eps1.0__diff_checkpoints/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_0_2_dvces/50.pth

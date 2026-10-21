@@ -1,0 +1,22 @@
+100 counterfactuals (50 source diatoms), same pairs for every run
+
+run                 reached  med p  LPIPS      L1  in/out in/out224             robust_r18         robust_r50_e05          robust_r50_e1          nonrobust_r18
+main                  98.0%  0.994  0.170  0.0192     54x       39x    32.0% (p 0.218)    98.0% (p 0.928)    98.0% (p 0.920)    28.0% (p 0.275)
+imagenet_prior        99.0%  0.991  0.201  0.0196     40x       30x    21.0% (p 0.136)    97.0% (p 0.914)    99.0% (p 0.911)    18.0% (p 0.180)
+nonrobust_clf         98.0%  1.000  0.063  0.0087     72x       53x    49.0% (p 0.274)     2.0% (p 0.023)     1.0% (p 0.021)    98.0% (p 0.981)
+
+LPIPS main vs imagenet_prior: 0.170 vs 0.201, paired Wilcoxon p = 5.7e-13; imagenet_prior edit larger in 82/100
+  success                 98.0% vs  99.0%  (only main: 0, only imagenet_prior: 1, exact McNemar p = 1.0e+00)
+  robust_r18              32.0% vs  21.0%  (only main: 13, only imagenet_prior: 2, exact McNemar p = 7.4e-03)
+  robust_r50_e05          98.0% vs  97.0%  (only main: 2, only imagenet_prior: 1, exact McNemar p = 1.0e+00)
+  robust_r50_e1           98.0% vs  99.0%  (only main: 0, only imagenet_prior: 1, exact McNemar p = 1.0e+00)
+  nonrobust_r18           28.0% vs  18.0%  (only main: 11, only imagenet_prior: 1, exact McNemar p = 6.3e-03)
+LPIPS main vs nonrobust_clf: 0.170 vs 0.063, paired Wilcoxon p = 4.1e-18; nonrobust_clf edit larger in 1/100
+  success                 98.0% vs  98.0%  (only main: 2, only nonrobust_clf: 2, exact McNemar p = 1.0e+00)
+  robust_r18              32.0% vs  49.0%  (only main: 11, only nonrobust_clf: 28, exact McNemar p = 9.5e-03)
+  robust_r50_e05          98.0% vs   2.0%  (only main: 96, only nonrobust_clf: 0, exact McNemar p = 2.5e-29)
+  robust_r50_e1           98.0% vs   1.0%  (only main: 97, only nonrobust_clf: 0, exact McNemar p = 1.3e-29)
+  nonrobust_r18           28.0% vs  98.0%  (only main: 0, only nonrobust_clf: 70, exact McNemar p = 1.7e-21)
+
+L1: mean absolute pixel change; in/out: mean change inside the diatom / outside it (whole 256 canvas);
+in/out224: same, background restricted to the central 224x224 crop the classifier sees.

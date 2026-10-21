@@ -46,12 +46,12 @@ TGT_SCALE = 0.0826  # irrelevant without rescaling (src_scale = tgt_scale), kept
 
 
 def work(job):
-    src, dst = job
+    src, dst, fit = job
     img = Image.open(src)
     w, h = img.size
     if not os.path.exists(dst):
         os.makedirs(os.path.dirname(dst), exist_ok=True)
-        pad_crop_diatom(img, TGT_SCALE, TGT_SCALE, tgt_size=SIZE, to_gray=True, crop_size=CROP).save(dst)
+        pad_crop_diatom(img, TGT_SCALE, TGT_SCALE, tgt_size=SIZE, to_gray=True, crop_size=CROP, fit=fit).save(dst)
     return w, h
 
 
@@ -61,6 +61,9 @@ def main():
     p.add_argument('--splits', default='data/diatlas/splits.csv', help='reuse this split')
     p.add_argument('--out', default='data/diatlas_nativesize_crop224_canvas256')
     p.add_argument('--workers', type=int, default=16)
+    p.add_argument('--fit', action='store_true',
+                   help='shrink diatoms longer than 224 px to fit instead of cropping them '
+                        '(use with --out data/diatlas_nativesize_fit224_canvas256)')
     args = p.parse_args()
 
     with open(os.path.join(args.root, 'diatoms.csv')) as f:
@@ -72,7 +75,7 @@ def main():
     for r in rows:
         r['species_code'] = species_of[r['orig_path']]
         # same relative layout as data/diatlas: 256/<split>/<taxon>/<atlas>/<name>.png
-        jobs.append((os.path.join(args.root, r['orig_path']), os.path.join(args.out, r['path'])))
+        jobs.append((os.path.join(args.root, r['orig_path']), os.path.join(args.out, r['path']), args.fit))
 
     with Pool(args.workers) as pool:
         sizes = pool.map(work, jobs, chunksize=64)
@@ -87,7 +90,7 @@ def main():
         w.writerows(rows)
 
     n_crop = sum(r['cropped'] for r in rows)
-    print(f'{len(rows)} images; {n_crop} ({100 * n_crop / len(rows):.1f}%) longer than {CROP}px and center-cropped')
+    print(f'{len(rows)} images; {n_crop} ({100 * n_crop / len(rows):.1f}%) longer than {CROP}px and ' + ('shrunk to fit' if args.fit else 'center-cropped'))
 
     sample = random.Random(0).sample(rows, 64)
     t = 128

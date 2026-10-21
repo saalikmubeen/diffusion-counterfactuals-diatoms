@@ -41,7 +41,12 @@ IMAGENET_MEAN, IMAGENET_STD = [0.485, 0.456, 0.406], [0.229, 0.224, 0.225]
 
 
 def independent_classes(diatlas_root=DIATLAS):
-    """The 759 class names (species_code), in output order."""
+    """The 759 class names (species_code), in output order. Built from the raw DIATLAS
+    diatoms.csv; if that isn't mounted, read the saved copy next to the checkpoint
+    (one name per line; the first class is the empty species code)."""
+    if not os.path.exists(os.path.join(diatlas_root, 'diatoms.csv')):
+        with open(os.path.join(os.path.dirname(CKPT), 'classes.txt')) as f:
+            return f.read().split('\n')[:-1]
     with open(os.path.join(diatlas_root, 'diatoms.csv')) as f:
         rows = [r for r in csv.DictReader(f) if r['connective'] != 'True']
     counts = collections.Counter(r['species_code'] for r in rows)
