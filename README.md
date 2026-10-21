@@ -149,6 +149,12 @@ the noise floor.
 The explanations change the same traits, and the random-split classifier's
 counterfactuals convince a classifier trained across pages.
 
+**Background swaps.** Pasting specimens onto backgrounds from other atlas pages
+barely changes the classifier (100% → 97.5%), and the background alone never
+gives the species. A counterfactual's specimen on the original background still
+gives the target (85.9%); the original specimen on the counterfactual's
+background does not (4.2%). See `diatoms/COMMANDS.md` section 22.
+
 ![Ablation examples](results/dvce/comparison/comparison.png)
 
 *Columns: original; full model; ImageNet prior; non-robust classifier.*

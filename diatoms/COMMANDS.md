@@ -936,6 +936,49 @@ correlation is not used: runs with the same seed share their noise pattern.
 
 ---
 
+## 22. Background swaps: specimen or background? (2026-10-21) ✅
+
+Specimens pasted onto backgrounds from other atlas pages (3 per specimen), the
+background alone, and counterfactual/original specimens swapped between their
+backgrounds. CPU, ~10 min.
+
+```bash
+B=DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1
+CUDA_VISIBLE_DEVICES= python diatoms/background_test.py --pth ${B}_wid_0_2_dvces/302.pth ${B}_wid_1_2_dvces/300.pth \
+    --pairs evaluation/vce_pairs_paper_all.json --ckpt DiatlasModels/r50madry_random_eps1.0/best.pt \
+    --eval_ckpt DiatlasModels/r50imagenet_page_eps0/best.pt DiatlasModels/r50madry_page_eps1.0/best.pt \
+    --out results/dvce/full_r50eps1_ftv2/background_test.txt
+```
+
+| explained classifier | |
+|---|---|
+| originals: true species / on another page's background / background alone | 100% / 97.5% / 0.0% |
+| counterfactuals: target / cf specimen on original background / original specimen on cf background | 93.9% / 85.9% / 4.2% (source 89.4%) |
+
+→ Decisions come from the specimen; the class change of a counterfactual travels
+with the specimen. Page-split classifiers behave the same.
+
+---
+
+## 23. Blind expert rating packet (2026-10-21) ⏸ waiting for raters
+
+One self-contained HTML form for diatomists:
+- Part 1: 40 images, 20 counterfactuals + 20 real photos of the same species; question: real or generated?
+- Part 2: 24 items, original A, modified version, and references of A and B; questions: which species,
+  what changed, how plausible. 4 of the 24 are hidden non-robust controls.
+
+The answer key stays private. `expert_packet/` is git-ignored. Instructions and an email template:
+`expert_packet/HOW_TO_SEND.md`.
+
+```bash
+python diatoms/make_expert_packet.py --out_dir expert_packet          # ~1 min, CPU
+# after answers come back (one JSON file per rater in expert_packet/returned/):
+python diatoms/score_expert_ratings.py --key expert_packet/answer_key.json \
+    --answers expert_packet/returned/*.json --out results/expert_ratings.txt
+```
+
+---
+
 ## Where things are
 
 | Path | What |

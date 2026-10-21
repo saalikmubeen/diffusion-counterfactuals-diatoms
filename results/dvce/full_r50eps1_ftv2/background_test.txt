@@ -1,0 +1,14 @@
+301 source specimens, 602 counterfactuals; 3 background swaps per specimen (backgrounds from other atlas pages)
+
+== explained: r50madry_random_eps1.0/best.pt: resnet50, init madry_r50, eps 1.0, epoch 19
+  originals: true species 100.0% | on another page's background 97.5% | background alone 0.0% (chance 0.1%)
+  counterfactuals: target 93.9% | cf specimen on original background: target 85.9% | original specimen on cf background: target 4.2%, source 89.4%
+
+== r50imagenet_page_eps0: r50imagenet_page_eps0/best.pt: resnet50, init imagenet_r50, eps 0.0, epoch 12
+  originals: true species 46.5% | on another page's background 48.4% | background alone 0.0% (chance 0.1%)
+  counterfactuals: target 56.5% | cf specimen on original background: target 50.5% | original specimen on cf background: target 7.6%, source 43.2%
+
+== r50madry_page_eps1.0: r50madry_page_eps1.0/best.pt: resnet50, init madry_r50, eps 1.0, epoch 15
+  originals: true species 44.9% | on another page's background 45.0% | background alone 0.0% (chance 0.1%)
+  counterfactuals: target 74.4% | cf specimen on original background: target 64.0% | original specimen on cf background: target 6.8%, source 40.0%
+

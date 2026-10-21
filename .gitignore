@@ -20,3 +20,6 @@ Miniconda3-*.sh
 
 # paper draft (kept local until submission)
 /paper/
+
+# blind expert rating packet (contains the answer key)
+/expert_packet/

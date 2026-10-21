@@ -1,0 +1,1 @@
+Wed Oct 21 07:41:22 AM CEST 2026 | full_seed2_r50eps1_ftv2: 301 diatoms, 602 counterfactuals, classifier DiatlasModels/r50madry_random_eps1.0/best.pt, diffusion checkpoints/diatlas/ft_v2_nativesize/ema_0.9995_030000.pt --seed 2
