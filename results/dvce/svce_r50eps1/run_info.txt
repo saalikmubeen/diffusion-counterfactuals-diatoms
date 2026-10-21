@@ -1,0 +1,5 @@
+Wed Oct 21 06:33:21 PM CEST 2026 | svce_r50eps1: 50 diatoms, 100 counterfactuals, classifier DiatlasModels/r50madry_random_eps1.0/best.pt, diffusion checkpoints/diatlas/ft_v2_nativesize/ema_0.9995_030000.pt --config svce.yml
+Wed Oct 21 06:36:47 PM CEST 2026 | DVCE done
+result files: DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L1.5_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_0_2_svces/50.pth
+DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L1.5_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_1_2_svces/50.pth
+Wed Oct 21 06:39:14 PM CEST 2026 | all done -> results/dvce/svce_r50eps1

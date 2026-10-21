@@ -97,6 +97,9 @@ during training.
 | Classifier trained on held-out atlas pages predicts the target | **56.5%** (4.8% on the originals) |
 | Third-party ResNet-18s predict the target (may have seen the test pages) | 26.2% robust / 25.9% non-robust |
 
+A second random seed gives the same numbers within noise (94.4% reached,
+LPIPS 0.169, held-out-page agreement 57.8%).
+
 Selected best, typical and failure cases:
 [`results/dvce/full_r50eps1_ftv2/selection/`](results/dvce/full_r50eps1_ftv2/selection/).
 
@@ -107,9 +110,9 @@ photos of each target species (chance = 50%):
 
 | Trait | Moves towards the target species | Non-robust classifier (control) |
 |---|---|---|
-| Length | **81%** | 52% |
-| Width | **69%** | 46% |
-| Elongation (length / width) | **87%** | 53% |
+| Length | **82%** | 54% |
+| Width | **70%** | 48% |
+| Elongation (length / width) | **87%** | 56% |
 | Stria period | **68%** | 41% |
 
 All full-run rates p < 1e-10 (602 counterfactuals). Details:
@@ -126,10 +129,13 @@ held-out atlas pages (it never saw the sources).
 | **Full model** (fine-tuned prior, robust ResNet-50) | 98% | 0.170 | 39× | **56%** |
 | ImageNet prior instead | 99% | 0.201 | 30× | 47% |
 | Non-robust classifier instead | 98% | 0.063 | 53× | 4% |
+| SVCE (another counterfactual method, no diffusion prior) | 100% | 0.318 | 5× | 35% |
 
 - **The robust classifier is essential.** Explaining a standard classifier
   gives near-invisible, adversarial-like edits that flip it but almost never
   convince an unrelated robust model.
+- **The diffusion prior keeps edits on the specimen:** SVCE reaches the target
+  with stroke artefacts all over the background.
 - **The fine-tuned prior makes edits smaller and more local** (LPIPS lower for
   82/100 counterfactuals, p = 6e-13). Transfer is higher too (56% vs 47%, not
   significant on 100 counterfactuals). The ImageNet prior adds non-diatom

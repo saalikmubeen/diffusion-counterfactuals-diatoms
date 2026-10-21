@@ -30,6 +30,7 @@ import collections
 import csv
 import os
 import sys
+import zlib
 
 import numpy as np
 import torch
@@ -112,12 +113,13 @@ def main():
         for r in csv.DictReader(f):
             if r['split_random'] == 'train' and r['species_code'] in species:
                 pool[r['species_code']].append(r['path'])
-    rng = np.random.default_rng(0)
     ref = {}
     ref_rows = []
     for sp in sorted(species):
         paths = pool[sp]
-        pick = rng.choice(len(paths), min(args.n_ref, len(paths)), replace=False) if paths else []
+        # seeded per species, so a species gets the same reference photos in every run
+        srng = np.random.default_rng(zlib.crc32(sp.encode()))
+        pick = srng.choice(len(paths), min(args.n_ref, len(paths)), replace=False) if paths else []
         vals = []
         for i in pick:
             pth = paths[i]

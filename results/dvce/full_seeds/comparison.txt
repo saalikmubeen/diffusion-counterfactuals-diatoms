@@ -1,0 +1,12 @@
+602 counterfactuals (301 source diatoms), same pairs for every run
+
+run                 reached  med p  LPIPS      L1  in/out in/out224         clean_r50_page
+seed1                 93.9%  0.993  0.171  0.0200     52x       37x    56.5% (p 0.457)
+seed2                 94.4%  0.993  0.169  0.0201     56x       39x    57.8% (p 0.459)
+
+LPIPS seed1 vs seed2: 0.171 vs 0.169, paired Wilcoxon p = 6.0e-02; seed2 edit larger in 279/602
+  success                 93.9% vs  94.4%  (only seed1: 6, only seed2: 9, exact McNemar p = 6.1e-01)
+  clean_r50_page          56.5% vs  57.8%  (only seed1: 36, only seed2: 44, exact McNemar p = 4.3e-01)
+
+L1: mean absolute pixel change; in/out: mean change inside the diatom / outside it (whole 256 canvas);
+in/out224: same, background restricted to the central 224x224 crop the classifier sees.

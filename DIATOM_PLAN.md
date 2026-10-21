@@ -50,6 +50,8 @@ DVCE needs three pieces, all for the same kind of image:
 | Trait check (COMMANDS.md §19) | ✅ done 2026-10-21: length/width/elongation/stria period move towards the target in 68–87% (chance 50%, p < 1e-10); non-robust classifier at chance |
 | Review fixes (COMMANDS.md §20) | ✅ 2026-10-21: held-out-page evaluator (56.5% transfer vs 4% non-robust); clean preprocessing test: stretched 51% > shrink-to-fit 48% > crop 43% (old 37 vs 83% was confounded) |
 | Split dependence (COMMANDS.md §21) | ✅ 2026-10-21: page-split classifier's explanations change the same traits (84% vs 85% seed noise floor); 76% cross-transfer |
+| Background swaps, trait noise floor, SVCE baseline, second seed (§22–24) | ✅ 2026-10-21: decisions from the specimen (97.5% on other pages' backgrounds, 0% background alone); SVCE: LPIPS 0.318, 5× locality, 35% transfer vs DVCE 0.170 / 39× / 56%; seed 2 within noise |
+| Expert rating packet (§23) | ⏸ ready, waiting for raters |
 | Paper draft (`paper/`) | ✅ workshop-ready LaTeX draft, 13 pages |
 
 ## What we learned (and why the plan changed)
@@ -90,7 +92,7 @@ Remaining:
 2. ~~Optional robustness check~~ (done, §21): explain a classifier trained on the page split
    (or the 92-species set, `--split_mode page --labels species_pages3`) and see
    whether the explanations change. Training: ask first.
-3. **Optional comparison** with other counterfactual methods (SVCE, DiME,
+3. ~~Optional comparison~~ (SVCE done, §24; DiME/ACE still open) with other counterfactual methods (SVCE, DiME,
    latent-diffusion variants).
 4. **Submission:** pick the workshop when the lists are out, move the paper
    into its template, simulated review pass, final read-through.

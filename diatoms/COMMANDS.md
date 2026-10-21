@@ -824,6 +824,11 @@ excluded after a visual check (smooth valves gave spurious ~20 px peaks).
 | elongation | 0.77 | **87%** (p = 1e-19) | 89% (p = 1e-8) | 53% |
 | stria period | 0.48 | **68%** (p = 8e-11) | 67% (p = 8e-5) | 41% |
 
+Measurement-noise floor (jittered copies of each original; CPU, ~1 min):
+`python diatoms/trait_noise.py --run full:<wid_0 pth>,<wid_1 pth> --out results/traits/noise_floor.txt`
+→ noise 0.3–1.1% (relative SD); 68–92% of counterfactual changes exceed 2× noise;
+direction among those 79–89%.
+
 → Counterfactuals edit species-relevant morphology; the non-robust classifier's
 edits are at chance. ImageNet prior: shape traits as good, stria period at chance (54%).
 
@@ -976,6 +981,60 @@ python diatoms/make_expert_packet.py --out_dir expert_packet          # ~1 min, 
 python diatoms/score_expert_ratings.py --key expert_packet/answer_key.json \
     --answers expert_packet/returned/*.json --out results/expert_ratings.txt
 ```
+
+---
+
+## 24. SVCE baseline and a second seed for the full run (2026-10-21) ✅
+
+Generation only, no training. Second seed: ~6.4 h on both GPUs. SVCE: ~15 min on both GPUs. The
+diatom classifier was hooked into the codebase's SVCE attack (`utils_svces/adversarial_attacks/afw.py`,
+`utils_svces/train_types/helpers.py`). `run_dvce_experiment.sh` now stops if a half crashes and
+post-processes only result files written by the current run; before this fix, a crashed SVCE run was
+silently post-processed with older files.
+
+```bash
+NAME=full_seed2_r50eps1_ftv2 PAIRS=evaluation/vce_pairs_paper_all.json EXTRA="--seed 2" bash diatoms/run_dvce_experiment.sh
+NAME=svce_r50eps1 EXTRA="--config svce.yml" bash diatoms/run_dvce_experiment.sh
+# comparisons (main vs SVCE; seed 1 vs seed 2) are chained in:
+bash diatoms/after_seed2_svce.sh
+```
+
+| full run, 602 counterfactuals | seed 1 | seed 2 |
+|---|---|---|
+| target reached | 93.9% | 94.4% (McNemar p = 0.61) |
+| LPIPS / locality (224 crop) | 0.171 / 37× | 0.169 / 39× |
+| held-out-page evaluator sees target | 56.5% | 57.8% (p = 0.43) |
+| trait direction: length / width / elongation / stria | 82 / 70 / 87 / 68% | 81 / 71 / 88 / 68% |
+
+| same 50 diatoms | DVCE | SVCE |
+|---|---|---|
+| reached / LPIPS / locality | 98% / 0.170 / 39× | 100% / 0.318 / 5× |
+| held-out-page evaluator / robust R18 | 56% / 32% | 35% / 13% (McNemar p = 5e-4 / 2e-4) |
+| trait direction: width / stria | 79% / 62% | 62% / 53% (n.s.) |
+
+→ SVCE reaches the target with large stroke artefacts in the background. The diffusion prior keeps the
+edits on the specimen. Files: `results/dvce/svce_comparison/`, `results/dvce/full_seeds/`.
+
+**All trait numbers** (every run, one reference set; reference photos are now seeded per species, so
+they are the same in every run), CPU ~2 min:
+
+```bash
+R=DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize
+D=L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s
+V=L1.5_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1
+p2() { echo "$1_wid_0_2_$3/$2.pth,$1_wid_1_2_$3/$4.pth"; }
+python diatoms/trait_check.py \
+  --run full:$(p2 $R/${D}_1 302 dvces 300) --run full_seed2:$(p2 $R/${D}_2 302 dvces 300) \
+  --run main50:$(p2 $R/${D}_1 50 dvces 50) --run seed2_50:$(p2 $R/${D}_2 50 dvces 50) \
+  --run imagenet_prior:$(p2 DiatlasVCEs/clf_r50madry_random_eps1.0__diff_checkpoints/${D}_1 50 dvces 50) \
+  --run nonrobust_clf:$(p2 DiatlasVCEs/clf_independent__diff_ft_v2_nativesize/${D}_1 50 dvces 50) \
+  --run pagesplit_clf:$(p2 DiatlasVCEs/clf_r50madry_page_eps1.0__diff_ft_v2_nativesize/${D}_1 50 dvces 50) \
+  --run svce:$(p2 $R/$V 50 svces 50) --out_dir results/traits
+python diatoms/trait_noise.py --run full:$(p2 $R/${D}_1 302 dvces 300) --out results/traits/noise_floor.txt
+```
+
+These supersede the trait numbers quoted in sections 19 and 21 (differences of at most 2 points).
+Full run: length 82%, width 70%, elongation 87%, stria period 68%.
 
 ---
 

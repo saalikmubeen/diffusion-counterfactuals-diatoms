@@ -1,0 +1,13 @@
+100 counterfactuals (50 source diatoms), same pairs for every run
+
+run                 reached  med p  LPIPS      L1  in/out in/out224         clean_r50_page             robust_r18
+main                  98.0%  0.994  0.170  0.0192     54x       39x    56.0% (p 0.455)    32.0% (p 0.218)
+svce                 100.0%  0.995  0.318  0.0144      8x        5x    35.0% (p 0.203)    13.0% (p 0.098)
+
+LPIPS main vs svce: 0.170 vs 0.318, paired Wilcoxon p = 1.3e-17; svce edit larger in 94/100
+  success                 98.0% vs 100.0%  (only main: 0, only svce: 2, exact McNemar p = 5.0e-01)
+  clean_r50_page          56.0% vs  35.0%  (only main: 28, only svce: 7, exact McNemar p = 5.1e-04)
+  robust_r18              32.0% vs  13.0%  (only main: 22, only svce: 3, exact McNemar p = 1.6e-04)
+
+L1: mean absolute pixel change; in/out: mean change inside the diatom / outside it (whole 256 canvas);
+in/out224: same, background restricted to the central 224x224 crop the classifier sees.

@@ -34,16 +34,27 @@ run_shard() {
         --diatom_classifier "$CLASSIFIER" --diffusion_ckpt "$DIFFUSION" --denoise_dist_input \
         --world_size 2 --world_id $1 $EXTRA > "logs/dvce_${NAME}_half$1.out" 2>&1
 }
+START=$(mktemp)                     # marker: only result files written after this count
+FAIL=0
+PIDS=()
 for W in $SHARDS; do
-    if [ -n "$GPU" ]; then run_shard $W $GPU; else run_shard $W $W & fi
+    if [ -n "$GPU" ]; then run_shard $W $GPU || FAIL=1; else run_shard $W $W & PIDS+=($!); fi
 done
-wait
+for P in "${PIDS[@]}"; do wait "$P" || FAIL=1; done
+if [ "$FAIL" != 0 ]; then
+    echo "$(date) | DVCE FAILED (see logs/dvce_${NAME}_half*.out); not post-processing" | tee -a "$OUT/run_info.txt"
+    exit 1
+fi
 echo "$(date) | DVCE done" | tee -a "$OUT/run_info.txt"
 
 CLF_NAME=$(basename "$(dirname "$CLASSIFIER")")
 [ "$CLF_NAME" = "." ] && CLF_NAME=$CLASSIFIER       # e.g. CLASSIFIER=independent (same rule as diatlas_VCEs.py)
 CLF_DIR=DiatlasVCEs/clf_${CLF_NAME}__diff_$(basename "$(dirname "$DIFFUSION")")
-PTHS=$(ls -t $CLF_DIR/*wid_0_2*/*.pth $CLF_DIR/*wid_1_2*/*.pth 2>/dev/null | head -2)
+PTHS=$(find $CLF_DIR -path '*wid_[01]_2*' -name '*.pth' -newer "$START" | sort)
+if [ "$(echo "$PTHS" | grep -c .)" != 2 ]; then
+    echo "$(date) | expected 2 new result files, found: $PTHS" | tee -a "$OUT/run_info.txt"
+    exit 1
+fi
 echo "result files: $PTHS" | tee -a "$OUT/run_info.txt"
 CUDA_VISIBLE_DEVICES=0 $PY diatoms/dvce_postprocess.py --pth $PTHS --ckpt "$CLASSIFIER" --out_dir "$OUT" 2>/dev/null
 echo "$(date) | all done -> $OUT" | tee -a "$OUT/run_info.txt"

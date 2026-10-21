@@ -86,6 +86,19 @@ def maxlin(x_orig, w_orig, eps, p, verbose=False):
     #res = delta.view(bs, -1).norm(p=p, dim=1)[ind]
     return delta.view(w_orig.shape) * w_orig.sign()
 
+class _TemperatureWrapper(torch.nn.Module):
+    """Logits / T, with T (batch x 1) as in ResizeAndMeanWrapper; used for diatom classifiers."""
+
+    def __init__(self, model):
+        super().__init__()
+        self.model = model
+        self.T = torch.ones(1, 1)
+
+    def forward(self, x):
+        out = self.model(x)          # the diatom classifier moves x to its own device
+        return out / self.T.to(out.device)
+
+
 class AFWAttack(AdversarialAttack):
     """
     AutoPGD
@@ -144,10 +157,18 @@ class AFWAttack(AdversarialAttack):
         self.device = self.args.device
         evaluator = Evaluator(self.args, classifier_config, {}, None)
 
-        self.classifier = evaluator.load_model(
-            self.args.classifier_type, prewrapper=partial(ResizeAndMeanWrapper, size=self.args.classifier_size_1,
-                                                          interpolation=self.args.interpolation_int_1)
-        )
+        if getattr(self.args, 'diatom_classifier', ''):
+            # Diatom classifier (diatoms/diatom_classifier.py), as in dff_attack.py; wrapped with
+            # the temperature T that this attack rescales when gradients vanish.
+            from diatoms.diatom_classifier import load_diatom_classifier
+            clf, self.imagenet_labels, desc = load_diatom_classifier(self.args.diatom_classifier)
+            print('SVCE with diatom classifier:', desc)
+            self.classifier = _TemperatureWrapper(clf).to(self.device)
+        else:
+            self.classifier = evaluator.load_model(
+                self.args.classifier_type, prewrapper=partial(ResizeAndMeanWrapper, size=self.args.classifier_size_1,
+                                                              interpolation=self.args.interpolation_int_1)
+            )
         print('temp o resize o mean wrapper on')
         self.classifier.to(self.device)
         self.classifier.eval()

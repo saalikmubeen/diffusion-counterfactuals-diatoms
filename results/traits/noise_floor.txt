@@ -1,0 +1,10 @@
+full: 602 counterfactuals; measurement noise from 8 jittered copies of each of 301 originals
+
+trait           noise (rel. SD)  cf changes > 2 SD      direction, changes > 2 SD
+length                    0.3%               92%       85% (120/141, p=4.8e-18)
+width                     0.3%               86%       80% (295/371, p=1.4e-31)
+elongation                0.6%               91%       89% (117/131, p=2.0e-21)
+stria_period              1.1%               68%       85% (191/225, p=1.0e-27)
+
+noise: median over specimens of SD/mean across jittered copies; "> 2 SD": |change| larger than twice
+that specimen's measurement SD; direction: same test as trait_check.py, restricted to those changes.
