@@ -173,6 +173,29 @@ background does not (4.2%). See `diatoms/COMMANDS.md` section 22.
 
 *Columns: original; full model; ImageNet prior; non-robust classifier.*
 
+### Where does the classifier push during generation?
+
+The classifier gradient was logged at every DVCE step (`--log_gradients`) for
+the same 100 counterfactuals, explaining the robust and the non-robust
+classifier. The push maps add up each step's gradient as DVCE applies it
+(rescaled to the same norm).
+
+| | Robust ResNet-50 | Non-robust |
+|---|---|---|
+| Share of the push on the specimen (22% of the image) | **70%** | 46% |
+| Correlation of push and actual change (specimen region) | **0.81** | 0.39 |
+| Correlation by phase: steps 1–25 → 76–100 | 0.79 → 0.69 | 0.60 → 0.05 |
+
+The robust classifier pushes on the specimen, and where it pushes is where the
+image changes, throughout generation. The non-robust gradient spreads over the
+background and becomes unrelated to the edit after the first steps. See
+`diatoms/COMMANDS.md` section 26.
+
+![Gradient maps](results/dvce/gradient_maps/robust_vs_nonrobust.png)
+
+*Columns: original; robust: actual change, classifier push; non-robust: actual
+change, classifier push.*
+
 ### Diffusion prior
 
 ![Reconstructions](results/diffusion/recon_original_imagenet_ftv2_10.png)
