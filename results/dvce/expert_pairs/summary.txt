@@ -1,0 +1,20 @@
+46 counterfactuals towards the expert look-alike, 46 towards a random same-genus species (same 46 sources)
+
+                            look-alike   random  paired test
+classifier p(target) on original       0.077    0.004  Wilcoxon p = 0.00031
+target reached                  100.0%    97.8%  McNemar p = 1
+LPIPS (edit size)                0.155    0.175  Wilcoxon p = 0.066
+held-out-page transfer           87.0%    73.9%  McNemar p = 0.07
+traits toward target             79.4%    83.1%  (n traits 68 / 83)
+
+PER EXPERT PAIR (counterfactuals towards the look-alike)
+pair             n  reached  LPIPS  transfer  p(B) before   clf confusion A->B on test
+ADPY<->ADMO     11   100.0%  0.142    100.0%        0.066   ADPY->ADMO 0% of 27; ADMO->ADPY 8% of 12
+ADRI<->ADSU      4   100.0%  0.152     75.0%        0.000   ADRI->ADSU 0% of 7; ADSU->ADRI 0% of 8
+APED<->AMID      7   100.0%  0.108    100.0%        0.107   APED->AMID 0% of 18; AMID->APED 8% of 25
+CEUG<->CLNT      6   100.0%  0.177     83.3%        0.008   CEUG->CLNT 0% of 18; CLNT->CEUG 0% of 10
+DVUL<->DEHR      4   100.0%  0.263     75.0%        0.171   DVUL->DEHR 0% of 6; DEHR->DVUL 17% of 6
+NCRY<->NCPR      1   100.0%  0.099    100.0%        0.000   NCRY->NCPR 0% of 5; NCPR->NCRY 0% of 5
+NGRE<->NGER      5   100.0%  0.187     60.0%        0.000   NGRE->NGER 0% of 15; NGER->NGRE 0% of 12
+NPAE<->NIAR      5   100.0%  0.125    100.0%        0.263   NPAE->NIAR 20% of 15; NIAR->NPAE 13% of 15
+NPAL<->NCPL      3   100.0%  0.153     66.7%        0.001   NPAL->NCPL 0% of 26; NCPL->NPAL 20% of 10

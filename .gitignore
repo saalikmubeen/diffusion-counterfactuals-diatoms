@@ -23,3 +23,8 @@ Miniconda3-*.sh
 
 # blind expert rating packet (contains the answer key)
 /expert_packet/
+
+# course report (coursework with Omar, kept local)
+/course_report/
+# per-counterfactual gradient maps (regenerate with diatoms/gradient_maps.py)
+/results/dvce/gradient_maps/*/grad_*.png

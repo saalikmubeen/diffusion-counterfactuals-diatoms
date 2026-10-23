@@ -1,0 +1,147 @@
+{
+ "meta": {
+  "classifier": "r50madry_random_eps1.0/best.pt: resnet50, init madry_r50, eps 1.0, epoch 19",
+  "ckpt": "DiatlasModels/r50madry_random_eps1.0/best.pt",
+  "rule": "targets = 2 random species of the same genus (no crossover)",
+  "settings": {
+   "ckpt": "DiatlasModels/r50madry_random_eps1.0/best.pt",
+   "out": "evaluation/vce_pairs_paper50.json",
+   "n": 50,
+   "min_conf": 0.5,
+   "min_train": 20,
+   "max_per_genus": 4,
+   "seed": 0
+  },
+  "n_entries": 50,
+  "n_genera": 27,
+  "note": "first 6 entries of vce_pairs_paper50.json, for gradient logging"
+ },
+ "entries": [
+  {
+   "path": "256/test/NZAD/LBG/NZAD_019.png",
+   "targets": [
+    "NSFI",
+    "NIBU"
+   ],
+   "source_species": "NZAD",
+   "genus": "NITZ",
+   "source_conf": 0.963,
+   "target_conf_before": [
+    0.0002,
+    0.0
+   ],
+   "n_train": [
+    53,
+    22,
+    44
+   ],
+   "atlas_source": "6",
+   "page": "479"
+  },
+  {
+   "path": "256/test/GLOV/IDF/GOLI_001.png",
+   "targets": [
+    "GLOL",
+    "GNLC"
+   ],
+   "source_species": "GLOV",
+   "genus": "GPNL",
+   "source_conf": 0.853,
+   "target_conf_before": [
+    0.0,
+    0.0027
+   ],
+   "n_train": [
+    83,
+    20,
+    24
+   ],
+   "atlas_source": "5",
+   "page": "297"
+  },
+  {
+   "path": "256/test/GPRI/LBG/GPRI_004.png",
+   "targets": [
+    "GCAP",
+    "GVID"
+   ],
+   "source_species": "GPUM",
+   "genus": "GOMP",
+   "source_conf": 0.966,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    288,
+    36,
+    23
+   ],
+   "atlas_source": "6",
+   "page": "359"
+  },
+  {
+   "path": "256/test/NTRV/LBG/NTRV_011.png",
+   "targets": [
+    "NMEN",
+    "NRCS"
+   ],
+   "source_species": "NTRV",
+   "genus": "NASP",
+   "source_conf": 0.992,
+   "target_conf_before": [
+    0.0,
+    0.0001
+   ],
+   "n_train": [
+    68,
+    20,
+    62
+   ],
+   "atlas_source": "6",
+   "page": "469"
+  },
+  {
+   "path": "256/test/NDIS/IDF/NDIS_004.png",
+   "targets": [
+    "NAUR",
+    "NIPU"
+   ],
+   "source_species": "NDIS",
+   "genus": "NITZ",
+   "source_conf": 0.999,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    151,
+    26,
+    60
+   ],
+   "atlas_source": "5",
+   "page": "409"
+  },
+  {
+   "path": "256/test/NMTA/RA/NRCH_017.png",
+   "targets": [
+    "NJOU",
+    "NSPD"
+   ],
+   "source_species": "NMTA",
+   "genus": "NASP",
+   "source_conf": 0.983,
+   "target_conf_before": [
+    0.0,
+    0.0
+   ],
+   "n_train": [
+    112,
+    33,
+    22
+   ],
+   "atlas_source": "10",
+   "page": "85"
+  }
+ ]
+}

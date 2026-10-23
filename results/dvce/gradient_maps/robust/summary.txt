@@ -1,0 +1,17 @@
+100 counterfactuals, 100 logged steps each. Maps use the classifier push as DVCE applies it
+(each step's gradient rescaled to the same norm); raw gradients and the net guidance are reported separately.
+
+raw classifier gradient: 91% of its total size falls in the first quarter of the steps (high noise);
+  corr(accumulated raw |grad|, actual change) 0.71
+
+net guidance (push minus distance pull) on the specimen: 25% (the L1 distance pull is spread over all pixels)
+share of the classifier push on the specimen: mean 70% (the specimen covers 22% of the image on average)
+corr(classifier push, actual change) in the specimen region: mean 0.81 (min 0.48, max 0.91)
+
+phase (classifier push)    share   corr with actual change
+  steps   1- 25              24%   0.79
+  steps  26- 50              25%   0.76
+  steps  51- 75              25%   0.73
+  steps  76-100              25%   0.69
+
+per counterfactual: NSFI corr 0.75, NIBU corr 0.84, GLOL corr 0.86, GNLC corr 0.83, GCAP corr 0.82, GVID corr 0.90, NMEN corr 0.84, NRCS corr 0.79, NAUR corr 0.87, NIPU corr 0.78, NJOU corr 0.80, NSPD corr 0.83, PRBL corr 0.83, PMNT corr 0.88, EMIN corr 0.78, EBOT corr 0.86, DEHR corr 0.80, DMES corr 0.82, PSXO corr 0.84, PLHU corr 0.81, PCOS corr 0.87, PWUE corr 0.82, PADE corr 0.69, POCL corr 0.77, ADCV corr 0.81, ARPY corr 0.84, NLUN corr 0.82, NANT corr 0.80, CNTH corr 0.91, CPLA corr 0.86, SSVE corr 0.87, SCON corr 0.87, NTRV corr 0.69, NCRY corr 0.80, CTUM corr 0.88, CTMD corr 0.78, PRST corr 0.80, PLFR corr 0.79, CCMP corr 0.81, CTUM corr 0.87, PNEL corr 0.65, PSME corr 0.72, GAGU corr 0.81, GLAT corr 0.88, CAEX corr 0.86, CEXF corr 0.88, CPPV corr 0.82, CSUT corr 0.89, NSUA corr 0.83, NINC corr 0.79, GMIC corr 0.83, GMIN corr 0.85, MING corr 0.87, MPMI corr 0.72, KAKO corr 0.86, KALA corr 0.81, GCLA corr 0.78, GCUN corr 0.87, FGRA corr 0.76, FPRU corr 0.90, FMIV corr 0.74, FPEC corr 0.81, ADCV corr 0.63, ADAM corr 0.71, SVTL corr 0.87, SEBA corr 0.82, ADTH corr 0.81, ADJK corr 0.83, DOCU corr 0.83, DSEP corr 0.87, NPAE corr 0.76, NIGR corr 0.86, AMDN corr 0.76, APOT corr 0.83, ACAF corr 0.74, ADJK corr 0.74, ECPM corr 0.79, ECES corr 0.90, DMES corr 0.73, DVUL corr 0.83, COPL corr 0.88, CNTH corr 0.77, ENVE corr 0.73, ECAE corr 0.82, ACOP corr 0.73, AOVA corr 0.71, TKUE corr 0.77, TANG corr 0.84, CSNU corr 0.48, CRBU corr 0.70, PROH corr 0.82, PTDE corr 0.72, AGSL corr 0.89, AUTL corr 0.87, SSUE corr 0.83, SUMI corr 0.78, PNEL corr 0.76, PUSB corr 0.88, HBCP corr 0.84, HPEP corr 0.79

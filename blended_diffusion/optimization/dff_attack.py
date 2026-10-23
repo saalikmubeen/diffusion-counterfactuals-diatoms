@@ -762,6 +762,11 @@ class DiffusionAttack():
                             grad_class = torch.autograd.grad(target_log_confs_1.mean(), x,
                                                              retain_graph=keep_denoising_graph)[0]
 
+                    if getattr(self.args, 'log_gradients', False):
+                        # raw classifier gradient d log p(target) / d x_t (before renormalisation),
+                        # channel mean, signed: where and in which direction the classifier pushes
+                        self._grad_log.append(grad_class.detach().mean(1).half().cpu())
+
                     if self.args.enforce_same_norms:
                         grad_, norm_ = _renormalize_gradient(grad_class, eps)
 
@@ -824,6 +829,8 @@ class DiffusionAttack():
 
                     grad_out -= lp_grad
 
+            if getattr(self.args, 'log_gradients', False):
+                self._net_log.append(grad_out.detach().mean(1).half().cpu())
             return grad_out
 
 
@@ -848,6 +855,7 @@ class DiffusionAttack():
         else:
             raise ValueError(f'Generation type {self.args.gen_type} is not implemented.')
 
+        self._grad_log, self._net_log = [], []
         samples = gen_func(
             self.model,
             (
@@ -885,6 +893,21 @@ class DiffusionAttack():
 
             if i == total_steps:
                 sample_final = sample["pred_xstart"]
+
+        if getattr(self.args, 'log_gradients', False) and self._grad_log:
+            gdir = os.path.join(dir, 'gradient_logs')
+            os.makedirs(gdir, exist_ok=True)
+            self._grad_batch = getattr(self, '_grad_batch', -1) + 1
+            torch.save({'grad_class': torch.stack(self._grad_log),        # (steps, B, H, W), raw, signed
+                        'grad_net': torch.stack(self._net_log),           # (steps, B, H, W), applied guidance
+                        'init_image': _map_img(self.init_image).clamp(0, 1).cpu(),
+                        'final_image': _map_img(sample_final).clamp(0, 1).detach().cpu(),
+                        'targets': torch.as_tensor(y).cpu(),
+                        'skip_timesteps': self.args.skip_timesteps,
+                        'timestep_respacing': self.args.timestep_respacing},
+                       os.path.join(gdir, f'batch_{self._grad_batch:03d}.pth'))
+            print('saved gradient log', os.path.join(gdir, f'batch_{self._grad_batch:03d}.pth'),
+                  'steps:', len(self._grad_log))
 
 
         self.writer.flush()

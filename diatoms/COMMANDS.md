@@ -1070,6 +1070,101 @@ species are mostly long, cropped diatoms. Species with fewer than 20 training im
 
 ---
 
+## 26. Where does the classifier push during DVCE? (gradient logging, 2026-10-23) ✅
+
+`--log_gradients` (opt-in; existing runs are unaffected) saves, at each of the 100 DVCE steps, the raw
+classifier gradient d log p(target)/d x_t and the net guidance to `<run dir>/gradient_logs/`. Pilot: the
+first 6 diatoms of the 50-diatom set (12 counterfactuals), one GPU, ~15 min (+ ~5 min model loading).
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python diatlas_VCEs.py --gpu 0 --vce_list evaluation/vce_pairs_gradlog6.json --num_imgs 12 \
+    --batch_size 2 --diatom_classifier DiatlasModels/r50madry_random_eps1.0/best.pt \
+    --diffusion_ckpt checkpoints/diatlas/ft_v2_nativesize/ema_0.9995_030000.pt --denoise_dist_input \
+    --world_size 1 --world_id 0 --log_gradients
+python diatoms/gradient_maps.py --out_dir results/dvce/gradient_maps \
+    --log_dir DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_0_1_dvces/gradient_logs
+```
+
+One figure per counterfactual (`results/dvce/gradient_maps/grad_NNN.png`):
+
+    original | counterfactual | actual change | classifier push (all steps) | push in 4 phases
+
+Also `mass_per_step.png` and `summary.txt`.
+
+| 12 counterfactuals | |
+|---|---|
+| classifier push on the specimen (specimen = 22% of the image) | **75%** |
+| corr(classifier push, actual change), specimen region | **0.82** (0.74–0.90) |
+| same per phase (steps 1–25 / 26–50 / 51–75 / 76–100) | 0.77 / 0.79 / 0.76 / 0.73 |
+| raw gradient size in the first quarter of the steps | 90% |
+
+How to read it:
+- "Classifier push" is the gradient as DVCE applies it: each step is rescaled to the same norm
+  (`enforce_same_norms`).
+- The raw gradient is far larger at high noise, but that size is discarded by the rescaling.
+- The net guidance (push minus the L1 distance pull) is spread over the whole image (25% on the specimen),
+  because the distance pull acts on every pixel.
+- The gradient is taken w.r.t. the noisy image, through the denoiser, so the maps are smoother than a
+  saliency map.
+
+**Full runs** (50-diatom set, 100 counterfactuals each, one GPU each, ~2 h). Robust (main) classifier vs
+non-robust ResNet-18. Both write to their own `wid_0_1` folders; the pilot logs were moved to
+`gradient_logs_pilot6/`.
+
+```bash
+COMMON="--vce_list evaluation/vce_pairs_paper50.json --num_imgs 100 --batch_size 2 --diffusion_ckpt checkpoints/diatlas/ft_v2_nativesize/ema_0.9995_030000.pt --denoise_dist_input --world_size 1 --world_id 0 --log_gradients"
+CUDA_VISIBLE_DEVICES=0 python diatlas_VCEs.py --gpu 0 --diatom_classifier DiatlasModels/r50madry_random_eps1.0/best.pt $COMMON
+CUDA_VISIBLE_DEVICES=1 python diatlas_VCEs.py --gpu 0 --diatom_classifier independent $COMMON
+S=L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1_wid_0_1_dvces
+python diatoms/gradient_maps.py --log_dir DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/$S/gradient_logs --out_dir results/dvce/gradient_maps/robust
+python diatoms/gradient_maps.py --log_dir DiatlasVCEs/clf_independent__diff_ft_v2_nativesize/$S/gradient_logs --out_dir results/dvce/gradient_maps/nonrobust
+python diatoms/gradient_compare_fig.py --robust DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/$S/gradient_logs \
+    --nonrobust DiatlasVCEs/clf_independent__diff_ft_v2_nativesize/$S/gradient_logs --rows 0 6 14 \
+    --out results/dvce/gradient_maps/robust_vs_nonrobust.png
+```
+
+| 100 counterfactuals each | robust | non-robust |
+|---|---|---|
+| classifier push on the specimen (22% of the image) | **70%** | 46% |
+| corr(push, actual change) | **0.81** | 0.39 |
+| same, steps 1–25 → 76–100 | 0.79 → 0.69 | 0.60 → **0.05** |
+
+→ The robust classifier pushes coherently on the specimen and predicts the edit. The non-robust push is
+diffuse and loses touch with the image as generation proceeds.
+
+---
+
+## 27. Expert look-alike species pairs (2026-10-23) ✅
+
+A diatom taxonomist (collaborator of the professor) listed 10 pairs of morphologically similar species.
+CMED is not in DIATLAS, so 9 pairs are used. Each unseen source (test image in both splits; 46 specimens)
+gets two targets: the expert's look-alike and a random same-genus species as control. Generation only,
+~1 h on both GPUs.
+
+```bash
+python diatoms/select_pairs_expert.py --out evaluation/vce_pairs_expert.json
+NAME=expert_pairs_r50eps1_ftv2 PAIRS=evaluation/vce_pairs_expert.json bash diatoms/run_dvce_experiment.sh
+B=DiatlasVCEs/clf_r50madry_random_eps1.0__diff_ft_v2_nativesize/L2_0_l1_0_l1.0_0.15_classifier_3_-1_-1_0.1_reg_lpips_0_example_200_steps_skip_100_start_p_sample_deg_0_s_1
+python diatoms/expert_pairs_analysis.py --pth ${B}_wid_0_2_dvces/46.pth ${B}_wid_1_2_dvces/46.pth --out_dir results/dvce/expert_pairs
+```
+
+| same 46 sources | look-alike target | random same-genus | paired p |
+|---|---|---|---|
+| classifier p(target) on the original | **0.077** | 0.004 | 0.0003 |
+| reached | 100% | 97.8% | 1 |
+| LPIPS | 0.155 | 0.175 | 0.07 |
+| held-out-page classifier sees target | 87% | 74% | 0.07 |
+
+→ The classifier's similarity structure agrees with the taxonomist's. Look-alike counterfactuals tend to
+be smaller and to transfer more (a trend). Per-pair numbers and classifier confusion are in
+`results/dvce/expert_pairs/summary.txt`.
+
+Figure sheets for the expert: `results/dvce/expert_pairs/pair_*.png`. Each row is one unseen specimen:
+original | counterfactual → look-alike | 2 real photos of the source species | 2 real photos of the
+look-alike.
+
+---
+
 ## Where things are
 
 | Path | What |

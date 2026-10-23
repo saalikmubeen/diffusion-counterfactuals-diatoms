@@ -1,0 +1,896 @@
+{
+ "meta": {
+  "rule": "target 1 = expert look-alike, target 2 = random species of the same genus (>= 20 training images); sources = test images in both splits",
+  "pairs": [
+   "ADPY<->ADMO",
+   "ADRI<->ADSU",
+   "APED<->AMID",
+   "CEUG<->CLNT",
+   "CMEN<->CMED",
+   "DVUL<->DEHR",
+   "NCRY<->NCPR",
+   "NGRE<->NGER",
+   "NPAE<->NIAR",
+   "NPAL<->NCPL"
+  ],
+  "skipped": [
+   "CMEN<->CMED: CMED not in the classifier/data"
+  ]
+ },
+ "entries": [
+  {
+   "path": "256/test/ADPY/LBG/ADPY_001.png",
+   "targets": [
+    "ADMO",
+    "ADSO"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    152,
+    71,
+    68
+   ]
+  },
+  {
+   "path": "256/test/ADPY/LBG/ADPY_005.png",
+   "targets": [
+    "ADMO",
+    "ADTC"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    152,
+    71,
+    28
+   ]
+  },
+  {
+   "path": "256/test/ADPY/LBG/ADPY_010.png",
+   "targets": [
+    "ADMO",
+    "ACAF"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    152,
+    71,
+    131
+   ]
+  },
+  {
+   "path": "256/test/ADPY/LBG/ADPY_014.png",
+   "targets": [
+    "ADMO",
+    "ADLB"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    152,
+    71,
+    95
+   ]
+  },
+  {
+   "path": "256/test/ADPY/LBG/ADPY_015.png",
+   "targets": [
+    "ADMO",
+    "AZHA"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    152,
+    71,
+    84
+   ]
+  },
+  {
+   "path": "256/test/ADPY/RA/ADPY_003.png",
+   "targets": [
+    "ADMO",
+    "ADSU"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    152,
+    71,
+    91
+   ]
+  },
+  {
+   "path": "256/test/ADPY/RA/ADPY_014.png",
+   "targets": [
+    "ADMO",
+    "ADRI"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    152,
+    71,
+    72
+   ]
+  },
+  {
+   "path": "256/test/ADPY/RA/ADPY_017.png",
+   "targets": [
+    "ADMO",
+    "ARPY"
+   ],
+   "source_species": "ADPY",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    152,
+    71,
+    25
+   ]
+  },
+  {
+   "path": "256/test/ADMO/BRG/ADMO_003.png",
+   "targets": [
+    "ADPY",
+    "ADSB"
+   ],
+   "source_species": "ADMO",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    71,
+    152,
+    170
+   ]
+  },
+  {
+   "path": "256/test/ADMO/BRG/ADMO_029.png",
+   "targets": [
+    "ADPY",
+    "ADJK"
+   ],
+   "source_species": "ADMO",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    71,
+    152,
+    68
+   ]
+  },
+  {
+   "path": "256/test/ADMO/BRG/ADMO_031.png",
+   "targets": [
+    "ADPY",
+    "ADDA"
+   ],
+   "source_species": "ADMO",
+   "genus": "ACHD",
+   "expert_pair": "ADPY<->ADMO",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    71,
+    152,
+    73
+   ]
+  },
+  {
+   "path": "256/test/ADRI/LBG/ADRI_001.png",
+   "targets": [
+    "ADSU",
+    "ADMI"
+   ],
+   "source_species": "ADRI",
+   "genus": "ACHD",
+   "expert_pair": "ADRI<->ADSU",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    72,
+    91,
+    223
+   ]
+  },
+  {
+   "path": "256/test/ADSU/LAR/ADSU_009.png",
+   "targets": [
+    "ADRI",
+    "ADDA"
+   ],
+   "source_species": "ADSU",
+   "genus": "ACHD",
+   "expert_pair": "ADRI<->ADSU",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    91,
+    72,
+    73
+   ]
+  },
+  {
+   "path": "256/test/ADSU/LAR/ADSU_038.png",
+   "targets": [
+    "ADRI",
+    "ADCT"
+   ],
+   "source_species": "ADSU",
+   "genus": "ACHD",
+   "expert_pair": "ADRI<->ADSU",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    91,
+    72,
+    151
+   ]
+  },
+  {
+   "path": "256/test/ADSU/LAR/ADSU_040.png",
+   "targets": [
+    "ADRI",
+    "ADLB"
+   ],
+   "source_species": "ADSU",
+   "genus": "ACHD",
+   "expert_pair": "ADRI<->ADSU",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    91,
+    72,
+    95
+   ]
+  },
+  {
+   "path": "256/test/APED/LBG/APED_002.png",
+   "targets": [
+    "AMID",
+    "APOT"
+   ],
+   "source_species": "APED",
+   "genus": "AMPH",
+   "expert_pair": "APED<->AMID",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    156,
+    144,
+    28
+   ]
+  },
+  {
+   "path": "256/test/APED/LBG/APED_008.png",
+   "targets": [
+    "AMID",
+    "AVTU"
+   ],
+   "source_species": "APED",
+   "genus": "AMPH",
+   "expert_pair": "APED<->AMID",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    156,
+    144,
+    24
+   ]
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_020.png",
+   "targets": [
+    "APED",
+    "APOT"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "expert_pair": "APED<->AMID",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    144,
+    156,
+    28
+   ]
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_043.png",
+   "targets": [
+    "APED",
+    "AMDN"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "expert_pair": "APED<->AMID",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    144,
+    156,
+    22
+   ]
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_052.png",
+   "targets": [
+    "APED",
+    "AMMC"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "expert_pair": "APED<->AMID",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    144,
+    156,
+    28
+   ]
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_070.png",
+   "targets": [
+    "APED",
+    "ACOP"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "expert_pair": "APED<->AMID",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    144,
+    156,
+    32
+   ]
+  },
+  {
+   "path": "256/test/AMID/LBG/AMID_076.png",
+   "targets": [
+    "APED",
+    "AVTU"
+   ],
+   "source_species": "AMID",
+   "genus": "AMPH",
+   "expert_pair": "APED<->AMID",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    144,
+    156,
+    24
+   ]
+  },
+  {
+   "path": "256/test/CEUG/BRG/CEUG_006.png",
+   "targets": [
+    "CLNT",
+    "CNDI"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "expert_pair": "CEUG<->CLNT",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    110,
+    68,
+    50
+   ]
+  },
+  {
+   "path": "256/test/CEUG/BRG/CEUG_013.png",
+   "targets": [
+    "CLNT",
+    "CPLA"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "expert_pair": "CEUG<->CLNT",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    110,
+    68,
+    105
+   ]
+  },
+  {
+   "path": "256/test/CEUG/LBG/CEUG_013.png",
+   "targets": [
+    "CLNT",
+    "COPL"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "expert_pair": "CEUG<->CLNT",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    110,
+    68,
+    118
+   ]
+  },
+  {
+   "path": "256/test/CEUG/LBG/CEUG_018.png",
+   "targets": [
+    "CLNT",
+    "COPS"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "expert_pair": "CEUG<->CLNT",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    110,
+    68,
+    67
+   ]
+  },
+  {
+   "path": "256/test/CEUG/LBG/CEUG_021.png",
+   "targets": [
+    "CLNT",
+    "CPED"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "expert_pair": "CEUG<->CLNT",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    110,
+    68,
+    64
+   ]
+  },
+  {
+   "path": "256/test/CEUG/LBG/CEUG_030.png",
+   "targets": [
+    "CLNT",
+    "CNDI"
+   ],
+   "source_species": "CEUG",
+   "genus": "COCO",
+   "expert_pair": "CEUG<->CLNT",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    110,
+    68,
+    50
+   ]
+  },
+  {
+   "path": "256/test/DVUL/LAR/DVUL_005.png",
+   "targets": [
+    "DEHR",
+    "DMES"
+   ],
+   "source_species": "DVUL",
+   "genus": "DIAS",
+   "expert_pair": "DVUL<->DEHR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    66,
+    44,
+    56
+   ]
+  },
+  {
+   "path": "256/test/DEHR/LAR/DEHR_005.png",
+   "targets": [
+    "DVUL",
+    "DMES"
+   ],
+   "source_species": "DEHR",
+   "genus": "DIAS",
+   "expert_pair": "DVUL<->DEHR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    44,
+    66,
+    56
+   ]
+  },
+  {
+   "path": "256/test/DEHR/LAR/DEHR_010.png",
+   "targets": [
+    "DVUL",
+    "DMES"
+   ],
+   "source_species": "DEHR",
+   "genus": "DIAS",
+   "expert_pair": "DVUL<->DEHR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    44,
+    66,
+    56
+   ]
+  },
+  {
+   "path": "256/test/DEHR/LAR/DEHR_011.png",
+   "targets": [
+    "DVUL",
+    "DMON"
+   ],
+   "source_species": "DEHR",
+   "genus": "DIAS",
+   "expert_pair": "DVUL<->DEHR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    44,
+    66,
+    79
+   ]
+  },
+  {
+   "path": "256/test/NCPR/LAR/NCPR_002.png",
+   "targets": [
+    "NCRY",
+    "NRAD"
+   ],
+   "source_species": "NCPR",
+   "genus": "NASP",
+   "expert_pair": "NCRY<->NCPR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    85,
+    95,
+    27
+   ]
+  },
+  {
+   "path": "256/test/NGRE/RA/NGRE_007.png",
+   "targets": [
+    "NGER",
+    "NVEN"
+   ],
+   "source_species": "NGRE",
+   "genus": "NASP",
+   "expert_pair": "NGRE<->NGER",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    104,
+    94,
+    135
+   ]
+  },
+  {
+   "path": "256/test/NGRE/RA/NGRE_022.png",
+   "targets": [
+    "NGER",
+    "NCTE"
+   ],
+   "source_species": "NGRE",
+   "genus": "NASP",
+   "expert_pair": "NGRE<->NGER",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    104,
+    94,
+    109
+   ]
+  },
+  {
+   "path": "256/test/NGRE/RA/NGRE_024.png",
+   "targets": [
+    "NGER",
+    "NNOV"
+   ],
+   "source_species": "NGRE",
+   "genus": "NASP",
+   "expert_pair": "NGRE<->NGER",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    104,
+    94,
+    20
+   ]
+  },
+  {
+   "path": "256/test/NGER/RA/NGER_004.png",
+   "targets": [
+    "NGRE",
+    "NMTA"
+   ],
+   "source_species": "NGER",
+   "genus": "NASP",
+   "expert_pair": "NGRE<->NGER",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    94,
+    104,
+    112
+   ]
+  },
+  {
+   "path": "256/test/NGER/RA/NGER_005.png",
+   "targets": [
+    "NGRE",
+    "NMEN"
+   ],
+   "source_species": "NGER",
+   "genus": "NASP",
+   "expert_pair": "NGRE<->NGER",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    94,
+    104,
+    20
+   ]
+  },
+  {
+   "path": "256/test/NPAE/LBG/NPAE_005.png",
+   "targets": [
+    "NIAR",
+    "NTAB"
+   ],
+   "source_species": "NPAE",
+   "genus": "NITZ",
+   "expert_pair": "NPAE<->NIAR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    178,
+    88,
+    58
+   ]
+  },
+  {
+   "path": "256/test/NPAE/LBG/NPAE_031.png",
+   "targets": [
+    "NIAR",
+    "NIGR"
+   ],
+   "source_species": "NPAE",
+   "genus": "NITZ",
+   "expert_pair": "NPAE<->NIAR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    178,
+    88,
+    36
+   ]
+  },
+  {
+   "path": "256/test/NIAR/RA/NIAR_009.png",
+   "targets": [
+    "NPAE",
+    "NAMP"
+   ],
+   "source_species": "NIAR",
+   "genus": "NITZ",
+   "expert_pair": "NPAE<->NIAR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    88,
+    178,
+    120
+   ]
+  },
+  {
+   "path": "256/test/NIAR/RA/NIAR_013.png",
+   "targets": [
+    "NPAE",
+    "NZAD"
+   ],
+   "source_species": "NIAR",
+   "genus": "NITZ",
+   "expert_pair": "NPAE<->NIAR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    88,
+    178,
+    53
+   ]
+  },
+  {
+   "path": "256/test/NIAR/RA/NIAR_014.png",
+   "targets": [
+    "NPAE",
+    "NACD"
+   ],
+   "source_species": "NIAR",
+   "genus": "NITZ",
+   "expert_pair": "NPAE<->NIAR",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    88,
+    178,
+    69
+   ]
+  },
+  {
+   "path": "256/test/NPAD/IDF/NPAD_010.png",
+   "targets": [
+    "NCPL",
+    "NCLA"
+   ],
+   "source_species": "NPAL",
+   "genus": "NITZ",
+   "expert_pair": "NPAL<->NCPL",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    173,
+    55,
+    58
+   ]
+  },
+  {
+   "path": "256/test/NPAL/LBG/NPAL_009.png",
+   "targets": [
+    "NCPL",
+    "NPAE"
+   ],
+   "source_species": "NPAL",
+   "genus": "NITZ",
+   "expert_pair": "NPAL<->NCPL",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    173,
+    55,
+    178
+   ]
+  },
+  {
+   "path": "256/test/NPAL/LBG/NPAL_018.png",
+   "targets": [
+    "NCPL",
+    "NACD"
+   ],
+   "source_species": "NPAL",
+   "genus": "NITZ",
+   "expert_pair": "NPAL<->NCPL",
+   "target_kinds": [
+    "expert_look_alike",
+    "random_same_genus"
+   ],
+   "n_train": [
+    173,
+    55,
+    69
+   ]
+  }
+ ]
+}

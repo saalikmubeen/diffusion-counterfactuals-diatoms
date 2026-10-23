@@ -175,6 +175,9 @@ def get_arguments(parser=None) -> argparse.Namespace:
 
     # Misc
     parser.add_argument("--seed", type=int, help="The random seed", default=-1)
+    parser.add_argument("--log_gradients", action="store_true",
+                        help="save the classifier gradient and the net guidance of every DVCE step to "
+                             "<out dir>/gradient_logs/ (analyse with diatoms/gradient_maps.py)")
     parser.add_argument("--gpu_id", type=int, help="The GPU ID", default=0)
     parser.add_argument("--output_path", type=str, default="output")
     parser.add_argument(
